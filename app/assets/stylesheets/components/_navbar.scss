@@ -1,6 +1,14 @@
 .navbar-lewagon {
+  position: fixed;
+  top: 0;
+  width: 100%;
   justify-content: space-between;
-  background: white;
+  background-color: rgba($color: #52B69A, $alpha: 0);
+    a {
+      text-decoration: none;
+      color: white;
+      text-transform: uppercase;
+    }
 }
 
 .navbar-lewagon .navbar-collapse {
@@ -9,4 +17,12 @@
 
 .navbar-lewagon .navbar-brand img {
   width: 40px;
+}
+
+.navbar-txt {
+  color: rgba($color: #fafafa, $alpha: 1)!important;
+}
+
+.navbar-txt:hover {
+  color: rgba($color: #dbdbdb, $alpha: 1)!important;
 }

@@ -3,7 +3,7 @@
 
 // Define fonts for body and headers
 $body-font: "Work Sans", "Helvetica", "sans-serif";
-$headers-font: "Nunito", "Helvetica", "sans-serif";
+$headers-font: 'Fredericka the Great', cursive;
 
 // To use a font file (.woff) uncomment following lines
 // @font-face {
@@ -14,3 +14,9 @@ $headers-font: "Nunito", "Helvetica", "sans-serif";
 //        font-url('FontFile.ttf') format('truetype')
 // }
 // $my-font: "Font Name";
+h1 {
+  font-family: 'Fredericka the Great', cursive;
+  color: white;
+  font-weight: 800;
+  font-size: 200px!important;
+}
