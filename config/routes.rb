@@ -1,5 +1,13 @@
 Rails.application.routes.draw do
   devise_for :users
   root to: 'pages#home'
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+
+  resources :items, only: %i[new create edit update delete]
+  resources :pages, only: :dashboard
+  resources :loans do
+    resources :reviews, only: [:new, :create]
+  resources :chatrooms, only: :show do
+    resources :messages, only: :create
+  end
+  resources :reviews, only: [:show, :delete]
 end
