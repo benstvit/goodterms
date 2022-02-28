@@ -4,8 +4,6 @@ class User < ApplicationRecord
   has_many :items
   has_many :loans
   has_many :reviews
-  has_many :items, through: :loans
-  has_many :reviews, through: :loans
   has_many :messages
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
