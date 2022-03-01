@@ -1,4 +1,5 @@
 class Item < ApplicationRecord
   belongs_to :user
-  validates :item_name, :description, :img_url, presence: true
+  validates :item_name, :description, presence: true
+  has_one_attached :photo
 end

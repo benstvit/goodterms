@@ -8,8 +8,6 @@ class ItemsController < ApplicationController
     @item = Item.new
   end
 
-
-
   def show
   end
 
@@ -24,8 +22,6 @@ class ItemsController < ApplicationController
     @item.destroy
     redirect_to items_path
   end
-
-
 
   def set_item
     @item = Item.find(params[:id])
