@@ -1,8 +1,17 @@
-<h2><%= 'Your loans' %></h2>
-<% if @loans.count == 0 %>
-  <%= link_to 'create a new loan', new_loan_path %>
-<% else %>
-  <ul><% @loans.each do |loan| %>
-    <li><%= link_to loan.item.item_name, loan_path(loan) %></li>
-  <% end %></ul>
-<% end %>
+<div class="loans">
+<div class="loan-index">
+    <% @loans.each do |loan| %>
+      <div class="loan-card">
+        <img src="<%= loan.item.img_url%>" alt="item lended or borrowed">
+        <div class="loan-card-item-info">
+          <%= loan.item.item_name %>
+          <div class="loan-card-item-info-actions">
+            <%='💌'%>
+            <%='🔄'%>
+            <%='⭐️'%>
+          </div>
+        </div>
+      </div>
+    <% end %>
+</div>
+</div>
