@@ -1,8 +1,12 @@
-<h2>Create an Item:</h2>
+ <div class="item-container">
+  <div class="container">
+    <h2>Create an Item:</h2>
 
-<%= simple_form_for(@item) do |f| %>
-  <%= f.input :item_name %>
-  <%= f.input :description %>
-  <%= f.input :img_url %>
-  <%= f.submit %>
-<% end %>
+    <%= simple_form_for(@item) do |f| %>
+      <%= f.input :item_name %>
+      <%= f.input :description %>
+      <%= f.input :photo, as: :file %>
+      <%= f.submit %>
+    <% end %>
+  </div>
+</div>
