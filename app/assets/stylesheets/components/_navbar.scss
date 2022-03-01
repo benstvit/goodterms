@@ -21,8 +21,14 @@
 
 .navbar-txt {
   color: rgba($color: #fafafa, $alpha: 1)!important;
+  font-weight: bolder;
+  padding: 10px;
 }
 
 .navbar-txt:hover {
   color: rgba($color: #000000, $alpha: 0.8)!important;
+}
+
+.active {
+  text-decoration: overline;
 }
