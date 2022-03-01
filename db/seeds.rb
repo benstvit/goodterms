@@ -9,6 +9,7 @@ require 'faker'
 #   Character.create(name: 'Luke', movie: movies.first)
 
 User.destroy_all
+Loan.destroy_all
 Item.destroy_all
 
 val = User.new(email: 'val@val.com', password: 'valval', first_name: 'Valentine', last_name: 'Bodart', location: 'Brussels')
@@ -18,6 +19,22 @@ val.save!
 henry.save!
 ben.save!
 
+# item = Item.new(item_name: 'Raclette Machine', description: 'Perfect state', img_url: 'https://m.media-amazon.com/images/I/81lhDunJDdL._AC_SX425_.jpg'),
+# loans = [
+#   { loan_date: Date.today,
+#     return_date: Date.today + 5 },
+#   { loan_date: Date.today,
+#     return_date: Date.today + 5 },
+#   { loan_date: Date.today,
+#     return_date: Date.today + 5 },
+#   { loan_date: Date.today,
+#     return_date: Date.today + 5 }
+# ]
+
+# loans.each do |loan|
+#   Loan.new(loan)
+#   loan.item = item
+# end
 10.times do
  item = Item.new(item_name: Faker::Book.title, description: "A #{Faker::Book.genre} book", img_url: '../app/assets/images/default-img.png', user: User.all.sample)
  item.save!
