@@ -6,6 +6,13 @@ class ItemsController < ApplicationController
 
   def new
     @item = Item.new
+    @user = User.all
+    @markers = @users.geocoded.map do |user|
+      {
+        lat: user.latitude,
+        lng: user.longitude
+      }
+    end
   end
 
   def create
