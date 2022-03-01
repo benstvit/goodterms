@@ -1,4 +1,5 @@
 class ItemsController < ApplicationController
+  before_action :set_item, only: [:show, :edit, :update, :destroy]
   def index
     @items = Item.where(user_id: current_user[:id])
   end
@@ -18,21 +19,27 @@ class ItemsController < ApplicationController
   end
 
   def show
-    @item = Item.find(params[:id])
   end
 
   def edit
   end
 
   def update
+    @item = Item.update(item_params)
   end
 
   def destroy
+    @item.destroy
+    redirect_to items_path
   end
 
   private
 
   def item_params
     params.require(:item).permit(:item_name, :description, :img_url)
+  end
+
+  def set_item
+    @item = Item.find(params[:id])
   end
 end

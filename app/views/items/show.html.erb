@@ -3,3 +3,8 @@
 <%= image_tag 'default-img', alt: "Item Image", width: 200 %>
 <%= @item.item_name %>
 <%= @item.description %>
+
+<%= link_to "Delete #{@item.item_name}",
+            item_path(@item),
+            method: :delete,
+            data: { confirm: "Are you sure?" } %>
