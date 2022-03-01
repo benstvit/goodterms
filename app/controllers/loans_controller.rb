@@ -13,10 +13,12 @@ class LoansController < ApplicationController
   end
 
   def create
-    @item = create_new_item
+    @item = Item.new(item_params)
+    @item.user_id = current_user[:id]
+    @item.save
     @chatroom = Chatroom.create
     @loan = Loan.new(loan_params)
-    @loan.item_id = @item.id
+    @loan.item = @item
     @loan.chatroom = @chatroom
     if @loan.save
       redirect_to loans_path
@@ -35,6 +37,10 @@ class LoansController < ApplicationController
   end
 
   private
+
+  def item_params
+    params.require(:item).permit(:item_name, :description, :photo)
+  end
 
   def loan_params
     params.require(:loan).permit(:loan_date, :return_date, :status, :user_id)

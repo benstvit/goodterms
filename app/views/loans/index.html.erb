@@ -1,8 +1,7 @@
-<div class="loans">
 <div class="loan-index">
     <% @loans.each do |loan| %>
       <div class="loan-card">
-        <img src="<%= loan.item.img_url%>" alt="item lended or borrowed">
+        <%= cl_image_tag loan.item.photo.key %>
         <div class="loan-card-item-info">
           <%= loan.item.item_name %>
           <div class="loan-card-item-info-actions">
@@ -13,5 +12,4 @@
         </div>
       </div>
     <% end %>
-</div>
 </div>

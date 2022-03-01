@@ -1,8 +1,8 @@
 <%= simple_form_for [ @loan ] do |f| %>
   <%= simple_fields_for :item do |i| %>
-    <%= i.input :item_name %>
-    <%= i.input :description %>
-    <%= i.input :img_url %>
+      <%= i.input :item_name %>
+      <%= i.input :description %>
+      <%= i.input :photo, as: :file %>
   <% end %>
   <%= f.association :user %>
   <%= f.input :loan_date %>
