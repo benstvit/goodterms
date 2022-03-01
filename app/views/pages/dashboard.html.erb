@@ -1,17 +1,1 @@
-
-<div class="dashboard-container">
-  <div class="cards-list">
-    <% @users.each do |user| %>
-    <div class="card 1">
-      <div class="card_image"> <%= cl_image_tag(user.photo.key)  %>
-      <div class="card_title title-white">
-          <p><%= user.first_name %></p>
-          <p><%= user.last_name %></p>
-          <p><%= user.location %></p>
-      </div>
-      </div>
-    </div>
-    <% end %>
-  </div>
-
-</div>
+<%= render "/shared/index_users", users: @users %>
