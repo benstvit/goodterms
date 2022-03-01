@@ -1,6 +1,10 @@
 <h2>Your Item:</h2>
 
-<%= cl_image_tag @item.photo.key, height: 300, width: 400, crop: :fill %>
+<% if @item.photo.attached? %>
+  <%= cl_image_tag @item.photo.key, height: 300, width: 400, crop: :fill %>
+<% else %>
+  <%= image_tag 'default-img', height: 300, width: 400, crop: :fill %>
+<% end %>
 <%= @item.item_name %>
 <%= @item.description %>
 
