@@ -1,5 +1,5 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
-  <div class="container-fluid">
+  <div class="container-fluid ">
     <h2><%= link_to "🤝", root_path, class: "navbar-brand" %></h2>
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -35,7 +35,7 @@
         <% else %>
           <% if params[:controller] == 'devise/sessions' && params[:action] == 'new'  %>
             <li class="nav-item ">
-              <h2><%= link_to "Log in", new_user_session_path, class: "nav-link navbar-txt active" %></h2>
+              <h2><%= link_to "Log in", new_user_session_path, class: "nav-link navbar-txt active"%></h2>
             </li>
           <% else %>
             <li class="nav-item ">
