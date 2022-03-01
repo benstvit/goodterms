@@ -15,5 +15,11 @@ class ApplicationController < ActionController::Base
 
   def item_params
     params.require(:item).permit(:item_name, :description, :img_url)
+  before_action :configure_permitted_parameters, if: :devise_controller?
+
+  protected
+
+  def configure_permitted_parameters
+    devise_parameter_sanitizer.permit(:sign_up, keys: [:first_name, :last_name, :photo, :location])
   end
 end
