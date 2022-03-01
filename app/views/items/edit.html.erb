@@ -3,6 +3,6 @@
 <%= simple_form_for(@item) do |f| %>
   <%= f.input :item_name %>
   <%= f.input :description %>
-  <%= f.input :img_url %>
+  <%= f.input :img_url, as: :file %>
   <%= f.submit %>
 <% end %>
