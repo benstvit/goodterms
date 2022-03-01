@@ -1,13 +1,49 @@
 .lend-btns {
-display: flex;
-justify-content: center;
-align-items: end;
-
+  background-color: white;
+  border-radius: 61px;
+  color: black;
+  text-decoration: none;
+  padding: 20px 30px;
+  text-transform: uppercase;
+  .lend-btns:hover {
+    color: rgba($color: #ffffff, $alpha: 0.8)!important;
+    background-color: rgba($color: #ffffff, $alpha: 0.7)!important;
+  }
 }
 
+
 .borrow-btns {
-display: flex;
-justify-content: center;
-align-items: end;
+  background-color: white;
+  border-radius: 61px;
+  color: black;
+  text-decoration: none;
+  padding: 20px 30px;
+  text-transform: uppercase;
+  .borrow-btns:hover {
+    color: rgba($color: #ffffff, $alpha: 0.8)!important;
+    background-color: rgba($color: #ffffff, $alpha: 0.7)!important;
+  }
+}
+
+.submit-btns {
+    background-color: #34A0A4;
+    border-radius: 50px;
+    color: white;
+    text-decoration: none;
+    padding: 10px 15px;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+  .submit-btns:hover {
+    color: rgba($color: #000000, $alpha: 0.8)!important;
+  }
+}
+
+.submit-txt {
+  border-radius: 3px;
+  color: #34A0A4;
+  text-decoration: none;
+.submit-txt:hover {
+  color: rgba($color: #000000, $alpha: 0.8)!important;
+}
 
 }

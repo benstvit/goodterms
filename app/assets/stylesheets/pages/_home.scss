@@ -1,7 +1,8 @@
 // Specific CSS for your home-page
 .lend-container {
   background-image: linear-gradient(rgba(255, 255, 255, 0.2), rgba(0, 0, 0, 0.2)),
-  url("../../images/background_goodterms.jpg");
+  url('app/assets/images/home.jpg');
+  background-size: contain;
   object-fit: cover;
   height: 100vh;
   width: 50%;

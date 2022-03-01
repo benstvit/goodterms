@@ -7,6 +7,6 @@ class User < ApplicationRecord
   has_many :messages
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
-  validates :first_name, :last_name, :location, presence: true
-
+  validates :first_name, :last_name, presence: true
+  has_one_attached :photo
 end

@@ -9,14 +9,16 @@
 
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <style>
-     @import url('https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Bangers&family=Bebas+Neue&family=Fredericka+the+Great&family=Shizuru&display=swap');
-    </style>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Bangers&family=Bebas+Neue&family=Calistoga&family=Fredericka+the+Great&family=Shizuru&display=swap" rel="stylesheet">
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload', defer: true %>
   </head>
 
   <body>
    <div class="mid-container">
+     <%= render 'shared/navbar' %>
+
       <%= render 'shared/flashes' %>
 
       <%= yield %>
