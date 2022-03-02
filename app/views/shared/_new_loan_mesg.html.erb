@@ -1,8 +1,6 @@
 <% @loans.each do |loan| %>
-  <% if loan.user == current_user %>
-    <p>You have a new Loan request from <%= loan.user.first_name %></p>
+  <% if loan.user == current_user && loan.status == 'pending' %>
+    <p>You have a new Loan request for <%= loan.item.item_name %></p>
     <p><%= link_to "Accept", loan_mark_path(loan), method: :patch, class: 'submit-btns'%></p>
-  <% else %>
-    <p>No request</p>
   <% end %>
 <% end %>
