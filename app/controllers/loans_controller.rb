@@ -33,6 +33,12 @@ class LoansController < ApplicationController
   def update
   end
 
+  def mark
+    @loan = Loan.find(params[:id])
+    @loan = Loan.update(status: 'returned')
+    redirect_to loans_path, notice: "Item has been returned"
+  end
+
   def destroy
   end
 

@@ -4,6 +4,7 @@ Rails.application.routes.draw do
 
   resources :items
   get "/dashboard", to: "pages#dashboard", as: :dashboard
+  match "/loans/:id/mark", to: "loans#mark", via: [:patch, :get], as: :loan_mark
   resources :loans do
     resources :reviews, only: [:new, :create]
   end
