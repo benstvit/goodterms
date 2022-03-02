@@ -1,0 +1,39 @@
+
+<% if current_user.present? %>
+<div class="row">
+  <% users.each do |user| %>
+    <div class= "col-8">
+    <div class="card-product d-flex justify-content-center">
+      <%= cl_image_tag (user.photo.key), style: 'width:100px'%>
+      <div class="card-product-infos d-flex flex-column justify-content-center align-items-center">
+        <span><h2><%= user.first_name %> <%= user.last_name %></h2></span>
+
+        <div class="loan-description ">
+
+            <% counter=0 %>
+          <% user.loans.each do |loan| %>
+            <% if loan.item.user.first_name == current_user.first_name %>
+                <% counter += 1 %>
+                <% end %>
+          <% end %>
+          <p>Items lent to <%= user.first_name %>: <%= counter %>  </p>
+
+
+          <% counter_lent = 0 %>
+          <% user.items.each do |item| %>
+            <% item.loans.each do |loan| %>
+              <%if loan.user.last_name == user.last_name %>
+                <% counter_lent += 1 %>
+              <% end %>
+            <% end %>
+          <% end %>
+          <p>Items borrowed from <%= user.first_name %>: <%= counter_lent %></p>
+
+          <p>💌 <strong>⭐️</strong></p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <% end %>
+</div>
+<% end %>
