@@ -5,7 +5,9 @@
     <% end %>
     <%= f.input :photo, as: :file %>
     <%= f.association :user, label: "Borrower", label_method: :first_name%>
-    <%= f.input :loan_date, as: :string, input_html: { class: "flatpickr-input" }  %>
-    <%= f.input :return_date, as: :string, input_html: { class: "flatpickr-input" }  %>
+    <div data-controller="flatpickr">
+      <%= f.input :loan_date, as: :date, input_html: { class: "flatpickr-input" }  %>
+      <%= f.input :return_date, as: :date, input_html: { class: "flatpickr-input" }  %>
+    </div>
     <%= f.submit "Create a loan", class: "btn btn-primary" %>
 <% end %>

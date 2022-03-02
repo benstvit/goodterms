@@ -3,6 +3,7 @@ import flatpickr from "flatpickr";
 
 export default class extends Controller {
   connect() {
-    const fp = flatpickr(".flatpickr-input", {});
+    // const fp = flatpickr(".flatpickr-input", {});
+    console.log("hello")
   }
 }

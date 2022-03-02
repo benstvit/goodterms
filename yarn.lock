@@ -3042,7 +3042,7 @@ findup-sync@^3.0.0:
 
 flatpickr@^4.6.9:
   version "4.6.9"
-  resolved "https://registry.npmjs.org/flatpickr/-/flatpickr-4.6.9.tgz"
+  resolved "https://registry.yarnpkg.com/flatpickr/-/flatpickr-4.6.9.tgz#9a13383e8a6814bda5d232eae3fcdccb97dc1499"
   integrity sha512-F0azNNi8foVWKSF+8X+ZJzz8r9sE1G4hl06RyceIaLvyltKvDl6vqk9Lm/6AUUCi5HWaIjiUbk7UpeE/fOXOpw==
 
 flatted@^3.2.2:
@@ -6433,7 +6433,7 @@ static-extend@^0.1.1:
 
 stimulus@^3.0.1:
   version "3.0.1"
-  resolved "https://registry.npmjs.org/stimulus/-/stimulus-3.0.1.tgz"
+  resolved "https://registry.yarnpkg.com/stimulus/-/stimulus-3.0.1.tgz#370e3054eb3b8068904af1888949821255d375d3"
   integrity sha512-73uZG5E5bwH7W2BldieTXg4yJuEmOfIHgtO/aqwU0JkWNjwY75ZaoOAD2EEPvi5AK43N9adEeOQOmlgWf59HOg==
   dependencies:
     "@hotwired/stimulus" "^3.0.1"
