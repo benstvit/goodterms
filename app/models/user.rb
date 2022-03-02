@@ -10,6 +10,8 @@ class User < ApplicationRecord
   validates :first_name, :last_name, presence: true
   has_one_attached :photo
   after_commit :add_default_photo, on: [:create, :update]
+  geocoded_by :location
+  after_validation :geocode, if: :will_save_change_to_location?
 
 
 
