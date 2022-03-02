@@ -5,8 +5,11 @@
     <div class="card-product-infos">
       <span><h2><%= user.first_name %> <%= user.last_name %></h2></span>
       <div class="loan-description d-flex flex-column">
-        <p>Borrowed items: <%= @borrowed%></p>
-        <p>Lent items: <%= @lent%></p>
+
+        <p>Borrowed items: <%= current_user.loans.select { |loan| loan.item.user == user}.length %></p>
+
+
+        <p>Lent items: <%= current_user.items.select { |item| item.user == user}.length %></p>
         <p>💌 <strong>⭐️</strong></p>
       </div>
     </div>
