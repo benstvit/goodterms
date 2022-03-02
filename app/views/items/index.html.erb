@@ -1,7 +1,11 @@
 <h2>All you Items:</h2>
 
 <ul>
-  <% @items.each do |item|  %>
-    <li><%= item.item_name %></li>
-  <% end  %>
+  <% if @items.present? %>
+    <h3>You have no items</h3>
+  <% else %>
+    <% @items.each do |item|  %>
+        <li><%= link_to item.item_name, item_path(item) %></li>
+      <% end  %>
+  <% end %>
 </ul>

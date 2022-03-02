@@ -1,14 +1,18 @@
-<h2>Your Item:</h2>
+<div class="item-container">
+  <div class="container">
+    <h2>Your Item:</h2>
 
-<% if @item.photo.attached? %>
-  <%= cl_image_tag @item.photo.key, height: 300, width: 400, crop: :fill %>
-<% else %>
-  <%= image_tag 'default-img', height: 300, width: 400, crop: :fill %>
-<% end %>
-<%= @item.item_name %>
-<%= @item.description %>
-
-<%= link_to "Delete #{@item.item_name}",
-            item_path(@item),
-            method: :delete,
-            data: { confirm: "Are you sure?" } %>
+    <% if @item.photo.attached? %>
+      <%= cl_image_tag @item.photo.key, height: 300, width: 400, crop: :fill %>
+    <% else %>
+      <%= image_tag 'default-img', height: 300, width: 400, crop: :fill %>
+    <% end %>
+    <ul></ul>
+    <li><%= @item.item_name %></li>
+    <li><%= @item.description %></li>
+    <li><%= link_to "Delete #{@item.item_name}", item_path(@item), method: :delete, data: { confirm: "Are you sure?" } %></li>
+    <li><%= link_to "Edit #{@item.item_name}",
+                  edit_item_path(@item) %></li>
+    </ul>
+  </div>
+</div>
