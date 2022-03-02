@@ -13,11 +13,7 @@ class LoansController < ApplicationController
   end
 
   def create
-    @item = Item.new(
-      item_name: params[:item][:item_name],
-      description: params[:item][:description],
-      photo: params[:item][:photo]
-    )
+    @item = Item.new(item_params)
     @item.user_id = current_user[:id]
     @item.save
     @chatroom = Chatroom.create
@@ -43,7 +39,7 @@ class LoansController < ApplicationController
   private
 
   def item_params
-    params.require(:item).permit(:item_name, :description, :photo)
+    (params.require(:item).permit(:item_name, :description, :photo)).merge(params.require(:loan).permit(:photo))
   end
 
   def loan_params
