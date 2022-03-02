@@ -1,9 +1,10 @@
 .navbar-lewagon {
+  z-index: 1;
   position: fixed;
   top: 0;
   width: 100%;
   justify-content: space-between;
-  background-color: rgba($color: #52B69A, $alpha: 0);
+  background-color: rgba($color: $green, $alpha: 0);
     a {
       text-decoration: none;
       color: white;

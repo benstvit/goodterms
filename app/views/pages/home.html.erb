@@ -1,4 +1,4 @@
-<div class="home-container d-flex justify-content-center">
+<div class="home-container d-flex justify-content-center flex-wrap">
     <div class="lend-container d-flex justify-content-center flex-column align-items-center flex-wrap">
       <h1>Good </h1>
           <%= link_to "Borrow an item", new_loan_path, class:'borrow-btns' %>
@@ -8,7 +8,12 @@
       <h1 class="gradient1"> Terms.</h1>
         <%= link_to "Lend an item", new_loan_path, class:'lend-btns'%>
     </div>
+</div>
 
+<div class="home-loans-container">
+  <div class="user-cards">
+    <%= render 'shared/loans_index', users: @users %>
+  </div>
 </div>
 <%= render 'shared/index_loans', loans: @loans %>
 <%= render 'shared/new_loan_mesg', loans: @loans %>

@@ -35,9 +35,9 @@ ben.save!
 #   Loan.new(loan)
 #   loan.item = item
 # end
-# 10.times do
-#  item = Item.new(item_name: Faker::Book.title, description: "A #{Faker::Book.genre} book", img_url: '../app/assets/images/default-img.png', user: User.all.sample)
-#  item.save!
-# end
+10.times do
+ item = Item.new(item_name: Faker::Book.title, description: "A #{Faker::Book.genre} book", user: User.all.sample)
+ item.save!
+end
 
 puts 'Done!'

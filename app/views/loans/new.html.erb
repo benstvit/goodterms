@@ -1,13 +1,16 @@
-<%= simple_form_for [ @loan ] do |f| %>
-    <%= simple_fields_for :item do |i| %>
-      <%= i.input :item_name %>
-      <%= i.input :description %>
-    <% end %>
-    <%= f.input :photo, as: :file %>
-    <%= f.association :user, label: "Borrower", label_method: :first_name%>
-    <div data-controller="flatpickr">
-      <%= f.input :loan_date, as: :date, input_html: { class: "flatpickr-input" }  %>
-      <%= f.input :return_date, as: :date, input_html: { class: "flatpickr-input" }  %>
-    </div>
-    <%= f.submit "Send Loan Request", class: "btn btn-primary" %>
-<% end %>
+
+<div class="form-container">
+<h2>Tell us more about your item !</h2>
+  <%= simple_form_for [ @loan ] do |f| %>
+      <%= simple_fields_for :item do |i| %>
+        <%= i.input :item_name %>
+        <%= i.input :description %>
+      <% end %>
+      <%= f.input :photo, as: :file %>
+      <%= f.association :user, label_method: :first_name, value_method: :id, include_blank: false %>
+      <%= f.input :loan_date %>
+      <%= f.input :return_date %>
+      <%= f.submit "Create a loan", class: "btn btn-primary" %>
+  <% end %>
+
+</div>
