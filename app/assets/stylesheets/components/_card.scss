@@ -8,15 +8,15 @@
   align-items: center;
 }
 
-.card {
-  margin: 30px auto;
-  width: 200px;
-  height: 200px;
-  border-radius: 40px;
-  box-shadow: 5px 5px 30px 7px rgba(0,0,0,0.25), -5px -5px 30px 7px rgba(0,0,0,0.22);
-  cursor: pointer;
-  transition: 0.4s;
-}
+// .card {
+//   margin: 30px auto;
+//   width: 200px;
+//   height: 200px;
+//   border-radius: 40px;
+//   box-shadow: 5px 5px 30px 7px rgba(0,0,0,0.25), -5px -5px 30px 7px rgba(0,0,0,0.22);
+//   cursor: pointer;
+//   transition: 0.4s;
+// }
 
 .card .card_image {
   width: inherit;
@@ -36,8 +36,8 @@
   border-radius: 0px 0px 40px 40px;
   font-family: sans-serif;
   font-weight: bold;
-  font-size: 30px;
-  height: 40px;
+  font-size: 10px;
+  // height: 40px;
 }
 
 .card:hover {
@@ -62,18 +62,61 @@
 }
 
 
-/*
-.card {
+
+.card { // Need to overwrite bootstraps card class
   margin: 30px auto;
-  width: 300px;
-  height: 300px;
+  width: 100px;
+  height: 100px;
   border-radius: 40px;
-  background-image: url('https://i.redd.it/b3esnz5ra34y.jpg');
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
   background-repeat: no-repeat;
-box-shadow: 5px 5px 30px 7px rgba(0,0,0,0.25), -5px -5px 30px 7px rgba(0,0,0,0.22);
+  box-shadow: 5px 5px 30px 7px rgba(0,0,0,0.25), -5px -5px 30px 7px rgba(0,0,0,0.22);
   transition: 0.4s;
 }
-*/
+
+// Le wagon cards
+
+.card-product {
+  overflow: hidden;
+  height: 120px;
+  background: white;
+  box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.2);
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+  padding: 20px;
+  border-radius: 3px;
+  width: 50%;
+  background-image: linear-gradient(45deg, #87c2b1, transparent);
+}
+
+.card-product img {
+  height: 100%;
+  width: 120px;
+  object-fit: cover;
+}
+
+.card-product h2 {
+  font-size: 16px;
+  font-weight: bold;
+  // margin: 0;
+}
+
+.card-product p {
+  font-size: 12px;
+  line-height: 1.4;
+  opacity: .7;
+  margin-bottom: 0;
+  margin-top: 8px;
+}
+
+.card-product .card-product-infos {
+  padding: 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+}
