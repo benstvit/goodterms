@@ -4,8 +4,10 @@
       <%= i.input :description %>
     <% end %>
     <%= f.input :photo, as: :file %>
-    <%= f.association :user, collection: User.first_name.order(:first_name), prompt: "Choose a User" %>
-    <%= f.input :loan_date %>
-    <%= f.input :return_date %>
+    <%= f.association :user, label: "Borrower", label_method: :first_name%>
+    <div data-controller="flatpickr">
+      <%= f.input :loan_date, as: :date, input_html: { class: "flatpickr-input" }  %>
+      <%= f.input :return_date, as: :date, input_html: { class: "flatpickr-input" }  %>
+    </div>
     <%= f.submit "Create a loan", class: "btn btn-primary" %>
 <% end %>
