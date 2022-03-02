@@ -7,7 +7,7 @@
         <%= i.input :description %>
       <% end %>
       <%= f.input :photo, as: :file %>
-      <%= f.association :user.first_name %>
+      <%= f.association :user, label_method: :first_name, value_method: :id, include_blank: false %>
       <%= f.input :loan_date %>
       <%= f.input :return_date %>
       <%= f.submit "Create a loan", class: "btn btn-primary" %>
