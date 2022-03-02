@@ -17,3 +17,40 @@
 .home-loans-container {
   margin: 15px 10px;
 }
+
+.home-container {
+  position: relative;
+}
+.introduction {
+  top: 657px;
+  height: 100%;
+  display: flex;
+  margin-top: -174px;
+  flex-direction: column;
+}
+
+.step1 {
+  text-align: left;
+  padding: 20px;
+  padding-left: 100px;
+  z-index: 1;
+  p {
+    color: white;
+    text-align: center!important;
+    margin-left: 40vh;
+    padding-left: 20px;
+
+  }
+}
+
+.step2 {
+  text-align: right;
+  padding: 20px;
+  padding-right: 100px;
+  p {
+    color: white;
+    text-align: center!important;
+    margin-right: 40vh;
+    padding-right: 20px;
+  }
+}
