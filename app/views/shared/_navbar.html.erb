@@ -1,5 +1,5 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
-  <div class="container-fluid">
+  <div class="container-fluid ">
     <h2><%= link_to "🤝", root_path, class: "navbar-brand" %></h2>
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -11,31 +11,31 @@
         <% if user_signed_in? %>
           <% if params[:controller] == 'pages' && params[:action] == 'home'%>
             <li class="nav-item active">
-              <h2><%= link_to "Home", "#", class: "nav-link navbar-txt active" %></h2>
+              <h2><%= link_to "Home", root_path, class: "nav-link navbar-txt" %></h2>
             </li>
             <li class="nav-item">
-              <h2><%= link_to "Dashboard", "#", class: "nav-link navbar-txt" %></h2>
+              <h2><%= link_to "Dashboard", dashboard_path, class: "nav-link navbar-txt" %></h2>
             </li>
           <% elsif params[:controller] == 'pages' && params[:action] == 'dashboard' %>
-            <li class="nav-item active">
-              <h2><%= link_to "Home", "#", class: "nav-link navbar-txt" %></h2>
-            </li>
             <li class="nav-item">
-              <h2><%= link_to "Dashboard", "#", class: "nav-link navbar-txt active" %></h2>
+              <h2><%= link_to "Home", root_path, class: "nav-link navbar-txt" %></h2>
+            </li>
+            <li class="nav-item active">
+              <h2><%= link_to "Dashboard", dashboard_path, class: "nav-link navbar-txt" %></h2>
             </li>
           <% end %>
           <li class="nav-item dropdown">
-            <%= cl_image_tag '', class: "avatar-large dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+            <%= cl_image_tag (current_user.photo.key), class: "avatar-large dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
             <div class="dropdown-menu dropdown-menu-end bg-secondary bg-gradient rounded-4 p-2" aria-labelledby="navbarDropdown">
               <%= link_to "My messages", "#", class: "dropdown-item navbar-txt" %>
-              <%= link_to "List a new item", "#", class: "dropdown-item navbar-txt" %>
+              <%= link_to "Edit profile", edit_user_registration_path, class: "dropdown-item navbar-txt" %>
               <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item navbar-txt" %>
             </div>
           </li>
         <% else %>
           <% if params[:controller] == 'devise/sessions' && params[:action] == 'new'  %>
             <li class="nav-item ">
-              <h2><%= link_to "Log in", new_user_session_path, class: "nav-link navbar-txt active" %></h2>
+              <h2><%= link_to "Log in", new_user_session_path, class: "nav-link navbar-txt active"%></h2>
             </li>
           <% else %>
             <li class="nav-item ">
