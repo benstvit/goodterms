@@ -1,6 +1,5 @@
-# class ChatroomsController < ApplicationController::Channel
-#   def subscribed
-#     @chatroom = Chatroom.find(params[:id])
-#     stream_for chatroom
-#   end
-# end
+class ChatroomsController < ApplicationController
+  def show
+    @chatroom = Chatroom.find(params[:id])
+  end
+end
