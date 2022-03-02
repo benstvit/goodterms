@@ -13,7 +13,11 @@ class LoansController < ApplicationController
   end
 
   def create
-    @item = Item.new(item_params)
+    @item = Item.new(
+      item_name: params[:item][:item_name],
+      description: params[:item][:description],
+      photo: params[:item][:photo]
+    )
     @item.user_id = current_user[:id]
     @item.save
     @chatroom = Chatroom.create

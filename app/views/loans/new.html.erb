@@ -1,11 +1,11 @@
-<%= simple_form_for [ @loan ] do |f| %>
-  <%= simple_fields_for :item do |i| %>
-      <%= i.input :item_name %>
-      <%= i.input :description %>
-      <%= i.input :photo, as: :file %>
-  <% end %>
-  <%= f.association :user %>
-  <%= f.input :loan_date %>
-  <%= f.input :return_date %>
-  <%= f.submit "Create a loan", class: "btn btn-primary" %>
+<%= simple_form_for [ @item ] do |f| %>
+    <%= f.input :item_name %>
+    <%= f.input :description %>
+    <%= f.input :photo, as: :file %>
+    <%= simple_fields_for :loan do |i| %>
+      <%= i.association :user %>
+      <%= i.input :loan_date %>
+      <%= i.input :return_date %>
+    <% end %>
+    <%= f.submit "Create a loan", class: "btn btn-primary" %>
 <% end %>

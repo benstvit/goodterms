@@ -1,7 +1,7 @@
 <div class="loan-index">
     <% @loans.each do |loan| %>
       <div class="loan-card">
-        <%= cl_image_tag loan.item.photo.key %>
+        <%= cl_image_tag (loan.item.photo.key) %>
         <div class="loan-card-item-info">
           <%= loan.item.item_name %>
           <div class="loan-card-item-info-actions">
