@@ -87,14 +87,14 @@
   align-items: center;
   margin-bottom: 20px;
   padding: 20px;
-  border-radius: 3px;
+  border-radius: 10px;
   width: 50%;
   background-image: linear-gradient(45deg, #87c2b1, transparent);
 }
 
-.card-product img {
+.card-product .img {
   height: 100%;
-  width: 120px;
+  // width: 30%;
   object-fit: cover;
 }
 
