@@ -1,0 +1,28 @@
+.loan-index{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 20px;
+  width: 100%;
+  height: 100%;
+  margin: 20px 20px 20px;
+  padding: 20px;
+  .loan-card{
+    display: block;
+    background-color: rgb(131, 131, 131);
+    height: 800px;
+    width: 400px;
+    margin:0 0 10px;
+    border: 15px solid rgb(255, 255, 255);
+    box-shadow: 5px 5px 15px 5px rgba(0,0,0,0.2);
+
+    img{
+      height: 280px;
+      width: 100%;
+      overflow: hidden;
+      display: flex;
+      justify-content: center;
+    }
+  }
+}
