@@ -21,7 +21,7 @@ class LoansController < ApplicationController
     @loan.item = @item
     @loan.chatroom = @chatroom
     if @loan.save
-      redirect_to loans_path
+      redirect_to loans_path notice: "Item has been returned"
     else
       render :new
     end
@@ -35,8 +35,13 @@ class LoansController < ApplicationController
 
   def mark
     @loan = Loan.find(params[:id])
-    @loan = Loan.update(status: 'returned')
-    redirect_to loans_path, notice: "Item has been returned"
+    if @loan.status == 'pending'
+      @loan = Loan.update(status: 'accepted')
+      redirect_to root_path, notice: "Request has been accepted"
+    else
+      @loan = Loan.update(status: 'returned')
+      redirect_to loans_path, notice: "Item has been returned"
+    end
   end
 
   def destroy
