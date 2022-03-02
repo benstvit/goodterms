@@ -11,5 +11,7 @@
           </div>
         </div>
       </div>
+      <p>Status: <%= loan.status %></p>
+      <p><%= link_to "Mark as Returned", loan_mark_path(loan), method: :patch, class: 'submit-btns' %></p>
     <% end %>
 </div>

@@ -3,7 +3,7 @@
   <div class="cards-list">
     <% users.each do |user| %>
     <div class="card 1">
-      <div class="card_image"> <%= cl_image_tag(user.photo.key)  %>
+      <div class="card_image"> <%= cl_image_tag (current_user.photo.key) %>
       <div class="card_title title-white">
           <p><%= user.first_name %></p>
           <p><%= user.last_name %></p>
@@ -14,3 +14,7 @@
     <% end %>
   </div>
 </div>
+
+//if the current user has borrowed and item
+//they will get a notification after the lender has submited a lend request
+//they will be able to accept or decline this
