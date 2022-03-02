@@ -6,13 +6,6 @@ class ItemsController < ApplicationController
 
   def new
     @item = Item.new
-    @user = User.all
-    @markers = @users.geocoded.map do |user|
-      {
-        lat: user.latitude,
-        lng: user.longitude
-      }
-    end
   end
 
   def create
@@ -33,6 +26,7 @@ class ItemsController < ApplicationController
 
   def update
     @item = Item.update(item_params)
+    redirect_to item_path(@item)
   end
 
   def destroy
