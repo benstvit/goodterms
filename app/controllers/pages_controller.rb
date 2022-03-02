@@ -2,7 +2,6 @@ class PagesController < ApplicationController
   skip_before_action :authenticate_user!, only: :home
 
   def home
-<<<<<<< HEAD
     @users = User.all
     # @loans = Loan.all
     # @items = Item.all
@@ -14,9 +13,7 @@ class PagesController < ApplicationController
     # @lent_items = @items.select do |item|
     #   item.user_id == current_user.id
     # end
-=======
     @loans = Loan.all
->>>>>>> master
   end
 
   def dashboard
