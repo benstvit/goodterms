@@ -115,8 +115,8 @@
 .card-product .card-product-infos {
   padding: 16px;
   display: flex;
-  justify-content: space-between;
-  align-items: center;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: start;
   flex-wrap: wrap;
-  gap: 10px;
 }

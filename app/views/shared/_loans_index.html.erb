@@ -3,12 +3,12 @@
   <div class="card-product">
     <%= user.photo.key %>
     <div class="card-product-infos">
-      <h2><%= user.first_name %> <%= user.last_name %></h2>
-      <p>Borrowed items: <%= @borrowed%></p>
-      <p>Lent items: <%= @lent%></p>
-       <%=   %>
-      <p>💌 <strong></strong></p>
-      <p>⭐️</p>
+      <span><h2><%= user.first_name %> <%= user.last_name %></h2></span>
+      <div class="loan-description d-flex flex-column">
+        <p>Borrowed items: <%= @borrowed%></p>
+        <p>Lent items: <%= @lent%></p>
+        <p>💌 <strong>⭐️</strong></p>
+      </div>
     </div>
   </div>
 <% end %>
