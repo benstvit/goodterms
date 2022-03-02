@@ -1,11 +1,16 @@
-<%= simple_form_for [ @loan ] do |f| %>
-    <%= simple_fields_for :item do |i| %>
-      <%= i.input :item_name %>
-      <%= i.input :description %>
-    <% end %>
-    <%= f.input :photo, as: :file %>
-    <%= f.association :user %>
-    <%= f.input :loan_date %>
-    <%= f.input :return_date %>
-    <%= f.submit "Create a loan", class: "btn btn-primary" %>
-<% end %>
+
+<div class="form-container">
+<h2>Tell us more about your item !</h2>
+  <%= simple_form_for [ @loan ] do |f| %>
+      <%= simple_fields_for :item do |i| %>
+        <%= i.input :item_name %>
+        <%= i.input :description %>
+      <% end %>
+      <%= f.input :photo, as: :file %>
+      <%= f.association :user %>
+      <%= f.input :loan_date %>
+      <%= f.input :return_date %>
+      <%= f.submit "Create a loan", class: "btn btn-primary" %>
+  <% end %>
+
+</div>
