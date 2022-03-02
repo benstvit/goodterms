@@ -21,7 +21,7 @@ class LoansController < ApplicationController
     @loan.item = @item
     @loan.chatroom = @chatroom
     if @loan.save
-      redirect_to loans_path
+      redirect_to root_path
     else
       render :new
     end

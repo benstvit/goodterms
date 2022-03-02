@@ -1,31 +1,39 @@
 <div class="dashboard-container">
   <div class="loan-index">
-      <% loans.each do |loan| %>
-        <div class="loan-card">
-          <div class="loan-card-image"><%= cl_image_tag (loan.item.photo.key) %></div>
+    <% loans.each do |loan| %>
+      <% if (current_user == loan.item.user || current_user == loan.user) %>
+        <% if loan.item.user == current_user %>
+          <div class="loan-card">
+            <div class="loan-card-image"><%= cl_image_tag (loan.item.photo.key) %></div>
             <p style="color: white; font-size: 40px;"><%= loan.item.item_name %></p>
-          <div class="loan-card-item-info">
-            <% if loan.item.user == current_user %>
-              <p><%= "👤 #{loan.user.first_name}" %></p>
-            <% else %>
-              <p><%= loan.item.user.first_name %></p>
-            <% end %>
-            <p><%="🎯 #{loan.return_date}" %></p>
-            <p><%= "👌 #{loan.item.description}" %></p>
+            <div class="loan-card-item-info">
+              <p><%= "👤 Lended to #{loan.user.first_name}" %></p>
+              <p><%="🎯 #{loan.return_date}" %></p>
+              <p><%= "👌 #{loan.item.description}" %></p>
+            </div>
+            <div class="loan-card-item-info-actions">
+              <%='💌'%>
+              <%='🔄'%>
+              <%='⭐️'%>
+            </div>
           </div>
-          <div class="loan-card-item-info-actions">
-            <%='💌'%>
-            <%='🔄'%>
-            <%='⭐️'%>
+        <% else %>
+          <div class="borrow-card">
+            <div class="borrow-card-image"><%= cl_image_tag (loan.item.photo.key) %></div>
+            <p style="color: white; font-size: 40px;"><%= loan.item.item_name %></p>
+            <div class="borrow-card-item-info">
+              <p><%="👤 Borrowed from #{loan.item.user.first_name}" %></p>
+              <p><%="🎯 #{loan.return_date}" %></p>
+              <p><%= "👌 #{loan.item.description}" %></p>
+            </div>
+            <div class="borrow-card-item-info-actions">
+              <%='💌'%>
+              <%='🔄'%>
+              <%='⭐️'%>
+            </div>
           </div>
-        </div>
+        <% end %>
       <% end %>
+    <% end %>
   </div>
 </div>
-
-
-<%# Thibault
-
-Valentine
-
-Valentine %>
