@@ -1,27 +1,29 @@
 <div class="home-container d-flex justify-content-center flex-wrap">
-    <div class="lend-container d-flex justify-content-center flex-column align-items-center flex-wrap">
-      <h1>Good </h1>
-          <%= link_to "Borrow an item", loans_borrow_path, class:'borrow-btns' %>
+  <div class="lend-container d-flex justify-content-center flex-column align-items-center flex-wrap">
+    <h1>Good </h1>
+    <%= link_to "Borrow an item", loans_borrow_path, class:'borrow-btns' %>
   </div>
-
-    <div class="borrow-container d-flex justify-content-center flex-column align-items-center flex-wrap">
-      <h1 class="gradient1"> Terms.</h1>
-        <%= link_to "Lend an item", new_loan_path, class:'lend-btns'%>
-    </div>
+  <div class="borrow-container d-flex justify-content-center flex-column align-items-center flex-wrap">
+    <h1 class="gradient1"> Terms.</h1>
+    <%= link_to "Lend an item", new_loan_path, class:'lend-btns'%>
+  </div>
 </div>
 
 <%= render 'shared/introduction' %>
 
 
 <% if current_user.present?%>
- <div id="innerlink">
-  <% @loans.each do |loan| %>
-    <% if (current_user == loan.item.user || current_user == loan.user) %>
+  <div id="innerlink">
+    <% @loans.each do |loan| %>
+      <% if (current_user == loan.item.user || current_user == loan.user) %>
+        <% @current_user_borrows_or_lends = true%>
+      <% end %>
+    <% end %>
+    <% if @current_user_borrows_or_lends %>
       <%= render 'shared/index_loans', loans: @loans %>
       <%= render 'shared/loans_index', users: @users %>
       <%= render 'shared/new_loan_mesg', loans: @loans %>
       <%= render 'shared/mapbox', loans: @loans %>
-     <% end %>
     <% end %>
   </div>
 <% end %>
