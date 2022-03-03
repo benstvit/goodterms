@@ -13,7 +13,7 @@
             </div>
             <div class="loan-card-item-info-actions">
               <%='💌'%>
-              <%='🔄'%>
+              <%= link_to '🔄', loan_mark_path(loan), method: :patch, class: 'submit-btns' %>
               <%='⭐️'%>
             </div>
           </div>

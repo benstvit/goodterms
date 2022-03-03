@@ -1,0 +1,11 @@
+ <div class="item-container">
+  <div class="container">
+    <h2>Leave a review:</h2>
+
+    <%= simple_form_for [ @loan, @review ] do |f| %>
+      <%= f.input :rating %>
+      <%= f.input :comment %>
+      <%= f.submit class:'submit-btns' %>
+    <% end %>
+  </div>
+</div>
