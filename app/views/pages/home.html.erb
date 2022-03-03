@@ -14,6 +14,7 @@
 
 
 
+<% if current_user %>
 <div class="home-loans-container">
   <div class="user-cards">
     <%= render 'shared/loans_index', users: @users %>
@@ -22,3 +23,4 @@
 <%= render 'shared/index_loans', loans: @loans %>
 <%= render 'shared/new_loan_mesg', loans: @loans %>
 <%= render 'shared/mapbox', loans: @loans %>
+<% end %>
