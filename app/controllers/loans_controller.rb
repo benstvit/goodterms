@@ -14,14 +14,14 @@ class LoansController < ApplicationController
 
   def create
     @item = Item.new(item_params)
-    @item.user_id = current_user[:id]
+    @item.user = current_user
     @item.save
     @chatroom = Chatroom.create
     @loan = Loan.new(loan_params)
     @loan.item = @item
     @loan.chatroom = @chatroom
     if @loan.save
-      redirect_to loans_path notice: "Item has been returned"
+      redirect_to root_path notice: "Congrats, you created a new loan"
     else
       render :new
     end
@@ -44,13 +44,37 @@ class LoansController < ApplicationController
     end
   end
 
+  def new_borrow
+    @loan = Loan.new
+    @item = Item.new
+  end
+
+  def borrow
+    @item = Item.new(item_params)
+    # @item.user_id = @item.user
+    # @item.user_id = current_user[:id]
+    # @item.user_id = Item.find(@item.user)
+    # @item.user.id = params[:item][:user]
+    @item.save
+    @chatroom = Chatroom.create
+    @loan = Loan.new(loan_params)
+    @loan.user = current_user
+    @loan.item = @item
+    @loan.chatroom = @chatroom
+    if @loan.save
+      redirect_to root_path notice: "Congrats, you created a new loan"
+    else
+      render :new_borrow
+    end
+  end
+
   def destroy
   end
 
   private
 
   def item_params
-    (params.require(:item).permit(:item_name, :description, :photo)).merge(params.require(:loan).permit(:photo))
+    (params.require(:item).permit(:item_name, :description, :user_id, :photo)).merge(params.require(:loan).permit(:photo))
   end
 
   def loan_params
