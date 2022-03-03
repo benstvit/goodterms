@@ -9,7 +9,7 @@
 }
 
 .borrow-container {
-  background-color: $green;
+  // background-color: $green;
   height: 100vh;
   width: 50%;
 }
@@ -27,6 +27,10 @@
   display: flex;
   margin-top: -174px;
   flex-direction: column;
+  margin-bottom: 80px;
+  p {
+    font-size: 20px;
+  }
 }
 
 .step1 {

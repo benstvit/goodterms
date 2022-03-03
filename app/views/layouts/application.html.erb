@@ -16,7 +16,7 @@
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload', defer: true %>
   </head>
 
-  <body>
+  <body data-spy="scroll" data-target="#myScrollspy" class="">
    <div class="mid-container">
      <%= render 'shared/navbar' %>
 
@@ -24,5 +24,7 @@
 
       <%= yield %>
    </div>
+   <script type="text/javascript" src="app/javascript/plugins/navbar_scroll.js"></script>
+
   </body>
 </html>
