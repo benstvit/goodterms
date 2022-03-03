@@ -14,6 +14,13 @@ class PagesController < ApplicationController
     #   item.user_id == current_user.id
     # end
     @loans = Loan.all
+    @users = User.all
+    @markers = @users.geocoded.map do |user|
+      {
+        lat: user.latitude,
+        lng: user.longitude
+      }
+    end
   end
 
   def dashboard
