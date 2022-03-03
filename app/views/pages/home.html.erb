@@ -13,15 +13,15 @@
 <%= render 'shared/introduction' %>
 
 
-
-
-
-
 <% if current_user.present?%>
-  <div id="innerlink">
-    <%= render 'shared/loans_index', users: @users %>
-    <%= render 'shared/index_loans', loans: @loans %>
-    <%= render 'shared/new_loan_mesg', loans: @loans %>
-    <%= render 'shared/mapbox', loans: @loans %>
+ <div id="innerlink">
+  <% @loans.each do |loan| %>
+    <% if (current_user == loan.item.user || current_user == loan.user) %>
+      <%= render 'shared/index_loans', loans: @loans %>
+      <%= render 'shared/loans_index', users: @users %>
+      <%= render 'shared/new_loan_mesg', loans: @loans %>
+      <%= render 'shared/mapbox', loans: @loans %>
+     <% end %>
+    <% end %>
   </div>
 <% end %>
