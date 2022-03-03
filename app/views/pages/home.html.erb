@@ -18,10 +18,10 @@
 
 
 <% if current_user.present?%>
-
-  <%= render 'shared/loans_index', users: @users %>
-  <%= render 'shared/index_loans', loans: @loans %>
-  <%= render 'shared/new_loan_mesg', loans: @loans %>
-  <%= render 'shared/mapbox', loans: @loans %>
-
+  <div id="innerlink">
+    <%= render 'shared/loans_index', users: @users %>
+    <%= render 'shared/index_loans', loans: @loans %>
+    <%= render 'shared/new_loan_mesg', loans: @loans %>
+    <%= render 'shared/mapbox', loans: @loans %>
+  </div>
 <% end %>
