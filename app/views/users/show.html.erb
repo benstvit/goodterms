@@ -1,6 +1,46 @@
 <div class= "user-show-container">
   <h1>Your historic with: <%= @user.first_name %> <%= @user.last_name %> </h1>
-
-  <%= render 'shared/index_loans', loans: @loans %>
+  <div class="dashboard-container">
+    <div class="loan-index">
+      <% @user.loans.each do |loan| %>
+        <% if (current_user == loan.item.user || current_user == loan.user) %>
+          <% if loan.item.user == current_user %>
+            <div class="loan-card">
+              <div class="loan-card-image"><%= cl_image_tag (loan.item.photo.key) %></div>
+              <p style="color: white; font-size: 40px;"><%= loan.item.item_name %></p>
+              <div class="loan-card-item-info">
+                <p>Lent</p>
+                <p><%="🎯 #{loan.return_date}" %></p>
+                <p><%= "👌 #{loan.item.description}" %></p>
+              </div>
+              <div class="loan-card-item-info-actions">
+                <%='💌'%>
+                <%='🔄'%>
+                <%='⭐️'%>
+              </div>
+            </div>
+          <% end %>
+        <% end %>
+      <% end %>
+      <% @loans.each do |loan| %>
+          <% if (loan.item.user == @user && loan.user == current_user) %>
+            <div class="borrow-card">
+              <div class="borrow-card-image"><%= cl_image_tag (loan.item.photo.key) %></div>
+              <p style="color: white; font-size: 40px;"><%= loan.item.item_name %></p>
+              <div class="borrow-card-item-info">
+                <p>Borrowed</p>
+                <p><%="🎯 #{loan.return_date}" %></p>
+                <p><%= "👌 #{loan.item.description}" %></p>
+              </div>
+              <div class="borrow-card-item-info-actions">
+                <%='💌'%>
+                <%='🔄'%>
+                <%='⭐️'%>
+              </div>
+            </div>
+          <% end %>
+      <% end %>
+    </div>
+  </div>
 
 </div>
