@@ -1,6 +1,14 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon" data-controller="navbar" data-action="scroll@window->navbar#updateNavbar">
   <div class="container-fluid ">
-    <h2><%= link_to "🤝", root_path, class: "navbar-brand" %></h2>
+      <% if params[:controller] == 'pages' && params[:action] == 'home'%>
+        <li class="nav-item  list-unstyled active">
+          <h2><%= link_to "Home", root_path, class: "nav-link navbar-txt" %></h2>
+        </li>
+      <% else %>
+        <li class="nav-item list-unstyled">
+          <h2><%= link_to "Home", root_path, class: "nav-link navbar-txt" %></h2>
+        </li>
+      <% end %>
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -9,23 +17,13 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto">
         <% if user_signed_in? %>
-          <% if params[:controller] == 'pages' && params[:action] == 'home'%>
-            <li class="nav-item active">
-              <h2><%= link_to "Home", root_path, class: "nav-link navbar-txt" %></h2>
-            </li>
             <% @loans.each do |loan| %>
               <% if (current_user == loan.item.user || current_user == loan.user) %>
                 <%# <li class="nav-item" data-active> %>
                   <h2><a href="#innerlink" class="nav-link navbar-txt">Dashboard</a></h2>
-                </li>
-                <% break %>
-              <% end %>
+              <% break %>
             <% end %>
-          <% else %>
-            <li class="nav-item">
-              <h2><%= link_to "Home", root_path, class: "nav-link navbar-txt" %></h2>
-            </li>
-          <% end %>
+        <% end %>
           <li class="nav-item dropdown">
             <%= cl_image_tag (current_user.photo.key), class: "avatar-large dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
             <div class="dropdown-menu dropdown-menu-end bg-secondary bg-gradient rounded-4 p-2" aria-labelledby="navbarDropdown">
