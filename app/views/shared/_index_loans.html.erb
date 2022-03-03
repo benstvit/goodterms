@@ -1,7 +1,6 @@
 <div class="dashboard-container">
   <div class="loan-index">
     <% loans.each do |loan| %>
-    <%# <% raise %> %>
       <% if (current_user == loan.item.user || current_user == loan.user) %>
         <% if loan.item.user == current_user %>
           <div class="loan-card">

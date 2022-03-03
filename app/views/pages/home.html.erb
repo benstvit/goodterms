@@ -14,9 +14,14 @@
 
 
 
-<div class="home-loans-container">
+
+
+
+<% if current_user.present?%>
+
   <%= render 'shared/loans_index', users: @users %>
-</div>
-<%= render 'shared/index_loans', loans: @loans %>
-<%= render 'shared/new_loan_mesg', loans: @loans %>
-<%= render 'shared/mapbox', loans: @loans %>
+  <%= render 'shared/index_loans', loans: @loans %>
+  <%= render 'shared/new_loan_mesg', loans: @loans %>
+  <%= render 'shared/mapbox', loans: @loans %>
+
+<% end %>
