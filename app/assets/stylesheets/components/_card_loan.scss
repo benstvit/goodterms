@@ -13,7 +13,7 @@
     display: block;
     height: 600px;
     width: 360px;
-    margin:120px 0 10px;
+    margin:120px 0 0;
     box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.2);
   }
 
@@ -28,90 +28,19 @@
       clip-path: polygon(0 0, 252% 0, 119% 103%, 0 80%);
     }
   }
+
+  .card-lending{
+    background-color: blue;
+  }
+  .card-borrowing{
+    background-color: green;
+  }
+
   .card-odd{
     display: block;
     height: 600px;
     width: 360px;
-    margin:0 0 10px;
+    margin:0 0 0;
     box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.2);
   }
 }
-
-
-//   .loan-card-odd{
-//     display: block;
-//     background-color: rgba(24,78,119,0.5);
-//     height: 600px;
-//     width: 360px;
-//     margin:0 0 10px;
-//     border: 15px solid rgba(52,160,164,0.5);
-//     box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.2);
-//     .loan-card-item-info{
-//       padding: 0 30px;
-//       p{
-//         color: white;
-//         text-align: left;
-//       }
-
-//     }
-//     }
-//   }
-
-//   .loan-card-even{
-//     display: block;
-//     background-color: rgba(119, 43, 24, 0.5);
-//     height: 600px;
-//     width: 360px;
-//     margin:0 0 10px;
-//     border: 15px solid rgba(52,160,164,0.5);
-//     box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.2);
-//     .loan-card-item-info{
-//       padding: 0 30px;
-//       p{
-//         color: white;
-//         text-align: left;
-//       }
-
-//     }
-//     .loan-card-image{
-//     height: 330px;
-//     img{
-//         overflow: hidden;
-//         height: 100%;
-//         width: 100%;
-//         display: flex;
-//         justify-content: center;
-//         clip-path: polygon(0 0, 252% 0, 119% 103%, 0 80%);
-//       }
-//     }
-//   }
-
-//   .borrow-card{
-//     display: block;
-//     background-color: rgba(24,78,119,0.5);
-//     height: 600px;
-//     width: 360px;
-//     margin:0 0 10px;
-//     border: 15px solid rgba(217,237,146,0.5);
-//     box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.2);
-//     .borrow-card-item-info{
-//       padding: 0 30px;
-//       p{
-//         color: white;
-//         text-align: left;
-//       }
-
-//     }
-//     .borrow-card-image{
-//     height: 330px;
-//     img{
-//         overflow: hidden;
-//         height: 100%;
-//         width: 100%;
-//         display: flex;
-//         justify-content: center;
-//         clip-path: polygon(0 0, 252% 0, 119% 103%, 0 80%);
-//       }
-//     }
-//   }
-// }

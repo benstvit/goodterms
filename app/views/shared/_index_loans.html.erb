@@ -4,7 +4,7 @@
       <% if loan.id % 2 == 0 %>
         <div class="card-even">
           <% if loan.item.user == current_user %>
-            <div class="card-even-lending">
+            <div class="card-lending">
               <div class="loan-card-image"><%= cl_image_tag (loan.item.photo.key) %></div>
               <p style="color: white; font-size: 40px;"><%= loan.item.item_name %></p>
               <div class="loan-card-item-info">
@@ -19,7 +19,7 @@
               </div>
             </div>
           <% else %>
-            <div class="card-even-borrowing">
+            <div class="card-borrowing">
               <div class="loan-card-image"><%= cl_image_tag (loan.item.photo.key) %></div>
               <p style="color: white; font-size: 40px;"><%= loan.item.item_name %></p>
               <div class="loan-card-item-info">
@@ -38,7 +38,7 @@
       <% else %>
         <div class="card-odd">
           <% if loan.item.user == current_user %>
-            <div class="card-odd-lending">
+            <div class="card-lending">
               <div class="loan-card-image"><%= cl_image_tag (loan.item.photo.key) %></div>
               <p style="color: white; font-size: 40px;"><%= loan.item.item_name %></p>
               <div class="loan-card-item-info">
@@ -53,7 +53,7 @@
               </div>
             </div>
           <% else %>
-            <div class="card-odd-borrowing">
+            <div class="card-borrowing">
               <div class="loan-card-image"><%= cl_image_tag (loan.item.photo.key) %></div>
               <p style="color: white; font-size: 40px;"><%= loan.item.item_name %></p>
               <div class="loan-card-item-info">
