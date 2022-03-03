@@ -1,6 +1,10 @@
 Rails.application.routes.draw do
+  get 'users/show'
   devise_for :users
   root to: 'pages#home'
+  # get '/user/:id', to: 'users#show', as: :show
+
+  resources :users, only: :show
 
   resources :items
   get "/dashboard", to: "pages#dashboard", as: :dashboard

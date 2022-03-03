@@ -16,13 +16,13 @@
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload', defer: true %>
   </head>
 
-  <body>
+  <body data-spy="scroll" data-target="#myScrollspy" class="">
    <div class="mid-container">
      <%= render 'shared/navbar' %>
 
-      <%= render 'shared/flashes' %>
 
       <%= yield %>
+      <%= render 'shared/flashes' %>
    </div>
   </body>
 </html>

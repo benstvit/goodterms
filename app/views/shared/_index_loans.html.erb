@@ -7,7 +7,7 @@
             <div class="loan-card-image"><%= cl_image_tag (loan.item.photo.key) %></div>
             <p style="color: white; font-size: 40px;"><%= loan.item.item_name %></p>
             <div class="loan-card-item-info">
-              <p><%= "👤 Lended to #{loan.user.first_name}" %></p>
+              <p><%= "👤 Lent to #{loan.user.first_name}" %></p>
               <p><%="🎯 #{loan.return_date}" %></p>
               <p><%= "👌 #{loan.item.description}" %></p>
             </div>
