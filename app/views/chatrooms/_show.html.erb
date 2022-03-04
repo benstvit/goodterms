@@ -1,7 +1,7 @@
 <div class="chat-container chatroom" data-controller="chatroom-subscription"
   data-chatroom-subscription-chatroom-id-value="<%= chatroom.id %>">
 
-  <p class="mt-6">Chat with <%= user.first_name%></p>
+  <p class="mt-6"> 💌 Chat with <%= user.first_name%></p>
 
   <%= simple_form_for [chatroom, message],
    remote: true,
@@ -12,11 +12,11 @@
       # placeholder: "Message ##{@chatroom.n}",
       wrapper_html: {class: "flex-grow-1"}
     %>
-    <%= f.submit "Send", class: "btn btn-primary" %>
+    <%= f.submit "Send", class: "btn submit-btns m-4 mt-1" %>
   <% end %>
 
   <div class="messages" data-chatroom-subscription-target="messages">
-    <% chatroom.messages.each do |message| %>
+    <% chatroom.messages.last(5).each do |message| %>
       <%= render "messages/message", message: message %>
     <% end %>
   </div>
