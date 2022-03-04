@@ -18,7 +18,7 @@ class PagesController < ApplicationController
     @users = User.all
   end
 
-  private
+  # private
 
   # def user_rating
   #   if loan.user.reviews.length >= 2

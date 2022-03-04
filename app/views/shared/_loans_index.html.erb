@@ -26,7 +26,13 @@
             <div class="card-product text-unstyled">
               <div class='card-img'><%= cl_image_tag (user.photo.key), style: 'width:100px'%></div>
 
-                <span><h2><%= user.first_name %> <%= user.last_name %></h2></span>
+                <span><h2><%= user.first_name %> <%= user.last_name %><% if user.reviews.length >= 2 %>
+                                                                        <%= '🌟' %>
+                                                                      <% elsif user.reviews.length == 1 %>
+                                                                        <%= '⭐' %>
+                                                                      <% else %>
+                                                                        <%= '😒' %>
+                                                                      <% end %></h2></span>
               <div class="card-product-infos d-flex flex-column justify-content-center align-items-center">
 
                 <div class="loan-description ">
