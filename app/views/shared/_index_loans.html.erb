@@ -16,11 +16,11 @@
                 <%='💌'%>
                 <%='🔄'%>
                 <% if loan.user.reviews.length >= 2 %>
-                  <%= image_tag("star-2.png", class: "review-icon") %>
+                  <%= '🌟' %>
                 <% elsif loan.user.reviews.length == 1 %>
-                  <%= image_tag("star-1.png", class: "review-icon")  %>
+                  <%= '⭐' %>
                 <% else %>
-                  <%= image_tag("star.png", class: "review-icon") %>
+                  <%= '😒' %>
                 <% end %>
               </div>
               <br>
@@ -39,11 +39,11 @@
                 <%='💌'%>
                 <%= link_to '🔄', loan_mark_path(loan), method: :patch %>
                 <% if loan.user.reviews.length >= 2 %>
-                  <%= image_tag("https://a.slack-edge.com/production-standard-emoji-assets/13.0/google-medium/1f31f@2x.png") %>
+                  <%= '🌟' %>
                 <% elsif loan.user.reviews.length == 1 %>
-                  <%= image_tag("https://a.slack-edge.com/production-standard-emoji-assets/13.0/google-medium/2b50@2x.png")  %>
+                  <%= '⭐' %>
                 <% else %>
-                  <%= image_tag("https://a.slack-edge.com/production-standard-emoji-assets/13.0/google-medium/1f610@2x.png") %>
+                  <%= '😒' %>
                 <% end %>
               </div>
               <br>
@@ -66,11 +66,11 @@
                 <%='💌'%>
                 <%='🔄'%>
                 <% if loan.user.reviews.length >= 2 %>
-                  <%= image_tag("https://a.slack-edge.com/production-standard-emoji-assets/13.0/google-medium/1f31f@2x.png", class: "review-icon") %>
+                  <%= '🌟' %>
                 <% elsif loan.user.reviews.length == 1 %>
-                  <%= image_tag("https://a.slack-edge.com/production-standard-emoji-assets/13.0/google-medium/2b50@2x.png", class: "review-icon")  %>
+                  <%= '⭐' %>
                 <% else %>
-                  <%= image_tag("https://a.slack-edge.com/production-standard-emoji-assets/13.0/google-medium/1f610@2x.png", class: "review-icon") %>
+                  <%= '😒' %>
                 <% end %>
               </div>
               <br>
@@ -89,11 +89,11 @@
                 <%='💌'%>
                 <%='🔄'%>
                 <% if loan.user.reviews.length >= 2 %>
-                  <%= image_tag("https://a.slack-edge.com/production-standard-emoji-assets/13.0/google-medium/1f31f@2x.png", class: "review-icon") %>
+                  <%= '🌟' %>
                 <% elsif loan.user.reviews.length == 1 %>
-                  <%= image_tag("https://a.slack-edge.com/production-standard-emoji-assets/13.0/google-medium/2b50@2x.png", class: "review-icon")  %>
+                  <%= '⭐' %>
                 <% else %>
-                  <%= image_tag("https://a.slack-edge.com/production-standard-emoji-assets/13.0/google-medium/1f610@2x.png", class: "review-icon") %>
+                  <%= '😒' %>
                 <% end %>
               </div>
               <br>
