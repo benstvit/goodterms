@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container loans-user">
   <% users.each do |user| %>
     <% @counter_borrowed = 0 %>
     <% @counter_lent = 0 %>
@@ -13,10 +13,8 @@
           <% @counter_lent += 1 %>
         <% end %>
       <% end %>
-
-
     <% end %>
-  <div class="loans-user">
+
     <div class="loans-per-user">
       <% if @counter_lent > 0 || @counter_borrowed > 0 %>
         <%# <%= link_to user_path(user), :action => 'go' %>
@@ -27,8 +25,6 @@
           <div class="user-name"><p><%= user.first_name %> <%= user.last_name %></p></div>
         </div>
       <% end %>
-
     </div>
-  </div>
   <% end %>
 </div>
