@@ -2,8 +2,17 @@
   <div class="container">
     <h2>Leave a review:</h2>
 
+    <p>Was you item retuned in a good condition?</p>
+      <select name="condition" id="condition">
+      <option value="volvo">Yes</option>
+      <option value="saab">No</option>
+      </select>
+    <p>Was you item retuned on time?</p>
+      <select name="time" id="time">
+      <option value="volvo">Yes</option>
+      <option value="saab">No</option>
+      </select>
     <%= simple_form_for [ @loan, @review ] do |f| %>
-      <%= f.input :rating %>
       <%= f.input :comment %>
       <%= f.submit class:'submit-btns' %>
     <% end %>

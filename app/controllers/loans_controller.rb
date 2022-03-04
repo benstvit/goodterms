@@ -5,9 +5,11 @@ class LoansController < ApplicationController
 
   def show
     @loan = Loan.find(params[:id])
+    @loans = Loan.all
   end
 
   def new
+    @loans = Loan.all
     @loan = Loan.new
     @item = Item.new
   end
