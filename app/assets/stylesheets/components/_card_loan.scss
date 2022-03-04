@@ -26,7 +26,9 @@
 
   .loan-card-image{
     height: 330px;
+    border-radius: 5px;
     img{
+      border-radius: 5px;
       overflow: hidden;
       height: 100%;
       width: 100%;
@@ -44,10 +46,11 @@
     // border: solid 20px #465c9c7e;
     background-color: rgba(255,93,143,0.5);
     box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.2);
+    border-radius: 5px;
    }
   .card-borrowing{
     background-color: rgba(219,231,228,0.5);
-    border-radius: 5px 5px 0 0;
+    border-radius: 5px;
     // border: solid 20px #f5d64e7e;
     box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.2);
     // position: relative;
