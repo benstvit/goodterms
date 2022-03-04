@@ -4,6 +4,8 @@ class UsersController < ApplicationController
     @loans = Loan.all
     # @items = @user.items
     @items = Item.all
+    @chatrooms = Chatroom.all
+    @message = Message.new
   end
 end
 

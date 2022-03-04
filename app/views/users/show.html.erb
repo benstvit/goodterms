@@ -5,7 +5,7 @@
       <% @user.loans.each do |loan| %>
         <% if (current_user == loan.item.user || current_user == loan.user) %>
           <% if loan.item.user == current_user %>
-            <div class="loan-card">
+            <div class="card-lending">
               <div class="loan-card-image"><%= cl_image_tag (loan.item.photo.key) %></div>
               <p style="color: white; font-size: 40px;"><%= loan.item.item_name %></p>
               <div class="loan-card-item-info">
@@ -18,24 +18,32 @@
                 <%='🔄'%>
                 <%='⭐️'%>
               </div>
+              <div class='chatbox'>
+                <% @chatroom = @chatrooms.find(loan.chatroom_id) %>
+                <%= render 'chatrooms/show', chatroom: @chatroom, message: @message, user: @user %>
+              </div>
             </div>
           <% end %>
         <% end %>
       <% end %>
       <% @loans.each do |loan| %>
           <% if (loan.item.user == @user && loan.user == current_user) %>
-            <div class="borrow-card">
-              <div class="borrow-card-image"><%= cl_image_tag (loan.item.photo.key) %></div>
+            <div class="card-borrowing">
+              <div class="loan-card-image"><%= cl_image_tag (loan.item.photo.key) %></div>
               <p style="color: white; font-size: 40px;"><%= loan.item.item_name %></p>
-              <div class="borrow-card-item-info">
+              <div class="loan-card-item-info">
                 <p>Borrowed</p>
                 <p><%="🎯 #{loan.return_date}" %></p>
                 <p><%= "👌 #{loan.item.description}" %></p>
               </div>
-              <div class="borrow-card-item-info-actions">
+              <div class="loan-card-item-info-actions">
                 <%='💌'%>
                 <%='🔄'%>
                 <%='⭐️'%>
+              </div>
+              <div class='chatbox'>
+                <% @chatroom = @chatrooms.find(loan.chatroom_id) %>
+                <%= render 'chatrooms/show', chatroom: @chatroom, message: @message, user: @user %>
               </div>
             </div>
           <% end %>
