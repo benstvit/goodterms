@@ -9,10 +9,15 @@ class ReviewsController < ApplicationController
   end
 
   def create
-    raise
     @review = Review.new(review_params)
+    if params[:time] == 'Yes' && params[:condition] == 'Yes'
+      @review.rating =+ 10
+    elsif params[:time] == 'Yes' || params[:condition] == 'Yes'
+      @review.rating =+ 5
+    end
     @loan = Loan.find(params[:loan_id])
     @review.loan = @loan
+    @review.user = @loan.user
     @review.save
     redirect_to root_path
   end
@@ -23,7 +28,6 @@ class ReviewsController < ApplicationController
   private
 
   def review_params
-    params.require(:review).permit(:rating, :comment)
+    params.require(:review).permit(:comment)
   end
-
 end
