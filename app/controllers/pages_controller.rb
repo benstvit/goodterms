@@ -17,4 +17,16 @@ class PagesController < ApplicationController
     @loans = Loan.all
     @users = User.all
   end
+
+  # private
+
+  # def user_rating
+  #   if loan.user.reviews.length >= 2
+  #     '🌟'
+  #   elsif loan.user.reviews.length == 1
+  #     '⭐'
+  #   else
+  #     '😒'
+  #   end
+  # end
 end

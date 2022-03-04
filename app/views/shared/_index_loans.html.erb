@@ -1,7 +1,7 @@
 <div class="dashboard-container">
   <div class="loan-index">
     <% loans.each do |loan| %>
-      <% if loan.id % 2 == 0 %>
+      <% if loan.id % 2 == 0  %>
         <div class="card-even">
           <% if loan.item.user == current_user %>
             <div class="card-lending">
@@ -13,9 +13,15 @@
                 <p><%= "📝 #{loan.item.description}" %></p>
               </div>
               <div class="loan-card-item-info-actions">
-                <%=' 💌'%>
-                <%=' 🔄'%>
-                <%=' ⭐️'%>
+                <%='💌'%>
+                <%= link_to '🔄', loan_mark_path(loan), method: :patch %>
+                <% if loan.user.reviews.length >= 2 %>
+                  <%= '🌟' %>
+                <% elsif loan.user.reviews.length == 1 %>
+                  <%= '⭐' %>
+                <% else %>
+                  <%= '😒' %>
+                <% end %>
               </div>
 
             </div>
@@ -29,9 +35,15 @@
                 <p><%= "📝 #{loan.item.description}" %></p>
               </div>
               <div class="loan-card-item-info-actions">
-                <%=' 💌'%>
-                <%=' 🔄'%>
-                <%=' ⭐️'%>
+                <%='💌'%>
+                <%= link_to '🔄', loan_mark_path(loan), method: :patch %>
+                <% if loan.user.reviews.length >= 2 %>
+                  <%= '🌟' %>
+                <% elsif loan.user.reviews.length == 1 %>
+                  <%= '⭐' %>
+                <% else %>
+                  <%= '😒' %>
+                <% end %>
               </div>
 
             </div>
@@ -49,9 +61,15 @@
                 <p><%= "📝 #{loan.item.description}" %></p>
               </div>
               <div class="loan-card-item-info-actions">
-                <%=' 💌'%>
-                <%=' 🔄'%>
-                <%=' ⭐️'%>
+                <%='💌'%>
+                <%= link_to '🔄', loan_mark_path(loan), method: :patch %>
+                <% if loan.user.reviews.length >= 2 %>
+                  <%= '🌟' %>
+                <% elsif loan.user.reviews.length == 1 %>
+                  <%= '⭐' %>
+                <% else %>
+                  <%= '😒' %>
+                <% end %>
               </div>
 
             </div>
@@ -65,9 +83,15 @@
                 <p><%= "📝 #{loan.item.description}" %></p>
               </div>
               <div class="loan-card-item-info-actions">
-                <%=' 💌'%>
-                <%=' 🔄'%>
-                <%=' ⭐️'%>
+                <%='💌'%>
+                <%= link_to '🔄', loan_mark_path(loan), method: :patch %>
+                <% if loan.user.reviews.length >= 2 %>
+                  <%= '🌟' %>
+                <% elsif loan.user.reviews.length == 1 %>
+                  <%= '⭐' %>
+                <% else %>
+                  <%= '😒' %>
+                <% end %>
               </div>
 
             </div>

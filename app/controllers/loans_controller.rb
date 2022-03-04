@@ -5,9 +5,11 @@ class LoansController < ApplicationController
 
   def show
     @loan = Loan.find(params[:id])
+    @loans = Loan.all
   end
 
   def new
+    @loans = Loan.all
     @loan = Loan.new
     @item = Item.new
   end
@@ -40,7 +42,7 @@ class LoansController < ApplicationController
       redirect_to root_path, notice: "Request has been accepted"
     else
       @loan = Loan.update(status: 'returned')
-      redirect_to loans_path, notice: "Item has been returned"
+      redirect_to new_loan_review_path(@loan), notice: "Item has been returned"
     end
   end
 
