@@ -1,11 +1,10 @@
 
 <div class="container">
   <% if current_user.present? %>
-  <h3>Where are my Items?</h3>
+  <p style="color: white; font-size: 48px">Where are my items?</p>
   <div style="width: auto; height: 400px; margin: auto; border-radius: 5px; box-shadow: 0 0 15px rgba(0,0,0,0.2);"
     data-controller="mapbox"
     data-mapbox-markers-value="<%= @markers.to_json %>"
     data-mapbox-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"></div>
   <% end %>
 </div>
-
