@@ -1,6 +1,6 @@
 // Specific CSS for your home-page
 .lend-container {
-  z-index: -1;
+  // z-index: -1;
   background-image: linear-gradient(rgba(255, 255, 255, 0.2), rgba(0, 0, 0, 0.2)),
   url("https://res.cloudinary.com/benstvit/image/upload/v1646137520/background_goodterms_jpmg8n.jpg");
   background-size: contain;
@@ -26,7 +26,8 @@
 }
 
 .introduction{
-  margin: -135px 100px 100px;
+  position: absolute;
+  margin: -135px 100px 1000px;
   display: block;
 
   .introduction-step-1{
@@ -52,6 +53,7 @@
     height: 250px;
     .even-number{
       text-align: right;
+      margin: 0 -500px 0 0;
     }
     .even-text{
       text-align: left;
