@@ -1,5 +1,6 @@
 // Specific CSS for your home-page
 .lend-container {
+  z-index: 2;
   background-image: linear-gradient(rgba(255, 255, 255, 0.2), rgba(0, 0, 0, 0.2)),
   url("https://res.cloudinary.com/benstvit/image/upload/v1646137520/background_goodterms_jpmg8n.jpg");
   background-size: contain;
@@ -23,40 +24,97 @@
 .home-container {
   position: relative;
 }
-.introduction {
-  top: 657px;
-  height: 100%;
-  display: flex;
-  margin-top: -174px;
-  flex-direction: column;
-  margin-bottom: 80px;
-  p {
-    font-size: 20px;
-  }
-}
 
-.step1 {
-  text-align: left;
-  padding: 20px;
-  padding-left: 100px;
-  z-index: 1;
-  p {
-    color: white;
-    text-align: center!important;
-    margin-left: 40vh;
-    padding-left: 20px;
+.introduction{
+  margin: -135px 100px 100px;
+  display: block;
+  .introduction-step-1{
+    padding: 0px;
+    height: 250px;
+    .odd-number{
+      z-index: -1000;
+      text-align: left;
+    }
+    .odd-text{
+      text-align: right;
+      font-size: 30px;
+      color: white;
+      position: relative;
+      top: -116px;
+      left: 272px;
+      width: 750px;
+    }
 
   }
-}
+  .introduction-step-2{
+    height: 250px;
+    .even-number{
+      text-align: right;
+    }
+    .even-text{
+      text-align: left;
+      font-size: 30px;
+      color: white;
+      position: relative;
+      top: -116px;
+      left: 190px;
+      width: 750px;
+    }
 
-.step2 {
-  text-align: right;
-  padding: 20px;
-  padding-right: 100px;
-  p {
-    color: white;
-    text-align: center!important;
-    margin-right: 40vh;
-    padding-right: 20px;
+  }
+  .introduction-step-3{
+    height: 250px;
+    position: relative;
+
+    .odd-number{
+      text-align: left;
+    }
+    .odd-text{
+      text-align: right;
+      font-size: 30px;
+      color: white;
+      position: relative;
+      top: -116px;
+      left: 272px;
+      width: 750px;
+    }
+
   }
 }
+// .introduction {
+//   top: 657px;
+//   height: 100%;
+//   display: flex;
+//   margin-top: -174px;
+//   flex-direction: column;
+//   margin-bottom: 80px;
+//   p {
+//     font-size: 20px;
+//   }
+// }
+
+// .step1 {
+//   text-align: left;
+//   padding: 20px;
+//   padding-left: 100px;
+//   z-index: 1;
+//   p {
+//     color: white;
+//     text-align: center!important;
+//     margin-left: 40vh;
+//     padding-left: 20px;
+
+//   }
+// }
+
+// .step2 {
+//   text-align: right;
+//   padding: 20px;
+//   padding-right: 100px;
+//   p {
+//     color: white;
+//     text-align: center!important;
+//     margin-right: 40vh;
+//     padding-right: 20px;
+//   }
+// }
