@@ -19,12 +19,14 @@
       <ul class="navbar-nav me-auto">
         <% if user_signed_in? %>
             <% @loans.each do |loan| %>
+            <% if params[:controller] == 'pages' && params[:action] == 'home'%>
               <% if (current_user == loan.item.user || current_user == loan.user) %>
                 <%# <li class="nav-item" data-active> %>
                   <h2><a href="#innerlink" class="nav-link navbar-txt">Dashboard</a></h2>
                 </li>
                 <% break %>
               <% end %>
+            <% end %>
             <% end %>
           <li class="nav-item dropdown">
             <%= cl_image_tag (current_user.photo.key), class: "avatar-large dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
