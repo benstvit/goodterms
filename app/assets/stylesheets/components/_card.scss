@@ -1,14 +1,15 @@
 .loans-user{
   display: flex;
-  justify-content: space-between;
+  // justify-content: space-between;
+  justify-content: center;
   align-items: center;
   flex-wrap: wrap;
+  margin: 0 0 60px;
+  a{
+    text-decoration: none;
+  }
   .loans-per-user{
-    width: 100vh;
-    // background-color: white;
-    display: flex;
-    justify-content: space-between;
-    width: 900px;
+
     .user-card{
       margin: 20px;
       width: 300px;

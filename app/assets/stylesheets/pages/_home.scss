@@ -1,6 +1,6 @@
 // Specific CSS for your home-page
 .lend-container {
-  z-index: 2;
+  z-index: -1;
   background-image: linear-gradient(rgba(255, 255, 255, 0.2), rgba(0, 0, 0, 0.2)),
   url("https://res.cloudinary.com/benstvit/image/upload/v1646137520/background_goodterms_jpmg8n.jpg");
   background-size: contain;
@@ -28,11 +28,13 @@
 .introduction{
   margin: -135px 100px 100px;
   display: block;
+
   .introduction-step-1{
     padding: 0px;
     height: 250px;
+
     .odd-number{
-      z-index: -1000;
+
       text-align: left;
     }
     .odd-text{
