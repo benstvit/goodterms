@@ -19,11 +19,13 @@
         <% end %>
         <div class="user-cards">
 
+
           <% if counter_lent > 0 || counter_borrowed > 0 %>
           <div class= "col-12" >
             <%= link_to user_path(user), :action => 'go' do %>
             <div class="card-product text-unstyled">
               <div class='card-img'><%= cl_image_tag (user.photo.key), style: 'width:100px'%></div>
+
                 <span><h2><%= user.first_name %> <%= user.last_name %></h2></span>
               <div class="card-product-infos d-flex flex-column justify-content-center align-items-center">
 
