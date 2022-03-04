@@ -11,11 +11,11 @@
               <div class="loan-card-item-info">
                 <p>Lent</p>
                 <p><%="🎯 #{loan.return_date}" %></p>
-                <p><%= "👌 #{loan.item.description}" %></p>
+                <p><%= "📝 #{loan.item.description}" %></p>
               </div>
               <div class="loan-card-item-info-actions">
-                <%='💌'%>
-                <%='🔄'%>
+                <span title="Mark as returned"><%= link_to '🔄', loan_mark_path(loan), method: :patch, class: 'text-decoration-none'%></span>
+
                 <%='⭐️'%>
               </div>
               <div class='chatbox'>
@@ -34,10 +34,9 @@
               <div class="loan-card-item-info">
                 <p>Borrowed</p>
                 <p><%="🎯 #{loan.return_date}" %></p>
-                <p><%= "👌 #{loan.item.description}" %></p>
+                <p><%= "📝 #{loan.item.description}" %></p>
               </div>
               <div class="loan-card-item-info-actions">
-                <%='💌'%>
                 <%='🔄'%>
                 <%='⭐️'%>
               </div>
