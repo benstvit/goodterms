@@ -1,46 +1,32 @@
-
-  <% if current_user.present? %>
-  <div class="home-loans-container">
-  <div class="row">
-    <% users.each do |user| %>
-      <% counter_borrowed = 0 %>
-      <% counter_lent = 0 %>
-        <% user.loans.each do |loan| %>
-          <% if loan.item.user.last_name == current_user.last_name %>
-              <% counter_borrowed += 1 %>
-              <% end %>
-          <% end %>
-        <% user.items.each do |item| %>
-          <% item.loans.each do |loan| %>
-            <%if loan.user.last_name == current_user.last_name %>
-              <% counter_lent += 1 %>
-            <% end %>
-          <% end %>
-        <% end %>
-        <div class="user-cards">
-
-
-          <% if counter_lent > 0 || counter_borrowed > 0 %>
-          <div class= "col-12" >
-            <%= link_to user_path(user), :action => 'go' do %>
-            <div class="card-product text-unstyled">
-              <div class='card-img'><%= cl_image_tag (user.photo.key), style: 'width:100px'%></div>
-
-                <span><h2><%= user.first_name %> <%= user.last_name %></h2></span>
-              <div class="card-product-infos d-flex flex-column justify-content-center align-items-center">
-
-                <div class="loan-description ">
-                  <p>Lent: <strong><%= counter_borrowed %></strong></p>
-                  <p>Borrowed: <strong><%= counter_lent %></strong> </p>
-                  <p>💌 <strong>⭐️</strong></p>
-                </div>
-              </div>
-            </div>
-            <% end %>
-          </div>
-          <% end %>
-        </div>
+<div class="container">
+  <% users.each do |user| %>
+    <% @counter_borrowed = 0 %>
+    <% @counter_lent = 0 %>
+    <% user.loans.each do |loan| %>
+      <% if loan.item.user.last_name == current_user.last_name %>
+        <% @counter_borrowed += 1 %>
+      <% end %>
     <% end %>
-  </div>
+    <% user.items.each do |item| %>
+      <% item.loans.each do |loan| %>
+        <%if loan.user.last_name == current_user.last_name %>
+          <% @counter_lent += 1 %>
+        <% end %>
+      <% end %>
+    <% end %>
+
+  <div class="loans-user">
+    <div class="loans-per-user">
+      <% if @counter_lent > 0 || @counter_borrowed > 0 %>
+        <%# <%= link_to user_path(user), :action => 'go' %>
+        <div class="user-card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path user.photo.key, height: 300, crop: :fill %>')">
+          <%# <div class='card-img'><%= cl_image_tag (user.photo.key), style: 'width:100px'</div> %>
+          <div class="lent"><p><%= "Lent: #{@counter_lent}" %></p></div>
+          <div class="borrowed"><p><%= "Borrowed: #{@counter_borrowed}" %></p></div>
+          <div class="user-name"><p><%= user.first_name %> <%= user.last_name %></p></div>
+        </div>
+      <% end %>
+    </div>
   </div>
   <% end %>
+</div>
