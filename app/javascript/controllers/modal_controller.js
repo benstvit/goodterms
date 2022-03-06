@@ -13,6 +13,7 @@ export default class extends Controller {
     const loanId = event.currentTarget.dataset.id
     const findLoan = this.loanTargets.find(loan => loan.dataset.id === loanId)
     const user = event.currentTarget.dataset.user_id
+
     swal({
       title: "Mark this item as returned ?",
       text: "Once marked as returned, there is no going back!",
@@ -20,9 +21,12 @@ export default class extends Controller {
       buttons: true,
       dangerMode: true,
     })
+
+
+
     .then((willDelete) => {
       if (willDelete) {
-        fetch(`/users/${user}`,
+        fetch(`/loans/${loanId}`,
                 {method: 'delete',
                     headers:  {
                         "Accept": "application/json"
@@ -31,8 +35,8 @@ export default class extends Controller {
             )
                 .then((result) => {
                   findLoan.style.transition = "all 2s"
-                  setTimeout(() => findLoan.style.transform = "translateX(-1200px)", 1000)
-                  setTimeout(() => findLoan.remove(), 1000)
+                  // setTimeout(() => findLoan.style.transform = "translateX(-1200px)", 1000)
+                  setTimeout(() => findLoan.remove(), 4000)
                 })
 
                 .catch((err) => {
