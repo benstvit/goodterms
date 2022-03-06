@@ -1,6 +1,7 @@
 class LoansController < ApplicationController
   def index
     @loans = Loan.all
+    @review = Review.new
   end
 
   def show
