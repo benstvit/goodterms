@@ -3,6 +3,12 @@ import { Controller } from "@hotwired/stimulus"
 export default class extends Controller {
   static targets = ['lend', 'borrow']
 
+  connect() {
+    this.borrowTarget.style.visibility = "hidden"
+    this.lendTarget.style.visibility = "hidden"
+
+  }
+
   updateNavbar() {
     if (window.scrollY >= window.innerHeight) {
       this.element.classList.add("navbar-lewagon-white")
