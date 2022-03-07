@@ -22,5 +22,6 @@ export default class extends Controller {
         modal.style.display = "none";
       }
     }
+
   }
-}
+  }

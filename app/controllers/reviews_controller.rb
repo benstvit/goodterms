@@ -1,12 +1,13 @@
 class ReviewsController < ApplicationController
-  def show
-  end
-
   def new
     @loans = Loan.all
     @loan = Loan.find(params[:loan_id])
     @review = Review.new
   end
+
+  def show
+  end
+
 
   def create
     @review = Review.new(review_params)

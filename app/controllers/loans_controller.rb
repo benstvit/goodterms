@@ -42,10 +42,14 @@ class LoansController < ApplicationController
   end
 
   def update
+
     @loan = Loan.find(params[:id])
     @user = @loan.user
+    if @loan.status == 'pending'
+      @loan = Loan.update(status: 'accepted')
+    else
     @loan = Loan.update(status: 'returned')
-    redirect_to user_path(@user), notice: "Item has been returned"
+    redirect_to new_loan_review_path(@loan)
     # respond_to do |format|
     #   format.html do
     #     @loan.update
