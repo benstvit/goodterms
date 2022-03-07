@@ -1,4 +1,5 @@
 class LoansController < ApplicationController
+
   def index
     @loans = Loan.all
     @review = Review.new
@@ -86,6 +87,7 @@ class LoansController < ApplicationController
         end
       end
   end
+
 
   private
 
