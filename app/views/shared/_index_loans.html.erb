@@ -13,34 +13,43 @@
                   <p><%= "👤 Lent to #{loan.user.first_name}" %></p>
                   <p><%="🎯 #{loan.return_date}" %></p>
                   <p><%= "📝 #{loan.item.description}" %></p>
+                  <p>Rating:</p>
+                  <div class='review'>
+                    <% if loan.user.reviews.length >= 2 %>
+                      <%= '🌟' %>
+                    <% elsif loan.user.reviews.length == 1 %>
+                      <%= '⭐' %>
+                    <% else %>
+                      <%= '😒' %>
+                    <% end %>
+                  </div>
+                </div>
+                <div class="loan-card-item-info-actions d-flex justify-content-between p-5">
                   <div title="Mark as returned" >
                       <button class='return-btn' data-action="click->modal#alert" data-id= "<%= loan.id %>" data-user_id="<%= loan.user %>">
                       ✅</button>
                     </div>
-                  <button class="review-btn btn" title="Give a review">Give a review</button>
+                  <button class="review-btn" title="Give a review">⭐️</button>
                   <div id="myModal" class="modal" data-controller="review">
                     <div class="modal-content">
                       <span class="close">&times;</span>
                       <%= render 'shared/new_review', loan: loan %>
                     </div>
                   </div>
-                </div>
-                <div class="loan-card-item-info-actions">
-                  <%='💌'%>
-                  <%# <%= link_to '🔄', loan_mark_path(loan), method: :patch %> %>
-                  <% if loan.user.reviews.length >= 2 %>
-                    <%= '🌟' %>
-                  <% elsif loan.user.reviews.length == 1 %>
-                    <%= '⭐' %>
-                  <% else %>
-                    <%= '😒' %>
+                  <%= link_to '💌', user_path(loan.user), class: 'return-btn'%>
+                  <% if loan.status == 'pending' %>
+                  <div title="Accept loan" >
+                      <button class='return-btn' data-modal-target='accept' data-action="click->modal#confirm" data-id= "<%= loan.id %>" data-user_id="<%= loan.user %>">
+                      ？</button>
+                    </div>
+                  <%# <%= link_to '？', loan_mark_path(loan), method: :patch %> %>
                   <% end %>
                 </div>
               </div>
             <% else %>
               <div class="card-borrowing">
                 <div class="loan-card-image"><%= cl_image_tag (loan.item.photo.key) %>
-                <button class="review-btn btn" title="Give a review">Give a review</button>
+                <button class="review-btn" title="Give a review">⭐️</button>
                     <div id="myModal" class="modal" data-controller="review">
                       <div class="modal-content">
                         <span class="close">&times;</span>
@@ -53,17 +62,20 @@
                   <p><%="👤 Borrowed from #{loan.item.user.first_name}" %></p>
                   <p><%="🎯 #{loan.return_date}" %></p>
                   <p><%= "📝 #{loan.item.description}" %></p>
+                  <p>Rating:</p>
+                  <div class='review'>
+                    <% if loan.user.reviews.length >= 2 %>
+                      <%= '🌟' %>
+                    <% elsif loan.user.reviews.length == 1 %>
+                      <%= '⭐' %>
+                    <% else %>
+                      <%= '😒' %>
+                    <% end %>
+                  </div>
                 </div>
-                <div class="loan-card-item-info-actions">
-                  <%='💌'%>
+                <div class="loan-card-item-info-actions d-flex justify-content-between p-5">
+                  <%= link_to '💌', user_path(loan.user), class: 'return-btn'%>
                   <%# <%= link_to '🔄', loan_mark_path(loan), method: :patch %> %>
-                  <% if loan.user.reviews.length >= 2 %>
-                    <%= '🌟' %>
-                  <% elsif loan.user.reviews.length == 1 %>
-                    <%= '⭐' %>
-                  <% else %>
-                    <%= '😒' %>
-                  <% end %>
                 </div>
               </div>
             <% end %>
@@ -72,7 +84,7 @@
           <div class="card-odd">
             <% if loan.item.user == current_user %>
               <div class="card-lending" data-modal-target="loan" data-id= "<%= loan.id %>">
-                <div class="loan-card-image"><%= cl_image_tag (loan.item.photo.key) %> <button class="review-btn btn" title="Give a review">Give a review</button>
+                <div class="loan-card-image"><%= cl_image_tag (loan.item.photo.key) %> <button class="review-btn" title="Give a review">⭐️</button>
 
                                                                                         <div id="myModal" class="modal">
                                                                                           <div class="modal-content">
@@ -86,34 +98,37 @@
                   <p><%= "👤 Lent to #{loan.user.first_name}" %></p>
                   <p><%="🎯 #{loan.return_date}" %></p>
                   <p><%= "📝 #{loan.item.description}" %></p>
+                  <p>Rating:</p>
+                  <div class='review'>
+                    <% if loan.user.reviews.length >= 2 %>
+                      <%= '🌟' %>
+                    <% elsif loan.user.reviews.length == 1 %>
+                      <%= '⭐' %>
+                    <% else %>
+                      <%= '😒' %>
+                    <% end %>
+                  </div>
+                </div>
+                <div class="loan-card-item-info-actions d-flex justify-content-between p-5">
                   <div title="Mark as returned" >
                     <%# <%= link_to '✅', loan_path(loan), method: :delete, class: 'text-decoration-none'%>
                       <button class='return-btn' data-action="click->modal#alert" data-id= "<%= loan.id %>" data-user_id="<%= loan.user %>">
                       ✅</button>
                     </div>
-                     <button class="review-btn btn" title="Give a review">Give a review</button>
+                     <button class="review-btn" title="Give a review">⭐️</button>
                     <div id="myModal" class="modal" data-controller="review">
                       <div class="modal-content">
                         <span class="close">&times;</span>
                         <%= render 'shared/new_review', loan: loan %>
                       </div>
                     </div>
-                </div>
-                <div class="loan-card-item-info-actions">
-                  <%='💌'%>
+                  <%= link_to '💌', user_path(loan.user), class: 'return-btn'%>
                   <%# <%= link_to '🔄', loan_mark_path(loan), method: :patch %>
-                  <% if loan.user.reviews.length >= 2 %>
-                    <%= '🌟' %>
-                  <% elsif loan.user.reviews.length == 1 %>
-                    <%= '⭐' %>
-                  <% else %>
-                    <%= '😒' %>
-                  <% end %>
                 </div>
               </div>
             <% else %>
               <div class="card-borrowing">
-                <div class="loan-card-image"><%= cl_image_tag (loan.item.photo.key) %> <button class="review-btn btn" title="Give a review">Give a review</button>
+                <div class="loan-card-image"><%= cl_image_tag (loan.item.photo.key) %> <button class="review-btn" title="Give a review">⭐️</button>
                                                                                          <div id="myModal" class="modal">
                                                                                           <div class="modal-content">
                                                                                             <span class="close">&times;</span>
@@ -126,17 +141,21 @@
                   <p><%="👤 Borrowed from #{loan.item.user.first_name}" %></p>
                   <p><%="🎯 #{loan.return_date}" %></p>
                   <p><%= "📝 #{loan.item.description}" %></p>
+                  <p>Rating:</p>
+                  <div class='review'>
+                    <% if loan.user.reviews.length >= 2 %>
+                      <%= '🌟' %>
+                    <% elsif loan.user.reviews.length == 1 %>
+                      <%= '⭐' %>
+                    <% else %>
+                      <%= '😒' %>
+                    <% end %>
                 </div>
-                <div class="loan-card-item-info-actions">
-                  <%='💌'%>
+                <div class="loan-card-item-info-actions d-flex justify-content-between p-5">
+                  <%= link_to '💌', user_path(loan.user), class: 'return-btn'%>
                   <%# <%= link_to '🔄', loan_mark_path(loan), method: :patch %> %>
-                  <% if loan.user.reviews.length >= 2 %>
-                    <%= '🌟' %>
-                  <% elsif loan.user.reviews.length == 1 %>
-                    <%= '⭐' %>
-                  <% else %>
-                    <%= '😒' %>
-                  <% end %>
+                  <p><%=  %>
+                  </div>
                 </div>
               </div>
             <% end %>
