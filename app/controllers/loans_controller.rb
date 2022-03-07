@@ -1,4 +1,5 @@
 class LoansController < ApplicationController
+
   def index
     @loans = Loan.all
     @review = Review.new
@@ -85,6 +86,7 @@ class LoansController < ApplicationController
     @loan = Loan.find(params[:id])
     @user = @loan.user
   end
+
 
   private
 
