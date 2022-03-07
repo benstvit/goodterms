@@ -1,0 +1,22 @@
+<div class="card-borrowing">
+  <div class="loan-card-image"><%= cl_image_tag (loan.item.photo.key) %></div>
+  <p style="color: white; font-size: 40px;"><%= loan.item.item_name %></p>
+  <div class="loan-card-item-info">
+    <p><%="👤 Borrowed from #{loan.item.user.first_name}" %></p>
+    <p><%="🎯 #{loan.return_date}" %></p>
+    <p><%= "📝 #{loan.item.description}" %></p>
+    <p><%= "Rating:  #{rating(loan)}"%></p>
+  </div>
+  <div class="loan-card-item-info-actions d-flex justify-content-center p-5">
+
+    <button class="review-btn" title="Give a review">⭐️</button>
+    <div id="myModal" class="modal" data-controller="review">
+      <div class="modal-content">
+        <span class="close">&times;</span>
+        <%= render 'shared/new_review', loan: loan %>
+      </div>
+    </div>
+    <%= link_to '💌', user_path(loan.user), class: 'return-btn'%>
+    <%# <%= link_to '🔄', loan_mark_path(loan), method: :patch %>
+  </div>
+</div>
