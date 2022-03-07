@@ -1,4 +1,4 @@
-
-<%= "Borrowers: #{borrowers}" %>
-<br>
-<%= "Lenders: #{lenders}" %>
+<% borrowings = user_borrowings(current_user) %>
+<% borrowings.each do |borrowing| %>
+<%= borrowing.item.item_name %>
+<% end %>
