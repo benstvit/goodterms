@@ -4,6 +4,7 @@ class PagesController < ApplicationController
   def home
     @users = User.all
     @loans = Loan.all
+    @review = Review.new
     @markers = @users.geocoded.map do |user|
       {
         lat: user.latitude,

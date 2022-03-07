@@ -5,7 +5,14 @@
         <div class="card-even">
           <% if loan.item.user == current_user %>
             <div class="card-lending">
-              <div class="loan-card-image"><%= cl_image_tag (loan.item.photo.key) %></div>
+              <div class="loan-card-image"><%= cl_image_tag (loan.item.photo.key) %> <button class="review-btn submit-btns">Mark as Returned</button>
+                                                                                      <div id="myModal" class="modal" data-controller="review">
+                                                                                        <div class="modal-content">
+                                                                                          <span class="close">&times;</span>
+                                                                                          <%= render 'shared/new_review', loan: loan %>
+                                                                                        </div>
+                                                                                      </div>
+              </div>
               <p style="color: white; font-size: 40px;"><%= loan.item.item_name %></p>
               <div class="loan-card-item-info">
                 <p><%= "👤 Lent to #{loan.user.first_name}" %></p>
@@ -23,11 +30,17 @@
                   <%= '😒' %>
                 <% end %>
               </div>
-
             </div>
           <% else %>
             <div class="card-borrowing">
-              <div class="loan-card-image"><%= cl_image_tag (loan.item.photo.key) %></div>
+              <div class="loan-card-image"><%= cl_image_tag (loan.item.photo.key) %> <button class="review-btn submit-btns">Mark as Returned</button>
+                                                                                      <div id="myModal" class="modal">
+                                                                                        <div class="modal-content">
+                                                                                          <span class="close">&times;</span>
+                                                                                          <%= render 'shared/new_review', loan: loan %>
+                                                                                        </div>
+                                                                                      </div>
+              </div>
               <p style="color: white; font-size: 40px;"><%= loan.item.item_name %></p>
               <div class="loan-card-item-info">
                 <p><%="👤 Borrowed from #{loan.item.user.first_name}" %></p>
@@ -45,7 +58,6 @@
                   <%= '😒' %>
                 <% end %>
               </div>
-
             </div>
           <% end %>
         </div>
@@ -53,7 +65,14 @@
         <div class="card-odd">
           <% if loan.item.user == current_user %>
             <div class="card-lending">
-              <div class="loan-card-image"><%= cl_image_tag (loan.item.photo.key) %></div>
+              <div class="loan-card-image"><%= cl_image_tag (loan.item.photo.key) %> <button class="review-btn submit-btns">Mark as Returned</button>
+                                                                                      <div id="myModal" class="modal">
+                                                                                        <div class="modal-content">
+                                                                                          <span class="close">&times;</span>
+                                                                                          <%= render 'shared/new_review', loan: loan %>
+                                                                                        </div>
+                                                                                      </div>
+              </div>
               <p style="color: white; font-size: 40px;"><%= loan.item.item_name %></p>
               <div class="loan-card-item-info">
                 <p><%= "👤 Lent to #{loan.user.first_name}" %></p>
@@ -71,11 +90,17 @@
                   <%= '😒' %>
                 <% end %>
               </div>
-
             </div>
           <% else %>
             <div class="card-borrowing">
-              <div class="loan-card-image"><%= cl_image_tag (loan.item.photo.key) %></div>
+              <div class="loan-card-image"><%= cl_image_tag (loan.item.photo.key) %> <button class="review-btn submit-btns">Mark as Returned</button>
+                                                                                      <div id="myModal" class="modal">
+                                                                                        <div class="modal-content">
+                                                                                          <span class="close">&times;</span>
+                                                                                          <%= render 'shared/new_review', loan: loan %>
+                                                                                        </div>
+                                                                                      </div>
+              </div>
               <p style="color: white; font-size: 40px;"><%= loan.item.item_name %></p>
               <div class="loan-card-item-info">
                 <p><%="👤 Borrowed from #{loan.item.user.first_name}" %></p>
@@ -93,7 +118,6 @@
                   <%= '😒' %>
                 <% end %>
               </div>
-
             </div>
           <% end %>
         </div>
