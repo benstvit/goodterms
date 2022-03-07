@@ -13,8 +13,6 @@ class User < ApplicationRecord
   geocoded_by :location
   after_validation :geocode, if: :will_save_change_to_location?
 
-
-
   def index
     @users = User.all
   end
