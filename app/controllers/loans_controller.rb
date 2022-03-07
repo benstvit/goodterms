@@ -44,7 +44,6 @@ class LoansController < ApplicationController
     @loan = Loan.find(params[:id])
     @user = @loan.user
     @loan = Loan.update(status: 'returned')
-    raise
     redirect_to user_path(@user), notice: "Item has been returned"
     # respond_to do |format|
     #   format.html do
