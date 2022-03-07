@@ -71,6 +71,19 @@ class LoansController < ApplicationController
   end
 
   def destroy
+    @loan = Loan.find(params[:id])
+    @user = @loan.user
+
+    respond_to do |format|
+      format.html do
+        @loan.destroy
+        redirect_to user_path(@user)
+        end
+
+      format.json do
+        @loan.destroy
+        end
+      end
   end
 
   private

@@ -5,7 +5,7 @@
       <% @user.loans.each do |loan| %>
         <% if (current_user == loan.item.user || current_user == loan.user) %>
           <% if loan.item.user == current_user %>
-            <div class="card-lending">
+            <div class="card-lending" data-controller='modal'>
               <div class="loan-card-image"><%= cl_image_tag (loan.item.photo.key) %></div>
               <p style="color: white; font-size: 40px;"><%= loan.item.item_name %></p>
               <div class="loan-card-item-info">
@@ -23,7 +23,11 @@
                 <% else %>
                   <%= '😒' %>
                 <% end %>
-                <span title="Mark as returned"><%= link_to '🔄', loan_mark_path(loan), method: :patch, class: 'text-decoration-none'%></span>
+                <div title="Mark as returned" >
+                <%# <%= link_to '✅', loan_path(loan), method: :delete, class: 'text-decoration-none'%>
+                <button data-action="click->modal#alert" data-modal-target="loan" data-id= "<%= loan.id %>" data-user_id="<%= loan.user %>">
+                ✅</button>
+                </div>
               </div>
               <div class='chatbox'>
                 <% @chatroom = @chatrooms.find(loan.chatroom_id) %>

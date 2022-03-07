@@ -10,6 +10,9 @@
         </li>
       <% end %>
 
+    <div data-navbar-target='borrow'><%= link_to "Borrow an item", loans_borrow_path, class:'borrow-active' %></div>
+    <div data-navbar-target='lend'><%= link_to "Lend an item", new_loan_path, class:'lend-active' %></div>
+
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -29,7 +32,11 @@
             <% end %>
             <% end %>
           <li class="nav-item dropdown">
+          <% if current_user.photo.attached? %>
             <%= cl_image_tag (current_user.photo.key), class: "avatar-large dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+          <% else %>
+            <%= image_tag ('default.png'), class: "avatar-large dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+          <% end %>
             <div class="dropdown-menu dropdown-menu-end bg-secondary bg-gradient rounded-4 p-2" aria-labelledby="navbarDropdown">
               <%= link_to "My messages", "#", class: "dropdown-item navbar-txt" %>
               <%= link_to "Edit profile", edit_user_registration_path, class: "dropdown-item navbar-txt" %>
