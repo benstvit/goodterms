@@ -60,7 +60,7 @@ class LoansController < ApplicationController
     #   format.json do
     #     @loan.update
     #     end
-    #   end
+    end
   end
 
   def new_borrow
