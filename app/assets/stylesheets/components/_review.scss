@@ -14,10 +14,16 @@
 /* Modal Content/Box */
 .modal-content {
   background-color: #fefefe;
-  margin: 15% auto; /* 15% from the top and centered */
-  padding: 20px;
-  border: 1px solid #888;
-  width: 80%; /* Could be more or less, depending on screen size */
+  margin: auto;
+  padding: 15px;
+  margin-top: 10%;
+  box-shadow: 5px 5px 23px 5px rgba(0,0,0,0.63);  /* border: 1px solid #888; */
+  width: 40%;
+  border-radius: 5px;
+  height: 540px;
+  p {
+    font-size: 18px;
+  }
 }
 
 /* The Close Button */
@@ -48,4 +54,30 @@
 
 .loan-card-image:hover .review-btn {
   opacity: 100%;
+}
+
+.modal-btn {
+  background-color: #184E77;
+  border-radius: 50px;
+  color: white;
+  text-decoration: none;
+  padding: 10px 15px;
+  margin-bottom: 10px;
+
+.modal-btn:hover {
+  color: rgba($color: #000000, $alpha: 0.8)!important;
+}
+}
+
+.review-container {
+  height: 400px;
+}
+
+.simple_form select {
+  width: 76px;
+  font-size: 18px;
+  text-align: center;
+  margin: 20px 10px;
+  padding: 4px;
+  border-radius: 5px;
 }

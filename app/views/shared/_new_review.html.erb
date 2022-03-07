@@ -1,4 +1,4 @@
-<div class="item-container">
+<div class="review-container">
   <div class="container">
     <h2>Leave a review:</h2>
 
@@ -13,8 +13,10 @@
       <option value="Yes">Yes</option>
       <option value="No">No</option>
       </select>
-      <%= f.input :comment %>
-      <%= f.submit class:'submit-btns' %>
+    <p>What rating do you want to give <%= loan.user.first_name %>?</p>
+      <p><%= f.collection_radio_buttons :rating, [[1, '1 '] ,[2, '2 '],[3, '3 '],[4, '4 '],[5, '5 ']], :first, :last %></p>
+      <p><%= f.input :comment %></p>
+      <%= f.submit class:'btn btn-outline-dark mb-5' %>
     <% end %>
   </div>
 </div>
