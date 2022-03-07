@@ -61,10 +61,9 @@ export default class extends Controller {
     const findLoan = this.acceptTargets.find(loan => loan.dataset.id === loanId)
 
     swal({
-      title: "Good job!",
-      text: "You clicked the button!",
+      title: "Loan Accepted!",
       icon: "success",
-      button: "Aww yiss!",
+      button: "Back",
     })
 
     .then((willDelete) => {
@@ -79,13 +78,13 @@ export default class extends Controller {
             )
                 .then(() => {
                   findLoan.style.transition = "all 2s"
-                  setTimeout(() => findLoan.remove(), 3000)
+                  setTimeout(() => findLoan.remove(), 200)
                 })
 
                 .catch((err) => {
                     console.log('Error',err)
                 })
-        setTimeout(() => swal.close(), 1000)
+        setTimeout(() => swal.close(), 500)
       }
     })
   }

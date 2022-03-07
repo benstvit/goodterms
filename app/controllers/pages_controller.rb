@@ -2,8 +2,9 @@ class PagesController < ApplicationController
   skip_before_action :authenticate_user!, only: :home
 
   def home
-    @users = User.all
     @loans = Loan.all
+    @user =  user_lendings(current_user)
+    @users = User.where(id: @user.map(&:id))
     @review = Review.new
     @markers = @users.geocoded.map do |user|
       {

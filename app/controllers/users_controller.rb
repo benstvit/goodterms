@@ -6,6 +6,7 @@ class UsersController < ApplicationController
     @items = Item.all
     @chatrooms = Chatroom.all
     @message = Message.new
+    @review = Review.new
   end
 end
 

@@ -30,7 +30,7 @@ class ApplicationController < ActionController::Base
     loans = Loan.all
     user_lendings = []
     loans.each do |loan|
-      user_lendings << loan if loan.item.user == user
+      user_lendings << loan.user if loan.item.user == user
     end
     return user_lendings
   end
@@ -41,8 +41,8 @@ class ApplicationController < ActionController::Base
 
   def rating(loan)
     rating = '🌟' if loan.user.reviews.length >= 2
-    rating = '⭐' if loan.user.reviews.length == 1
-    rating = '😒' if loan.user.reviews.length.zero?
+    rating = '⭐' if loan.user.reviews.length >= 0
+    rating = 'No rating yet 😒' if loan.user.reviews.length.zero?
     return rating
   end
 
