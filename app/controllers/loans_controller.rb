@@ -60,7 +60,6 @@ class LoansController < ApplicationController
     #   format.json do
     #     @loan.update
     #     end
-    end
   end
 
   def new_borrow
@@ -91,7 +90,6 @@ class LoansController < ApplicationController
     @loan = Loan.find(params[:id])
     @user = @loan.user
   end
-
 
   private
 
