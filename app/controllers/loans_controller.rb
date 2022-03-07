@@ -51,7 +51,6 @@ class LoansController < ApplicationController
       @loan = Loan.update(status: 'returned')
       redirect_to new_loan_review_path(@loan)
     end
-
   end
 
   def new_borrow
@@ -82,7 +81,6 @@ class LoansController < ApplicationController
     @loan = Loan.find(params[:id])
     @user = @loan.user
   end
-
 
   private
 
