@@ -11,7 +11,11 @@
 .mapboxgl-popup-content {
   text-align: center;
   font-family: "Open Sans", sans-serif;
-  p {
+  ul {
+    list-style: none;
+    padding: 0px !important;
+  }
+  li {
     font-family: "Oswald", sans-serif !important;
     padding: 0px !important;
   }
