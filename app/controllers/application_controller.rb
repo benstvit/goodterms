@@ -35,6 +35,15 @@ class ApplicationController < ActionController::Base
     return user_lendings
   end
 
+  def user_lending(user)
+    loans = Loan.all
+    user_lendings = []
+    loans.each do |loan|
+      user_lendings << loan.user if loan.item.user == user
+    end
+    return user_lendings
+  end
+
   def user_borrowings(user)
     return Loan.where(user: user)
   end
