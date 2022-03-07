@@ -33,18 +33,29 @@ class LoansController < ApplicationController
   def edit
   end
 
-  def update
+
+  def accept
+    @loan = Loan.find(params[:id])
+    @loan = Loan.update(status: 'accepted')
+    redirect_to root_path, notice: "Request has been accepted"
   end
 
-  def mark
+  def update
     @loan = Loan.find(params[:id])
-    if @loan.status == 'pending'
-      @loan = Loan.update(status: 'accepted')
-      redirect_to root_path, notice: "Request has been accepted"
-    else
-      @loan = Loan.update(status: 'returned')
-      redirect_to new_loan_review_path(@loan), notice: "Item has been returned"
-    end
+    @user = @loan.user
+    @loan = Loan.update(status: 'returned')
+    raise
+    redirect_to user_path(@user), notice: "Item has been returned"
+    # respond_to do |format|
+    #   format.html do
+    #     @loan.update
+    #     redirect_to user_path(@user)
+    #     end
+
+    #   format.json do
+    #     @loan.update
+    #     end
+    #   end
   end
 
   def new_borrow
@@ -74,17 +85,6 @@ class LoansController < ApplicationController
   def destroy
     @loan = Loan.find(params[:id])
     @user = @loan.user
-
-    respond_to do |format|
-      format.html do
-        @loan.destroy
-        redirect_to user_path(@user)
-        end
-
-      format.json do
-        @loan.destroy
-        end
-      end
   end
 
   private

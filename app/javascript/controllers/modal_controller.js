@@ -25,29 +25,52 @@ export default class extends Controller {
 
 
     .then((willDelete) => {
+      console.log(willDelete)
       if (willDelete) {
         fetch(`/loans/${loanId}`,
-                {method: 'delete',
+                {method: 'PATCH',
                     headers:  {
                         "Accept": "application/json"
                     }
                 }
             )
+                .then((result)) => {
+                  let modal = document.getElementById("myModal");
+
+
+                  let span = document.getElementsByClassName("close")[0];
+
+                  document.querySelectorAll(".review-btn").forEach((btn) => {
+                    btn.addEventListener("click", (event) => {
+                      modal.style.display = "block";
+                    });
+                  });
+
+                  span.onclick = function() {
+                    modal.style.display = "none";
+                  }
+
+                  window.onclick = function(event) {
+                    if (event.target == modal) {
+                      modal.style.display = "none";
+                    }
+                  }
+                }
                 .then((result) => {
                   findLoan.style.transition = "all 2s"
-                  // setTimeout(() => findLoan.style.transform = "translateX(-1200px)", 1000)
+                  setTimeout(() => findLoan.style.transform = "translateX(-1200px)", 1000)
                   setTimeout(() => findLoan.remove(), 4000)
                 })
 
                 .catch((err) => {
-                    console.log(err)
+                    console.log('Error',err)
                 })
-        swal("Poof! Your item has been deleted!", {
+        swal("Poof! Your item has been returned!", {
           icon: "success",
         });
         setTimeout(() => swal.close(), 1000)
       } else {
-        swal("Your item is safe!");
+        swal("Return request has been cancelled!");
         setTimeout(() => swal.close(), 1000)
       }
     });
