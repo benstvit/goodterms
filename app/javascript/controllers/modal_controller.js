@@ -42,12 +42,12 @@ export default class extends Controller {
                 .catch((err) => {
                     console.log(err)
                 })
-        swal("Poof! Your item has been deleted!", {
+        swal("Poof! Your item has been returned!", {
           icon: "success",
         });
         setTimeout(() => swal.close(), 1000)
       } else {
-        swal("Your item is safe!");
+        swal("Return request has been cancelled!");
         setTimeout(() => swal.close(), 1000)
       }
     });
