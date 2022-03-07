@@ -84,8 +84,8 @@ export default class extends Controller {
                 .catch((err) => {
                     console.log('Error',err)
                 })
-        setTimeout(() => swal.close(), 500)
-      }
-    })
+              }
+            })
+    setTimeout(() => swal.close(), 1000)
   }
 }

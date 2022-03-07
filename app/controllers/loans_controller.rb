@@ -51,16 +51,7 @@ class LoansController < ApplicationController
       @loan = Loan.update(status: 'returned')
       redirect_to new_loan_review_path(@loan)
     end
-    # respond_to do |format|
-    #   format.html do
-    #     @loan.update
-    #     redirect_to user_path(@user)
-    #     end
 
-    #   format.json do
-    #     @loan.update
-    #     end
-    end
   end
 
   def new_borrow
