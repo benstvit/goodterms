@@ -13,7 +13,6 @@
                   <p><%= "👤 Lent to #{loan.user.first_name}" %></p>
                   <p><%="🎯 #{loan.return_date}" %></p>
                   <p><%= "📝 #{loan.item.description}" %></p>
-                  <p><%="🎯 #{loan.status}" %></p>
                   <p>Rating:</p>
                   <div class='review'>
                     <% if loan.user.reviews.length >= 2 %>
@@ -63,7 +62,6 @@
                   <p><%="👤 Borrowed from #{loan.item.user.first_name}" %></p>
                   <p><%="🎯 #{loan.return_date}" %></p>
                   <p><%= "📝 #{loan.item.description}" %></p>
-                  <p><%="🎯 #{loan.status}" %></p>
                   <p>Rating:</p>
                   <div class='review'>
                     <% if loan.user.reviews.length >= 2 %>
@@ -100,7 +98,6 @@
                   <p><%= "👤 Lent to #{loan.user.first_name}" %></p>
                   <p><%="🎯 #{loan.return_date}" %></p>
                   <p><%= "📝 #{loan.item.description}" %></p>
-                  <p><%="🎯 #{loan.status}" %></p>
                   <p>Rating:</p>
                   <div class='review'>
                     <% if loan.user.reviews.length >= 2 %>
@@ -144,7 +141,6 @@
                   <p><%="👤 Borrowed from #{loan.item.user.first_name}" %></p>
                   <p><%="🎯 #{loan.return_date}" %></p>
                   <p><%= "📝 #{loan.item.description}" %></p>
-                  <p><%="🎯 #{loan.status}" %></p>
                   <p>Rating:</p>
                   <div class='review'>
                     <% if loan.user.reviews.length >= 2 %>
