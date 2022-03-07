@@ -3,42 +3,45 @@
   <div class="dashboard-container">
     <div class="loan-index" data-controller='modal'>
       <% @user.loans.each do |loan| %>
-        <% if (current_user == loan.item.user || current_user == loan.user) %>
-          <% if loan.item.user == current_user %>
-            <div class="card-lending" data-modal-target="loan" data-id= "<%= loan.id %>" >
-              <div class="loan-card-image"><%= cl_image_tag (loan.item.photo.key) %></div>
-              <p style="color: white; font-size: 40px;"><%= loan.item.item_name %></p>
-              <div class="loan-card-item-info">
-                <p>Lent</p>
-                <p><%="🎯 #{loan.return_date}" %></p>
-                <p><%= "📝 #{loan.item.description}" %></p>
+
+       <% unless loan.status === 'returned' %>
+          <% if (current_user == loan.item.user || current_user == loan.user) %>
+            <% if loan.item.user == current_user %>
+              <div class="card-lending" data-modal-target="loan" data-id= "<%= loan.id %>" >
+                <div class="loan-card-image"><%= cl_image_tag (loan.item.photo.key) %></div>
+                <p style="color: white; font-size: 40px;"><%= loan.item.item_name %></p>
+                <div class="loan-card-item-info">
+                  <p>Lent</p>
+                  <p><%="🎯 #{loan.return_date}" %></p>
+                  <p><%= "📝 #{loan.item.description}" %></p>
+                </div>
+                <div class="loan-card-item-info-actions">
+                  <%='💌'%>
+                  <%='🔄'%>
+                  <% if loan.user.reviews.length >= 2 %>
+                    <%= '🌟' %>
+                  <% elsif loan.user.reviews.length == 1 %>
+                    <%= '⭐' %>
+                  <% else %>
+                    <%= '😒' %>
+                  <% end %>
+                  <% unless loan.status == 'returned' %>
+                    <div title="Mark as returned" >
+                    <%# <%= link_to '✅', loan_path(loan), method: :delete, class: 'text-decoration-none'%>
+                      <button class='return-btn' data-action="click->modal#alert" data-id= "<%= loan.id %>" data-user_id="<%= loan.user %>">
+                      ✅</button>
+                    </div>
+                  <% end %>
+                </div>
+                <div class='chatbox'>
+                  <% @chatroom = @chatrooms.find(loan.chatroom_id) %>
+                  <%= render 'chatrooms/show', chatroom: @chatroom, message: @message, user: @user %>
+                </div>
               </div>
-              <div class="loan-card-item-info-actions">
-                <%='💌'%>
-                <%='🔄'%>
-                <% if loan.user.reviews.length >= 2 %>
-                  <%= '🌟' %>
-                <% elsif loan.user.reviews.length == 1 %>
-                  <%= '⭐' %>
-                <% else %>
-                  <%= '😒' %>
-                <% end %>
-                <% unless loan.status == 'returned' %>
-                  <div title="Mark as returned" >
-                  <%# <%= link_to '✅', loan_path(loan), method: :delete, class: 'text-decoration-none'%>
-                    <button data-action="click->modal#alert" data-id= "<%= loan.id %>" data-user_id="<%= loan.user %>">
-                    ✅</button>
-                  </div>
-                <% end %>
-              </div>
-              <div class='chatbox'>
-                <% @chatroom = @chatrooms.find(loan.chatroom_id) %>
-                <%= render 'chatrooms/show', chatroom: @chatroom, message: @message, user: @user %>
-              </div>
-            </div>
+            <% end %>
           <% end %>
-        <% end %>
       <% end %>
+    <% end %>
       <% @loans.each do |loan| %>
           <% if (loan.item.user == @user && loan.user == current_user) %>
             <div class="card-borrowing">
