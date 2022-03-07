@@ -38,7 +38,8 @@
             <%= image_tag ('default.png'), class: "avatar-large dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
           <% end %>
             <div class="dropdown-menu dropdown-menu-end bg-secondary bg-gradient rounded-4 p-2" aria-labelledby="navbarDropdown">
-              <%= link_to "My messages", "#", class: "dropdown-item navbar-txt" %>
+              <a href="#friends" class="dropdown-item navbar-tx">Friends</a>
+              <a href="#map" class="dropdown-item navbar-tx">Map</a>
               <%= link_to "Edit profile", edit_user_registration_path, class: "dropdown-item navbar-txt" %>
               <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item navbar-txt" %>
             </div>
