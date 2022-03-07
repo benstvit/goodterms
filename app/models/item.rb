@@ -1,6 +1,7 @@
 class Item < ApplicationRecord
   belongs_to :user
   has_many :loans
+  has_many :users, through: :loans
   validates :item_name, :description, presence: true
   after_commit :add_default_photo, on: [:create, :update]
   has_one_attached :photo
