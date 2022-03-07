@@ -1,6 +1,6 @@
 .modal {
-  display: none; /* Hidden by default */
-  position: fixed; /* Stay in place */
+  // display: none; /* Hidden by default */
+  // position: fixed; /* Stay in place */
   z-index: 1; /* Sit on top */
   left: 0;
   top: 0;
@@ -36,9 +36,14 @@
 }
 
 .review-btn {
-  opacity: 0%;
-  position: relative;
-  top: -150px;
+  border: none;
+  text-decoration: none;
+  border-radius: 50%;
+  background-color: transparent;
+}
+
+.review-btn:hover{
+  transform: scale(1.5, 1.5);
 }
 
 .loan-card-image:hover .review-btn {
