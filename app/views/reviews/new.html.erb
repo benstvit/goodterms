@@ -1,7 +1,7 @@
-<div class="item-container">
   <div class="container">
-    <h2>Leave a review:</h2>
 
+    <div class="form-container text-center">
+    <h2>Leave a review:</h2>
     <%= simple_form_for [ @loan, @review ] do |f| %>
       <p>Was you item retuned in a good condition?</p>
       <select name="condition" id="condition">
@@ -14,9 +14,7 @@
       <option value="No">No</option>
       </select>
       <%= f.input :comment %>
-      <%= f.submit class:'submit-btns' %>
+      <%= f.submit class:'btn submit-btns text-center' %>
     <% end %>
   </div>
-  <i class="fa-regular fa-hand-spock"></i>
-  <i class="fa-solid fa-hand-spock"></i>
 </div>

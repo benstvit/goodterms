@@ -10,6 +10,7 @@
   }
   .loans-per-user{
 
+
     .user-card{
       margin: 20px;
       width: 300px;
@@ -41,10 +42,16 @@
           padding: 20px;
         }
       }
+
+
     }
   }
 }
 
+.user-card:hover {
+    transform: scale(0.98, 0.98);
+    box-shadow: 5px 5px 30px 15px rgba(0,0,0,0.20), -5px -5px 30px 15px rgba(0,0,0,0.15);
+  }
 
 
 
