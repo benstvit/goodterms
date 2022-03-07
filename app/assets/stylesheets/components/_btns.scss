@@ -99,5 +99,15 @@
 .submit-txt:hover {
   color: rgba($color: #000000, $alpha: 0.8)!important;
 }
+}
 
+.return-btn {
+  border: none;
+  text-decoration: none;
+  border-radius: 50%;
+  background-color: transparent;
+}
+
+.return-btn:hover{
+  transform: scale(1.5, 1.5);
 }

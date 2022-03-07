@@ -34,41 +34,21 @@ export default class extends Controller {
                     }
                 }
             )
-                .then((result)) => {
-                  let modal = document.getElementById("myModal");
-
-
-                  let span = document.getElementsByClassName("close")[0];
-
-                  document.querySelectorAll(".review-btn").forEach((btn) => {
-                    btn.addEventListener("click", (event) => {
-                      modal.style.display = "block";
-                    });
-                  });
-
-                  span.onclick = function() {
-                    modal.style.display = "none";
-                  }
-
-                  window.onclick = function(event) {
-                    if (event.target == modal) {
-                      modal.style.display = "none";
-                    }
-                  }
-                }
                 .then((result) => {
                   findLoan.style.transition = "all 2s"
-                  setTimeout(() => findLoan.style.transform = "translateX(-1200px)", 1000)
-                  setTimeout(() => findLoan.remove(), 4000)
+                  setTimeout(() => findLoan.style.transform = "translateX(1200px)", 800)
+                  setTimeout(() => findLoan.remove(), 3000)
                 })
 
                 .catch((err) => {
                     console.log('Error',err)
                 })
-        swal("Poof! Your item has been returned!", {
+        swal("Please give now a quick review for your experience !", {
           icon: "success",
         });
         setTimeout(() => swal.close(), 1000)
+
+        .then
       } else {
         swal("Return request has been cancelled!");
         setTimeout(() => swal.close(), 1000)
