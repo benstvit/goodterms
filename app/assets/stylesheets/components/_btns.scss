@@ -18,10 +18,10 @@
 .borrow-active {
   border-radius: 61px;
   border: 1px rgb(0, 0, 0) solid;
-  color: rgb(0, 0, 0);
+  color: rgb(0, 0, 0)!important;
   text-decoration: none;
   padding: 20px 30px;
-  background-color: rgba($color: $green, $alpha: 0.8);
+  // background-color: rgba($color: white, $alpha: 0);
   text-transform: uppercase;
 }
 
@@ -50,7 +50,17 @@
 }
 
 .lend-active {
-  background-color: rgba($color: $green, $alpha: 0.8);
+  // background-color: rgba($color: white, $alpha: 0.9);
+  border: 1px rgba(0, 0, 0, 1) solid;
+  border-radius: 61px;
+  color: rgb(0, 0, 0)!important;
+  text-decoration: none;
+  padding: 20px 30px;
+  text-transform: uppercase;
+}
+
+.lend-active:hover {
+  background-color: rgba($color: white, $alpha: 0.8);
   border: 1px rgba(0, 0, 0, 1) solid;
   border-radius: 61px;
   color: rgb(0, 0, 0);
@@ -59,11 +69,14 @@
   text-transform: uppercase;
 }
 
-.isDisabled {
-  color: currentColor;
-  cursor: not-allowed;
-  opacity: 0.5;
+.borrow-active:hover {
+  background-color: rgba($color: white, $alpha: 0.8);
+  border: 1px rgba(0, 0, 0, 1) solid;
+  border-radius: 61px;
+  color: rgb(0, 0, 0);
   text-decoration: none;
+  padding: 20px 30px;
+  text-transform: uppercase;
 }
 
 .submit-btns {

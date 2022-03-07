@@ -6,7 +6,6 @@ export default class extends Controller {
   connect() {
     this.borrowTarget.style.visibility = "hidden"
     this.lendTarget.style.visibility = "hidden"
-
   }
 
   updateNavbar() {
