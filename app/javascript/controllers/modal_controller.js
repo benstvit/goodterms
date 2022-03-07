@@ -34,21 +34,21 @@ export default class extends Controller {
                     }
                 }
             )
-                .then((result) => {
+                .then(() => {
                   findLoan.style.transition = "all 2s"
                   setTimeout(() => findLoan.style.transform = "translateX(1200px)", 800)
                   setTimeout(() => findLoan.remove(), 3000)
                 })
+
 
                 .catch((err) => {
                     console.log('Error',err)
                 })
         swal("Please give now a quick review for your experience !", {
           icon: "success",
-        });
-        setTimeout(() => swal.close(), 1000)
+        })
 
-        .then
+        setTimeout(() => swal.close(), 1000)
       } else {
         swal("Return request has been cancelled!");
         setTimeout(() => swal.close(), 1000)
