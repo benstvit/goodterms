@@ -13,6 +13,7 @@ export default class extends Controller {
     const loanId = event.currentTarget.dataset.id
     const findLoan = this.loanTargets.find(loan => loan.dataset.id === loanId)
 
+    console.log(findLoan)
     swal({
       title: "Mark this item as returned ?",
       text: "Once marked as returned, there is no going back!",
@@ -35,7 +36,7 @@ export default class extends Controller {
             )
                 .then(() => {
                   findLoan.style.transition = "all 2s"
-                  setTimeout(() => findLoan.style.transform = "translateX(1200px)", 800)
+                  setTimeout(() => findLoan.style.transform = "translateX(2000px)", 800)
                   setTimeout(() => findLoan.remove(), 3000)
                 })
 
@@ -66,26 +67,24 @@ export default class extends Controller {
       button: "Back",
     })
 
-    .then((willDelete) => {
-      console.log(willDelete)
-      if (willDelete) {
-        fetch(`/loans/${loanId}`,
-                {method: 'PATCH',
-                    headers:  {
-                        "Accept": "application/json"
-                    }
-                }
-            )
-                .then(() => {
-                  findLoan.style.transition = "all 2s"
-                  setTimeout(() => findLoan.remove(), 200)
-                })
+    .then(() => {
+      fetch(`/loans/${loanId}`,
+              {method: 'PATCH',
+                  headers:  {
+                      "Accept": "application/json"
+                  }
+              }
+          )
+          .then(() => {
+            findLoan.style.transition = "all 2s"
+            setTimeout(() => findLoan.remove(), 200)
+          })
 
-                .catch((err) => {
-                    console.log('Error',err)
-                })
-        setTimeout(() => swal.close(), 500)
-      }
-    })
+          .catch((err) => {
+              console.log('Error',err)
+          })
+
+            })
+    setTimeout(() => swal.close(), 2000)
   }
 }

@@ -3,7 +3,7 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   has_many :items
   has_many :loans
-  has_many :reviews
+  has_many :reviews, dependent: :destroy
   has_many :messages
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
@@ -12,8 +12,6 @@ class User < ApplicationRecord
   after_commit :add_default_photo, on: [:create, :update]
   geocoded_by :location
   after_validation :geocode, if: :will_save_change_to_location?
-
-
 
   def index
     @users = User.all
