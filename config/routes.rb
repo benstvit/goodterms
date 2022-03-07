@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   resources :items
   get "/dashboard", to: "pages#dashboard", as: :dashboard
   # patch '/loans/:id', to: 'loans#mark'
-  # match "/loans/:id/mark", to: "loans#mark", via: [:patch, :get], as: :loan_mark
+  match "/loans/:id/mark", to: "loans#mark", via: [:patch, :get], as: :loan_mark
   get "/loans/borrow", to: "loans#new_borrow"
   post "/loans/borrow", to: "loans#borrow"
   get "/loans/lenders", to: "loans#lenders"

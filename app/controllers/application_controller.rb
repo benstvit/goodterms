@@ -29,19 +29,10 @@ class ApplicationController < ActionController::Base
     loans = Loan.all
     user_lendings = []
     loans.each do |loan|
-      user_lendings << loan if loan.item.user == user
+      user_lendings << loan.user if loan.item.user == user
     end
     return user_lendings
   end
-
-  # def user_items(user)
-  #   user = User.all
-  #   user_items = []
-  #   user.each do |user|
-  #     user_items << user if user.item.user == user
-  #   end
-  #   return user_items
-  # end
 
   def user_borrowings(user)
     return Loan.where(user: user)
