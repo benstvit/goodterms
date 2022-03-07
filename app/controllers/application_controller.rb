@@ -29,7 +29,7 @@ class ApplicationController < ActionController::Base
     loans = Loan.all
     user_lendings = []
     loans.each do |loan|
-      user_lendings << loan if loan.item.user == user
+      user_lendings << loan.user if loan.item.user == user
     end
     return user_lendings
   end
