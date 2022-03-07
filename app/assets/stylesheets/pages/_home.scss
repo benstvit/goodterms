@@ -1,4 +1,7 @@
 // Specific CSS for your home-page
+html {
+  scroll-behavior: smooth;
+}
 .lend-container {
   // z-index: -1;
   background-image: linear-gradient(rgba(255, 255, 255, 0.2), rgba(0, 0, 0, 0.2)),
@@ -85,6 +88,7 @@
 
   }
 }
+
 // .introduction {
 //   top: 657px;
 //   height: 100%;
