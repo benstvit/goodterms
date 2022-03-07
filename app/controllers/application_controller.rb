@@ -17,6 +17,7 @@ class ApplicationController < ActionController::Base
 
   def borrowers
     loans = Loan.all
+    @review = Review.new
     borrowers = []
     loans.each do |loan|
       borrower = loan.user
@@ -38,7 +39,14 @@ class ApplicationController < ActionController::Base
     return Loan.where(user: user)
   end
 
-  helper_method :borrowers, :lenders, :user_lendings, :user_borrowings
+  def rating(loan)
+    rating = '🌟' if loan.user.reviews.length >= 2
+    rating = '⭐' if loan.user.reviews.length == 1
+    rating = '😒' if loan.user.reviews.length.zero?
+    return rating
+  end
+
+  helper_method :borrowers, :lenders, :user_lendings, :user_borrowings, :rating
 
 
   protected

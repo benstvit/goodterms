@@ -1,1 +1,30 @@
-<%= lenders %>
+<div class="loan-index" data-controller='modal'>
+  <% lendings = user_lendings(current_user) %>
+  <% lendings.each do |loan| %>
+    <% unless loan.status == 'returned' %>
+      <% if loan.id % 2 == 0  %>
+        <div class="card-even">
+          <%= render '/shared/card_lending', loan: loan %>
+        </div>
+      <% else %>
+        <div class="card-odd">
+          <%= render '/shared/card_lending', loan: loan %>
+        </div>
+      <% end %>
+    <% end %>
+  <% end %>
+  <% borrowings = user_borrowings(current_user) %>
+  <% borrowings.each do |loan| %>
+    <% unless loan.status == 'returned' %>
+      <% if loan.id % 2 == 0 %>
+        <div class="card-even">
+          <%= render '/shared/card_borrowing', loan: loan %>
+        </div>
+      <% else %>
+        <div class="card-odd">
+          <%= render '/shared/card_borrowing', loan: loan %>
+        </div>
+      <% end %>
+    <% end %>
+  <% end %>
+</div>
