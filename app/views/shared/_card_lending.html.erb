@@ -1,4 +1,4 @@
-<div class="card-lending" data-modal-target="loan" data-id= "<%= loan.id %>">
+<div class="card-lending" data-modal-target="loan" data-id="<%= loan.id %>">
   <div class="loan-card-image"><%= cl_image_tag (loan.item.photo.key) %></div>
   <p style="color: white; font-size: 40px;"><%= loan.item.item_name %></p>
   <div class="loan-card-item-info">
@@ -7,7 +7,7 @@
     <p><%= "📝 #{loan.item.description}" %></p>
     <p><%= "Rating:  #{rating(loan)}"%></p>
   </div>
-  <div class="loan-card-item-info-actions d-flex justify-content-center p-5">
+  <div class="loan-card-item-info-actions d-flex justify-content-between p-5" >
     <button class="review-btn" title="Give a review">⭐️</button>
     <div id="myModal" class="modal" data-controller="review">
       <div class="modal-content">
@@ -19,7 +19,7 @@
     <% if loan.status == 'pending' %>
       <button title="Accept loan" class='return-btn' data-modal-target='accept' data-action="click->modal#confirm" data-id= "<%= loan.id %>" data-user_id="<%= loan.user %>">？</button>
     <% else %>
-      <button title="Mark as returned" class='return-btn' data-action="click->modal#alert" data-id= "<%= loan.id %>" data-user_id="<%= loan.user %>">✅</button>
+      <button title="Mark as returned" class='return-btn' data-action="click->modal#alert" data-id= "<%= loan.id%>  data-user_id="<%= loan.user %>">✅</button>
     <% end %>
   </div>
 </div>
