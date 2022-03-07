@@ -59,11 +59,9 @@ export default class extends Controller {
 
     const loanId = event.currentTarget.dataset.id
     const findLoan = this.acceptTargets.find(loan => loan.dataset.id === loanId)
-    const userName = this.acceptTargets.find(loan.dataset.user_id)
 
     swal({
       title: "Loan Accepted!",
-      text: `Contact ${userName} when you want your item back!`,
       icon: "success",
       button: "Back",
     })
@@ -86,7 +84,7 @@ export default class extends Controller {
                 .catch((err) => {
                     console.log('Error',err)
                 })
-        setTimeout(() => swal.close(), 1000)
+        setTimeout(() => swal.close(), 500)
       }
     })
   }
