@@ -6,19 +6,27 @@
   height: 100vh;
   margin: 0 auto;
   padding: 40px;
+
   a{
     text-decoration: none;
   }
+
   .loans-per-user{
+    p {
+      color: white;
+    };
+
     .user-card{
       margin: 20px;
       width: 300px;
       height: 300px;
       border-radius: 10px;
       border: 5px white solid;
-      p {
+      .rating {
         color: white;
+        font-size: 18px;
       }
+
       .lent{
         padding: 40px 150px 0 0;
         p{
