@@ -2,26 +2,24 @@ import { Controller } from "@hotwired/stimulus"
 import swal from 'sweetalert';
 
 export default class extends Controller {
-  static targets = ['loan', 'accept', 'review', 'reviewBtn', 'close']
+  static targets = ['loan', 'accept', 'review']
 
   connect() {
     console.log("The 'sweetalert' controller is now loaded!")
-    console.log(this.reviewTargets)
-    console.log(this.reviewBtnTargets)
 
   }
 
   launchReview(){
-    this.reviewOpen()
+    this.reviewTargets.forEach(element => {
+      element.setAttribute("style", "display: block;");
+    });
   }
 
-  reviewOpen() {
-    console.log("The modal has been opened!");
-  // document.body.classList.add("modal-open");
-  // this.element.setAttribute("style", "display: block;");
-  // this.element.classList.add("show");
-  // document.body.innerHTML += '<div class="modal-backdrop fade show"></div>';
-}
+  close() {
+    this.reviewTargets.forEach(element => {
+      element.removeAttribute("style");
+    });
+  }
 
   alert(event) {
     const loanId = event.currentTarget.dataset.id

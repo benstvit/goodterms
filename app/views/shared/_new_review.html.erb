@@ -3,7 +3,11 @@
     <h2>Leave a review:</h2>
 
     <%= simple_form_for [ loan, @review ] do |f| %>
-      <p>How good was your experience with <%= loan.item.user.first_name %>?</p>
+      <% if loan.item.user != current_user %>
+        <p>How good was your experience with <%= loan.item.user.first_name %>?</p>
+      <% else %>
+        <p>How good was your experience with <%= loan.user.first_name %>?</p>
+      <% end %>
       <p><%= f.collection_radio_buttons :rating, [[1, '1'] ,[2, '2'],[3, '3'],[4, '4'],[5, '5']], :first, :last %></p>
       <p><%= f.input :comment %></p>
       <%= f.submit class:'btn btn-outline-dark mb-5' %>

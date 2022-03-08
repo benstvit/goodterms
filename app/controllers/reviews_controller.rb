@@ -13,7 +13,7 @@ class ReviewsController < ApplicationController
     @review = Review.new(review_params)
     @loan = Loan.find(params[:loan_id])
     @review.loan = @loan
-    @review.user = @loan.user
+    @review.user = @loan.item.user
     @review.save
     redirect_to root_path
   end
@@ -24,6 +24,6 @@ class ReviewsController < ApplicationController
   private
 
   def review_params
-    params.require(:review).permit(:comment, :raiting)
+    params.require(:review).permit(:comment, :rating)
   end
 end
