@@ -9,8 +9,10 @@ class ApplicationController < ActionController::Base
     # @borrowers = borrowers
     lenders = []
     loans.each do |loan|
-      lender = loan.item.user
-      lenders << lender
+      unless loan.status == 'returned'
+        lender = loan.item.user
+        lenders << lender
+      end
     end
     return lenders
   end
@@ -20,8 +22,10 @@ class ApplicationController < ActionController::Base
     @review = Review.new
     borrowers = []
     loans.each do |loan|
-      borrower = loan.user
-      borrowers << borrower
+      unless loan.status == 'returned'
+        borrower = loan.user
+        borrowers << borrower
+      end
     end
     return borrowers
   end
