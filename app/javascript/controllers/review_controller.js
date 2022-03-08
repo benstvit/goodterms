@@ -1,27 +1,18 @@
 import { Controller } from "@hotwired/stimulus"
 
 export default class extends Controller {
-  connect() {
-    let modal = document.getElementById("myModal");
-
-
-    let span = document.getElementsByClassName("close")[0];
-
-    document.querySelectorAll(".review-btn").forEach((btn) => {
-      btn.addEventListener("click", (event) => {
-        modal.style.display = "block";
-      });
-    });
-
-    span.onclick = function() {
-      modal.style.display = "none";
-    }
-
-    window.onclick = function(event) {
-      if (event.target == modal) {
-        modal.style.display = "none";
-      }
-    }
-
+  open() {
+      console.log("The modal has been opened!");
+    // document.body.classList.add("modal-open");
+    // this.element.setAttribute("style", "display: block;");
+    // this.element.classList.add("show");
+    // document.body.innerHTML += '<div class="modal-backdrop fade show"></div>';
   }
+
+  close() {
+      document.body.classList.remove("modal-open");
+      this.element.removeAttribute("style");
+      this.element.classList.remove("show");
+      document.getElementsByClassName("modal-backdrop")[0].remove();
   }
+}

@@ -3,7 +3,7 @@ class PagesController < ApplicationController
 
   def home
     @loans = Loan.all
-    @user =  user_lending(current_user)
+    @user =  users_lent_to(current_user)
     @users = User.where(id: @user.map(&:id))
     @review = Review.new
     @markers = @users.geocoded.map do |user|

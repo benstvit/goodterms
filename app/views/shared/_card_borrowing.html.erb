@@ -9,11 +9,12 @@
   </div>
   <div class="loan-card-item-info-actions d-flex justify-content-center p-5">
 
-    <button class="review-btn" title="Give a review">⭐️</button>
-    <div id="myModal" class="modal" data-controller="review">
+    <button class="review-btn" title="Give a review" data-action='click->modal#launchReview'>⭐️</button>
+    <div class="modal" data-modal-target='review'>
       <div class="modal-content">
-        <span class="close">&times;</span>
-        <%= render 'shared/new_review', loan: loan %>
+        <span class="close" data-action='click->modal#close'>&times;</span>
+
+        <%= render 'shared/new_review_borrower', loan: loan %>
       </div>
     </div>
     <%= link_to '💌', user_path(loan.user), class: 'return-btn'%>
