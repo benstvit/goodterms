@@ -37,18 +37,13 @@
 
 <% if current_user.present?%>
   <div id="innerlink">
-    <% @loans.each do |loan| %>
-      <% if (current_user == loan.item.user || current_user == loan.user) %>
-        <% @current_user_borrows_or_lends = true%>
-      <% end %>
-    <% end %>
-    <% if @current_user_borrows_or_lends %>
+    <% if (lenders.include?(current_user) || borrowers.include?(current_user)) %>
       <div id="innerlink"><%= render 'shared/index_loans', loans: @loans %></div>
-      <div id="friends"><%= render 'shared/loans_index', users: @users %></div>
+      <div id="friends"><%= render 'shared/index_user_loans', users: @users %></div>
       <div id="map"><%= render 'shared/mapbox', loans: @loans %></div>
     <% end %>
-<br>
-<br>
-<br>
+  <br>
+  <br>
+  <br>
   </div>
 <% end %>

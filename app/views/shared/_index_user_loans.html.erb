@@ -1,0 +1,18 @@
+<div class="container loans-user">
+  <% @users = User.where.not(id: current_user) %>
+  <% @users.each do |user|  %>
+    <% if lenders.include?(user) || borrowers.include?(user) %>
+      <div class="loans-per-user">
+        <%= link_to user_path(user), :action => 'go' do %>
+          <div class="user-card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path user.photo.key, width: 300, height: 300, crop: :fill %>')">
+            <%# <div class='card-img'><%= cl_image_tag (user.photo.key), style: 'width:100px'</div> %>
+            <div class="lent"><p><%= "Borrowed: #{lendings_with_current_user(user).count}" %></p></div>
+            <div class="borrowed"><p><%= "Lent: #{borrowings_with_current_user(user).count }" %></p></div>
+            <div class="user-name"><p><%= user.first_name %> <%= user.last_name %></p></div>
+            <div class="rating"><%= rating(user_lendings(user).first)%></div>
+          </div>
+        <% end %>
+      </div>
+    <% end %>
+  <% end %>
+</div>

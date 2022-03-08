@@ -30,22 +30,51 @@ class ApplicationController < ActionController::Base
     loans = Loan.all
     user_lendings = []
     loans.each do |loan|
-      user_lendings << loan if loan.item.user == user
+      unless loan.status == 'returned'
+        user_lendings << loan if loan.item.user == user
+      end
     end
     return user_lendings
+  end
+
+  def lendings_with_current_user(user)
+    lendings = user_lendings(user)
+    lendings_with_current_user = []
+    lendings.each do |lending|
+      lendings_with_current_user << lending if lending.user == current_user
+    end
+    return lendings_with_current_user
   end
 
   def user_lending(user)
     loans = Loan.all
     user_lendings = []
     loans.each do |loan|
-      user_lendings << loan.user if loan.item.user == user
+      unless loan.status == 'returned'
+        user_lendings << loan.user if loan.item.user == user
+      end
     end
     return user_lendings
   end
 
   def user_borrowings(user)
-    return Loan.where(user: user)
+    loans = Loan.all
+    user_borrowings = []
+    loans.each do |loan|
+      unless loan.status == 'returned'
+        user_borrowings << loan if loan.user == user
+      end
+    end
+    return user_borrowings
+  end
+
+  def borrowings_with_current_user(user)
+    borrowings = user_borrowings(user)
+    borrowings_with_current_user = []
+    borrowings.each do |borrowing|
+      borrowings_with_current_user << borrowing if borrowing.item.user == current_user
+    end
+    return borrowings_with_current_user
   end
 
   def rating(loan)
@@ -55,7 +84,7 @@ class ApplicationController < ActionController::Base
     return rating
   end
 
-  helper_method :borrowers, :lenders, :user_lendings, :user_borrowings, :rating
+  helper_method :borrowers, :lenders, :user_lendings, :user_borrowings, :rating, :lendings_with_current_user, :borrowings_with_current_user
 
 
   protected
