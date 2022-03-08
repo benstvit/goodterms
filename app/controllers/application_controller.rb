@@ -35,7 +35,7 @@ class ApplicationController < ActionController::Base
     return user_lendings
   end
 
-  def user_lending(user)
+  def users_lent_to(user)
     loans = Loan.all
     user_lendings = []
     loans.each do |loan|

@@ -2,11 +2,23 @@ import { Controller } from "@hotwired/stimulus"
 import swal from 'sweetalert';
 
 export default class extends Controller {
-  static targets = ['loan', 'accept']
+  static targets = ['loan', 'accept', 'review']
 
   connect() {
     console.log("The 'sweetalert' controller is now loaded!")
 
+  }
+
+  launchReview(){
+    this.reviewTargets.forEach(element => {
+      element.setAttribute("style", "display: block;");
+    });
+  }
+
+  close() {
+    this.reviewTargets.forEach(element => {
+      element.removeAttribute("style");
+    });
   }
 
   alert(event) {
