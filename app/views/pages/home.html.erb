@@ -45,7 +45,6 @@
     <% if @current_user_borrows_or_lends %>
       <div id="innerlink"><%= render 'shared/index_loans', loans: @loans %></div>
       <div id="friends"><%= render 'shared/loans_index', users: @users %></div>
-      <%= render 'shared/new_loan_mesg', loans: @loans %>
       <div id="map"><%= render 'shared/mapbox', loans: @loans %></div>
     <% end %>
 <br>

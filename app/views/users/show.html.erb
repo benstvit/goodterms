@@ -5,7 +5,7 @@
         <% unless loan.status == 'returned' %>
           <% if (current_user == loan.item.user || current_user == loan.user) %>
             <% if loan.item.user == current_user %>
-              <div class="card-lending" data-controller='modal'>
+              <div class="card-lending" data-controller='modal' data-id= "<%= loan.id %>" data-modal-target='loan' >
                 <div class="loan-card-image"><%= cl_image_tag (loan.item.photo.key) %></div>
                 <p style="color: white; font-size: 40px;"><%= loan.item.item_name %></p>
                 <div class="loan-card-item-info">
@@ -51,7 +51,9 @@
             <% end %>
           <% end %>
         <% end %>
+      <% end %>
         <% @loans.each do |loan| %>
+         <% unless loan.status == 'returned' %>
             <% if (loan.item.user == @user && loan.user == current_user) %>
               <div class="card-borrowing">
                 <div class="loan-card-image"><%= cl_image_tag (loan.item.photo.key) %></div>
@@ -87,7 +89,7 @@
               </div>
           <% end %>
         <% end %>
-    <% end %>
+      <% end %>
   </div>
  </div>
     <div class="review-summary">
