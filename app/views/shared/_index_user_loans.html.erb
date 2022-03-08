@@ -9,7 +9,11 @@
             <div class="lent"><p><%= "Borrowed: #{lendings_with_current_user(user).count}" %></p></div>
             <div class="borrowed"><p><%= "Lent: #{borrowings_with_current_user(user).count }" %></p></div>
             <div class="user-name"><p><%= user.first_name %> <%= user.last_name %></p></div>
-            <div class="rating"><%= rating(user_lendings(user).first)%></div>
+            <% if lenders.include?(user) %>
+              <div class="rating"><%= rating(user_lendings(user).first)%></div>
+            <% else %>
+              <div class="rating"><%= rating(user_borrowings(user).first)%></div>
+            <% end %>
           </div>
         <% end %>
       </div>
