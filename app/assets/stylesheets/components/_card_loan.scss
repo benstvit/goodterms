@@ -50,7 +50,7 @@
         position: absolute;
         top: 0;
         right: 0;
-        width: 360px ;
+        width: 100% ;
         height: inherit;
         align-items: flex-start;
         opacity: 0%;
@@ -107,7 +107,7 @@
       position: absolute;
       top: 0;
       right: 0;
-      width: 360px;
+      width: 100%;
       height: inherit;
       align-items: flex-start;
       opacity: 0%;
@@ -133,7 +133,7 @@
     .card-borrowing{
       border-radius: 10px;
       background-color: $borrowing;
-      height: inherit!important;
+      height: inherit;
       .loan-card-image{
         height: 330px;
         border-radius: 5px;
@@ -164,7 +164,7 @@
         position: absolute;
         top: 0;
         right: 0;
-        width: 360px;
+        width: 100%;
         height: inherit;
         align-items: flex-start;
         opacity: 0%;
@@ -219,7 +219,7 @@
         position: absolute;
         top: 0;
         right: 0;
-        width: 360px;
+        width: 100%;
         height: inherit;
         align-items: flex-start;
         opacity: 0%;
