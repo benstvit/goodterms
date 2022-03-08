@@ -4,11 +4,11 @@
     <% lendings.each do |loan| %>
       <% unless loan.status == 'returned' %>
         <% if loan.id % 2 == 0  %>
-          <div class="card-even">
+          <div class="card-even-lending">
             <%= render '/shared/card_lending', loan: loan %>
           </div>
         <% else %>
-          <div class="card-odd">
+          <div class="card-odd-lending">
             <%= render '/shared/card_lending', loan: loan %>
           </div>
         <% end %>
@@ -18,11 +18,11 @@
     <% borrowings.each do |loan| %>
       <% unless loan.status == 'returned' %>
         <% if loan.id % 2 == 0 %>
-          <div class="card-even">
+          <div class="card-even-borrowing">
             <%= render '/shared/card_borrowing', loan: loan %>
           </div>
         <% else %>
-          <div class="card-odd">
+          <div class="card-odd-borrowing">
             <%= render '/shared/card_borrowing', loan: loan %>
           </div>
         <% end %>
