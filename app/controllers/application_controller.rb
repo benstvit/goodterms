@@ -51,7 +51,7 @@ class ApplicationController < ActionController::Base
   def rating(loan)
     rating = '🌟' if loan.user.reviews.length >= 2
     rating = '⭐' if loan.user.reviews.length >= 0
-    rating = 'No rating yet 😒' if loan.user.reviews.length.zero?
+    rating = 'No rating yet' if loan.user.reviews.length.zero?
     return rating
   end
 

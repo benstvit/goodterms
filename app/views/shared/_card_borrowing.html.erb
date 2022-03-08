@@ -2,9 +2,11 @@
   <div class="loan-card-image"><%= cl_image_tag (loan.item.photo.key) %></div>
   <p style="color: white; font-size: 40px;"><%= loan.item.item_name %></p>
   <div class="loan-card-item-info">
-    <p><%="👤 Borrowed from #{loan.item.user.first_name} - #{rating(loan)}" %></p>
+    <p><%="👤 Borrowed from #{loan.item.user.first_name}"%></p>
+    <p><%= "#{rating(loan)}" %></p>
     <p><%="🎯 #{loan.return_date}" %></p>
-    <p><%= "📝 #{loan.item.description}" %></p>
+    <p>📝</p>
+    <p class='quote'><em><%="\"#{loan.item.description}\"" %><em></p>
   </div>
   <div class="loan-card-item-info-actions d-flex justify-content-between p-5">
 

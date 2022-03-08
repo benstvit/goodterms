@@ -3,6 +3,7 @@
     <% @counter_lent = 0 %>
     <% @counter_borrowed = 0 %>
     <% user.loans.each do |loan| %>
+    <% @rating = rating(loan) %>
   <% unless loan.status == 'returned' %>
       <% if loan.item.user.last_name == current_user.last_name %>
         <% @counter_lent += 1 %>
@@ -25,6 +26,8 @@
           <div class="lent"><p><%= "Borrowed: #{@counter_borrowed}" %></p></div>
           <div class="borrowed"><p><%= "Lent: #{@counter_lent}" %></p></div>
           <div class="user-name"><p><%= user.first_name %> <%= user.last_name %></p></div>
+          <p><%= "#{@rating}" %></p>
+
         </div>
       <% end %>
     </div>

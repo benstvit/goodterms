@@ -6,22 +6,22 @@
   width: 100%;
   height: 100%;
   margin: 20px 20px 20px;
-  padding: 20px;
+  // padding: 100px;
 
   .card-odd-lending{
     display: block;
     height: 640px;
     width: 360px;
     margin:120px 0 20px;
-    border-radius: 5px;
-    background-color: $lending;
+    border-radius: 10px;
     position: relative;
     .card-lending{
+      background-color: $lending;
       .loan-card-image{
         height: 330px;
         border-radius: 5px;
         img{
-          border-radius: 5px;
+          border-radius: 10px;
           object-fit: cover;
           overflow: hidden;
           height: 100%;
@@ -34,20 +34,25 @@
       .loan-card-item-info{
         color: black;
         font-size: 28px;
-        text-align: left;
-        padding-left: 20px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        flex-wrap: wrap;
+        p {
+          font-size: 18px;
+        }
       }
 
       .loan-card-item-info-actions{
         position: absolute;
         top: 0;
         right: 0;
-        width: 100%;
-        height: 100%;
+        width: 360px ;
+        height: 620px ;
         align-items: flex-start;
         opacity: 0%;
         font-size: 28px;
-        border-radius: 5px;
+        border-radius: 10px;
         &:hover{
           background-color: rgba(0, 0, 0, 0.33);
           opacity: 100%;
@@ -55,20 +60,21 @@
         }
       }
     }
+
   .card-even-lending{
     display: block;
     height: 640px;
     width: 360px;
     margin:20px 0 20px;
-    border-radius: 5px;
-    background-color: $lending;
+    border-radius: 10px;
     position: relative;
     .card-lending{
+      background-color: $lending;
       .loan-card-image{
         height: 330px;
         border-radius: 5px;
         img{
-          border-radius: 5px;
+          border-radius: 10px;
           object-fit: cover;
           overflow: hidden;
           height: 100%;
@@ -81,20 +87,25 @@
       .loan-card-item-info{
         color: black;
         font-size: 28px;
-        text-align: left;
-        padding-left: 20px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        flex-wrap: wrap;
+        p {
+          font-size: 18px;
+        }
       }
 
     .loan-card-item-info-actions{
       position: absolute;
       top: 0;
       right: 0;
-      width: 100%;
-      height: 100%;
+      width: 360px;
+      height: 620px;
       align-items: flex-start;
       opacity: 0%;
       font-size: 28px;
-      border-radius: 5px;
+      border-radius: 10px;
       &:hover{
         background-color: rgba(0, 0, 0, 0.33);
         opacity: 100%;
@@ -108,15 +119,15 @@
     height: 640px;
     width: 360px;
     margin:120px 0 20px;
-    border-radius: 5px;
-    background-color: $borrowing;
+    border-radius: 10px;
     position: relative;
     .card-borrowing{
+      background-color: $borrowing;
       .loan-card-image{
         height: 330px;
         border-radius: 5px;
         img{
-          border-radius: 5px;
+          border-radius: 10px;
           object-fit: cover;
           overflow: hidden;
           height: 100%;
@@ -129,20 +140,27 @@
       .loan-card-item-info{
         color: black;
         font-size: 28px;
-        text-align: left;
-        padding-left: 20px;
+        // text-align: left;
+        // padding-left: 20px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        flex-wrap: wrap;
+        p {
+          font-size: 18px;
+        }
       }
 
       .loan-card-item-info-actions{
         position: absolute;
         top: 0;
         right: 0;
-        width: 100%;
-        height: 100%;
+        width: 360px;
+        height: 620px;
         align-items: flex-start;
         opacity: 0%;
         font-size: 28px;
-        border-radius: 5px;
+        border-radius: 10px;
         &:hover{
           background-color: rgba(0, 0, 0, 0.33);
           opacity: 100%;
@@ -155,15 +173,15 @@
     height: 640px;
     width: 360px;
     margin:20px 0 20px;
-    border-radius: 5px;
-    background-color: $borrowing;
+    border-radius: 10px;
     position: relative;
     .card-borrowing{
+      background-color: $borrowing;
       .loan-card-image{
         height: 330px;
         border-radius: 5px;
         img{
-          border-radius: 5px;
+          border-radius: 10px;
           object-fit: cover;
           overflow: hidden;
           height: 100%;
@@ -176,25 +194,30 @@
       .loan-card-item-info{
         color: black;
         font-size: 28px;
-        text-align: left;
-        padding-left: 20px;
-      }
-
-    .loan-card-item-info-actions{
-      position: absolute;
-      top: 0;
-      right: 0;
-      width: 100%;
-      height: 100%;
-      align-items: flex-start;
-      opacity: 0%;
-      font-size: 28px;
-      border-radius: 5px;
-      &:hover{
-        background-color: rgba(0, 0, 0, 0.33);
-        opacity: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        flex-wrap: wrap;
+        p {
+          font-size: 18px;
         }
       }
-    }
+
+      .loan-card-item-info-actions{
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 360px;
+        height: 620px;
+        align-items: flex-start;
+        opacity: 0%;
+        font-size: 28px;
+        border-radius: 10px;
+        &:hover{
+          background-color: rgba(0, 0, 0, 0.33);
+          opacity: 100%;
+          }
+        }
+      }
   }
 }
