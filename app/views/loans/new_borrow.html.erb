@@ -5,7 +5,7 @@
       <%= simple_fields_for :item do |i| %>
         <%= i.input :item_name %>
         <%= i.input :description %>
-        <%= i.input :user_id, collection: User.all, label: "Lender", label_method: :first_name, value_method: :id, include_blank: false %>
+        <%= i.input :user_id, collection: User.where.not(id: current_user), label: "Lender", :label_method => :full_name, value_method: :id, include_blank: false %>
       <% end %>
       <%= f.input :photo, as: :file %>
       <%= f.input :loan_date %>
