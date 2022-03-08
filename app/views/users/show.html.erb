@@ -50,14 +50,14 @@
         <% end %>
       <% end %>
   </div>
- </div>
-    <div class="review-summary">
+  <div class="review-summary">
     <p style="color: dark; font-size: 40px;">Reviews for <%= @user.first_name %></p>
     <ul style="list-style-type: none">
       <% if @user.reviews.present? %>
         <%  @user.reviews.each do |review| %>
           <li>"<%= review.comment %>" from <%= review.loan.user.first_name %></li>
         <% end %>
-        </ul>
+      <% end %>
+    </ul>
   </div>
 </div>
