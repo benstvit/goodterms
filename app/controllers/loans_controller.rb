@@ -37,17 +37,17 @@ class LoansController < ApplicationController
 
   def mark
     @loan = Loan.find(params[:id])
-    @loan = Loan.update(status: 'accepted')
+    @loan.update(status: 'accepted')
     redirect_to root_path, notice: "Request has been accepted"
   end
 
   def update
     @loan = Loan.find(params[:id])
-    @user = @loan.user
+    # @user = @loan.user
     if @loan.status == 'pending'
-      @loan = Loan.update(status: 'accepted')
+      @loan.update(status: 'accepted')
     else
-      @loan = Loan.update(status: 'returned')
+      @loan.update(status: 'returned')
     end
   end
 

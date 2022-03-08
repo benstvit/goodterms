@@ -1,9 +1,10 @@
 .loan-index{
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
   border-top: solid;
-  border-color: grey;
+  flex-wrap: wrap;
+  // border-color: grey;
   // flex-wrap: wrap;
   gap: 20px;
   width: 100%;
