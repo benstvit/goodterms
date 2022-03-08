@@ -16,7 +16,6 @@
         <%= render 'shared/new_review', loan: loan %>
       </div>
     </div>
-    <%= link_to '💌', user_path(loan.user), class: 'return-btn'%>
-    <%# <%= link_to '🔄', loan_mark_path(loan), method: :patch %>
+    <%= link_to '💌', user_path(loan.item.user), class: 'return-btn'%>
   </div>
 </div>

@@ -1,102 +1,106 @@
 <div class= "user-show-container">
   <h1>Your historic with: <%= @user.first_name %> <%= @user.last_name %> </h1>
-  <div class="dashboard-container">
     <div class="loan-index">
       <% @user.loans.each do |loan| %>
-        <% if (current_user == loan.item.user || current_user == loan.user) %>
-          <% if loan.item.user == current_user %>
-            <div class="card-lending" data-controller='modal'>
-              <div class="loan-card-image"><%= cl_image_tag (loan.item.photo.key) %></div>
-              <p style="color: white; font-size: 40px;"><%= loan.item.item_name %></p>
-              <div class="loan-card-item-info">
-                  <p><%= "👤 Lent to #{loan.user.first_name}" %></p>
-                  <p><%="🎯 #{loan.return_date}" %></p>
-                  <p><%= "📝 #{loan.item.description}" %></p>
-                  <p>Rating:</p>
-                  <div class='review'>
-                    <% if loan.user.reviews.length >= 2 %>
-                      <%= '🌟' %>
-                    <% elsif loan.user.reviews.length >= 0 %>
-                      <%= '⭐' %>
-                    <% else %>
-                      <%= 'No rating yet 😒' %>
-                    <% end %>
+        <% unless loan.status == 'returned' %>
+          <% if (current_user == loan.item.user || current_user == loan.user) %>
+            <% if loan.item.user == current_user %>
+              <div class="card-lending" data-controller='modal' data-id= "<%= loan.id %>" data-modal-target='loan' >
+                <div class="loan-card-image"><%= cl_image_tag (loan.item.photo.key) %></div>
+                <p style="color: white; font-size: 40px;"><%= loan.item.item_name %></p>
+                <div class="loan-card-item-info">
+                    <p><%= "👤 Lent to #{loan.user.first_name}" %></p>
+                    <p><%="🎯 #{loan.return_date}" %></p>
+                    <p><%= "📝 #{loan.item.description}" %></p>
+                    <p>Rating:</p>
+                    <div class='review'>
+                      <% if loan.user.reviews.length >= 2 %>
+                        <%= '🌟' %>
+                      <% elsif loan.user.reviews.length >= 0 %>
+                        <%= '⭐' %>
+                      <% else %>
+                        <%= 'No rating yet 😒' %>
+                      <% end %>
+                    </div>
                   </div>
+                  <div class="loan-card-item-info-actions d-flex justify-content-between p-5">
+                      <button class="review-btn" title="Give a review">⭐️</button>
+                      <div id="myModal" class="modal" data-controller="review">
+                        <div class="modal-content">
+                          <span class="close">&times;</span>
+                          <%= render 'shared/new_review', loan: loan %>
+                        </div>
+                      </div>
+                    <% if loan.status == 'pending' %>
+                      <div title="Accept loan" >
+                          <button class='return-btn' data-modal-target='accept' data-action="click->modal#confirm" data-id= "<%= loan.id %>" data-user_id="<%= loan.user %>">
+                          ？</button>
+                      </div>
+                    <% else %>
+                      <div title="Mark as returned" >
+                          <button class='return-btn' data-action="click->modal#alert" data-id= "<%= loan.id %>" data-user_id="<%= loan.user %>">
+                          ✅</button>
+                        </div>
+                    <% end %>
                 </div>
-                <div class="loan-card-item-info-actions d-flex justify-content-between p-5">
-                     <button class="review-btn" title="Give a review">⭐️</button>
-                    <div id="myModal" class="modal" data-controller="review">
-                      <div class="modal-content">
-                        <span class="close">&times;</span>
-                        <%= render 'shared/new_review', loan: loan %>
-                      </div>
-                    </div>
-                  <% if loan.status == 'pending' %>
-                    <div title="Accept loan" >
-                        <button class='return-btn' data-modal-target='accept' data-action="click->modal#confirm" data-id= "<%= loan.id %>" data-user_id="<%= loan.user %>">
-                        ？</button>
-                    </div>
-                  <% else %>
-                    <div title="Mark as returned" >
-                        <button class='return-btn' data-action="click->modal#alert" data-id= "<%= loan.id %>" data-user_id="<%= loan.user %>">
-                        ✅</button>
-                      </div>
-                  <% end %>
+                  <div class='chatbox'>
+                    <% @chatroom = @chatrooms.find(loan.chatroom_id) %>
+                    <%= render 'chatrooms/show', chatroom: @chatroom, message: @message, user: @user %>
+                  </div>
               </div>
-                <div class='chatbox'>
-                  <% @chatroom = @chatrooms.find(loan.chatroom_id) %>
-                  <%= render 'chatrooms/show', chatroom: @chatroom, message: @message, user: @user %>
-                </div>
-            </div>
+            <% end %>
           <% end %>
         <% end %>
       <% end %>
-      <% @loans.each do |loan| %>
-          <% if (loan.item.user == @user && loan.user == current_user) %>
-            <div class="card-borrowing">
-              <div class="loan-card-image"><%= cl_image_tag (loan.item.photo.key) %></div>
-              <p style="color: white; font-size: 40px;"><%= loan.item.item_name %></p>
-              <div class="loan-card-item-info">
-                  <p><%= "👤 Borrowed from #{loan.user.first_name}" %></p>
-                  <p><%="🎯 #{loan.return_date}" %></p>
-                  <p><%= "📝 #{loan.item.description}" %></p>
-                  <p>Rating:</p>
-                  <div class='review'>
-                    <% if loan.user.reviews.length >= 2 %>
-                      <%= '🌟' %>
-                    <% elsif loan.user.reviews.length >= 0 %>
-                      <%= '⭐' %>
-                    <% else %>
-                      <%= 'No rating yet 😒' %>
-                    <% end %>
-                  </div>
-                </div>
-                <div class="loan-card-item-info-actions d-flex justify-content-center p-5">
-                    <button class="review-btn" title="Give a review">⭐️</button>
-                    <div id="myModal" class="modal" data-controller="review">
-                      <div class="modal-content">
-                        <span class="close">&times;</span>
-                        <%= render 'shared/new_review', loan: loan %>
-                      </div>
+        <% @loans.each do |loan| %>
+         <% unless loan.status == 'returned' %>
+            <% if (loan.item.user == @user && loan.user == current_user) %>
+              <div class="card-borrowing">
+                <div class="loan-card-image"><%= cl_image_tag (loan.item.photo.key) %></div>
+                <p style="color: white; font-size: 40px;"><%= loan.item.item_name %></p>
+                <div class="loan-card-item-info">
+                    <p><%= "👤 Borrowed from #{loan.user.first_name}" %></p>
+                    <p><%="🎯 #{loan.return_date}" %></p>
+                    <p><%= "📝 #{loan.item.description}" %></p>
+                    <p>Rating:</p>
+                    <div class='review'>
+                      <% if loan.user.reviews.length >= 2 %>
+                        <%= '🌟' %>
+                      <% elsif loan.user.reviews.length >= 0 %>
+                        <%= '⭐' %>
+                      <% else %>
+                        <%= 'No rating yet 😒' %>
+                      <% end %>
                     </div>
-                </div>
-                <div class='chatbox'>
-                  <% @chatroom = @chatrooms.find(loan.chatroom_id) %>
-                  <%= render 'chatrooms/show', chatroom: @chatroom, message: @message, user: @user %>
-                </div>
-            </div>
+                  </div>
+                  <div class="loan-card-item-info-actions d-flex justify-content-center p-5">
+                      <button class="review-btn" title="Give a review">⭐️</button>
+                      <div id="myModal" class="modal" data-controller="review">
+                        <div class="modal-content">
+                          <span class="close">&times;</span>
+                          <%= render 'shared/new_review', loan: loan %>
+                        </div>
+                      </div>
+                  </div>
+                  <div class='chatbox'>
+                    <% @chatroom = @chatrooms.find(loan.chatroom_id) %>
+                    <%= render 'chatrooms/show', chatroom: @chatroom, message: @message, user: @user %>
+                  </div>
+              </div>
           <% end %>
+        <% end %>
       <% end %>
-    </div>
   </div>
-<p style="color: white; font-size: 40px;">Reviews for <%= @user.first_name %></p>
-<ul style="list-style-type: none">
-  <% if @user.reviews.present? %>
-    <%  @user.reviews.each do |review| %>
-      <li>"<%= review.comment %>" from <%= review.loan.item.user.first_name %></li>
-    <% end %>
-  <% else %>
-    <li>The user has no reviews...</li>
-  <% end %>
-</ul>
+ </div>
+    <div class="review-summary">
+    <p style="color: dark; font-size: 40px;">Reviews for <%= @user.first_name %></p>
+    <ul style="list-style-type: none">
+      <% if @user.reviews.present? %>
+        <%  @user.reviews.each do |review| %>
+          <li>"<%= review.comment %>" from <%= review.loan.item.user.first_name %></li>
+        <% end %>
+      <% else %>
+        <li>The user has no reviews...</li>
+      <% end %>
+      </ul>
 </div>

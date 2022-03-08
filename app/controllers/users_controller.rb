@@ -9,5 +9,3 @@ class UsersController < ApplicationController
     @review = Review.new
   end
 end
-
-# Loan.all.where(loan.user == @user || loan.item.user == @user)
