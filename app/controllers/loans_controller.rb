@@ -57,6 +57,13 @@ class LoansController < ApplicationController
   end
 
   def borrow
+    @user = User.find(params[:id])
+    @loans = Loan.all
+    # @items = @user.items
+    @items = Item.all
+    @chatrooms = Chatroom.all
+    @message = Message.new
+    @review = Review.new
     @item = Item.new(item_params)
     # @item.user_id = @item.user
     # @item.user_id = current_user[:id]
