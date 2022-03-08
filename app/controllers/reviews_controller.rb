@@ -15,7 +15,6 @@ class ReviewsController < ApplicationController
     @review.loan = @loan
     @review.user = @loan.user
     @review.save
-    raise
     redirect_to root_path
   end
 
