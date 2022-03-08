@@ -39,7 +39,6 @@ export default class extends Controller {
 
 
     .then((willDelete) => {
-      console.log(willDelete)
       if (willDelete) {
         fetch(`/loans/${loanId}`,
                 {method: 'PATCH',
@@ -90,6 +89,7 @@ export default class extends Controller {
               }
           )
           .then(() => {
+            console.log('LoanID: ',loanId)
             findLoan.style.transition = "all 2s"
             setTimeout(() => findLoan.remove(), 200)
           })

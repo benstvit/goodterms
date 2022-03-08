@@ -17,6 +17,10 @@ class User < ApplicationRecord
     @users = User.all
   end
 
+  def full_name
+    "#{first_name} #{last_name}"
+  end
+
   private
 
   def add_default_photo
