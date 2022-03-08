@@ -4,13 +4,14 @@
   color: rgb(0, 0, 0);
   text-decoration: none;
   padding: 20px 30px;
+  background-color: rgba($color: white, $alpha: 0.8);
   text-transform: uppercase;
 }
 
 
 .borrow-btns:hover {
   color: rgba($color: #000000, $alpha: 0.8)!important;
-  background-color: $borrowing!important;
+  background-color: transparent;
   // background-color: rgba($color: #ffffff, $alpha: 0.7)
 }
 
@@ -36,7 +37,7 @@
 
 .lend-btns:hover {
   color: rgba($color: #000000, $alpha: 0.8)!important;
-  background-color: $lending!important;
+  background-color: rgba($color: white, $alpha: 0.8);
   // background-color: rgba($color: #ffffff, $alpha: 0.9)!important;
 }
 
