@@ -5,7 +5,7 @@
 <% end %>
   <div class="loan-card-image"><%= cl_image_tag (loan.item.photo.key) %>
     <% if loan.return_date - Date.today < 5 && loan.return_date - Date.today > 0 %>
-      <div class="nearly-due"><p><%= "Nearly due!" %></p></div>
+      <div class="nearly-due"><p><%= "Nearly due" %></p></div>
     <% end %>
     <% if loan.return_date - Date.today < 0 %>
       <div class="overdue"><p><%= "Overdue!" %></p></div>
