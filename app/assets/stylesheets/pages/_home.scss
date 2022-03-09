@@ -36,12 +36,13 @@ html {
   .introduction-step-1{
     padding: 0px;
     height: 250px;
-
     .odd-number{
+      padding-left: 20px;
 
       text-align: left;
     }
     .odd-text{
+      padding-left: 20px;
       text-align: right;
       font-size: 30px;
       color: white;
@@ -55,10 +56,12 @@ html {
   .introduction-step-2{
     height: 250px;
     .even-number{
+      padding-right: 20px;
       text-align: right;
       // margin: 0 -500px 0 0;
     }
     .even-text{
+      padding-right: 20px;
       text-align: left;
       font-size: 30px;
       color: white;
@@ -74,10 +77,12 @@ html {
     position: relative;
 
     .odd-number{
+      padding-left: 20px;
       text-align: left;
       // margin-bottom: 16px;
     }
     .odd-text{
+      padding-left: 20px;
       text-align: right;
       font-size: 30px;
       color: white;
