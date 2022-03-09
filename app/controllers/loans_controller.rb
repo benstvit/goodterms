@@ -22,6 +22,7 @@ class LoansController < ApplicationController
     @item.save
     @chatroom = Chatroom.create
     @loan = Loan.new(loan_params)
+    @loan.loan_date = Date.today
     @loan.item = @item
     @loan.chatroom = @chatroom
     if @loan.save
@@ -66,6 +67,7 @@ class LoansController < ApplicationController
     @chatroom = Chatroom.create
     @loan = Loan.new(loan_params)
     @loan.user = current_user
+    @loan.loan_date = Date.today
     @loan.item = @item
     @loan.chatroom = @chatroom
     if @loan.save
@@ -87,6 +89,6 @@ class LoansController < ApplicationController
   end
 
   def loan_params
-    params.require(:loan).permit(:loan_date, :return_date, :status, :user_id)
+    params.require(:loan).permit( :return_date, :status, :user_id)
   end
 end

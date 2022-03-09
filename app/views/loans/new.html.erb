@@ -1,17 +1,16 @@
 
 <div class="form-container">
-<h2>Tell us more about your item !</h2>
+<h2>What are you lending?</h2>
   <%= simple_form_for [ @loan ] do |f| %>
       <%= simple_fields_for :item do |i| %>
-        <%= i.input :item_name %>
-        <%= i.input :description %>
+        <%= i.input :item_name, label: "Lended itme" %>
+        <%= i.input :description, label: "Tell us more about that lended item" %>
       <% end %>
       <%= f.input :photo, as: :file %>
       <%# <%= f.association :user, label: "Borrower", label_method: :first_name, value_method: :id, include_blank: false %>
-      <%= f.input :user_id, collection: User.where.not(id: current_user), label: "Borrower", :label_method => :full_name, value_method: :id, include_blank: false %>
-      <%= f.input :loan_date %>
-      <%= f.input :return_date %>
-      <%= f.submit "Let me lend this!", class: "btn submit-btns" %>
+      <%= f.input :user_id, collection: User.where.not(id: current_user), label: "Who's the borrower?", :label_method => :full_name, value_method: :id, include_blank: false %>
+      <%= f.input :return_date, label: "When is it due?" %>
+      <%= f.submit "Lend this!", class: "btn submit-btns" %>
   <% end %>
 
 </div>
