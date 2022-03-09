@@ -3,7 +3,14 @@
 <% else %>
 <div class="card-borrowing" data-controller='modal' data-modal-target="loan" data-id="<%= loan.id %>">
 <% end %>
-  <div class="loan-card-image"><%= cl_image_tag (loan.item.photo.key) %></div>
+  <div class="loan-card-image"><%= cl_image_tag (loan.item.photo.key) %>
+    <% if loan.return_date - Date.today < 5 && loan.return_date - Date.today > 0 %>
+      <div class="nearly-due"><p><%= "Nearly due" %></p></div>
+    <% end %>
+    <% if loan.return_date - Date.today < 0 %>
+      <div class="overdue"><p><%= "Overdue!" %></p></div>
+    <% end %>
+  </div>
   <p style="color: white; font-size: 40px;"><%= loan.item.item_name %></p>
   <div class="loan-card-item-info">
     <p><%="👤 Borrowed from #{loan.item.user.first_name}"%></p>
