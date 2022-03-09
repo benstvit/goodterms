@@ -5,8 +5,6 @@ export default class extends Controller {
   static targets = ['loan', 'accept', 'review']
 
   connect() {
-    console.log("The 'sweetalert' controller is now loaded!")
-
   }
 
   launchReview(){
