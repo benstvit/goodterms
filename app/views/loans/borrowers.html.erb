@@ -1,0 +1,6 @@
+<% loans = Loan.all %>
+<% loans.each do |loan| %>
+  <% loan.user.reviews.each do |review| %>
+    <% review %>
+  <% end %>
+<% end %>
