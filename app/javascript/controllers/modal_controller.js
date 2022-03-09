@@ -85,7 +85,7 @@ export default class extends Controller {
               }
           )
           .then(() => {
-            console.log('LoanID: ',loanId)
+            // console.log('LoanID: ',loanId)
             findLoan.style.transition = "all 2s"
             setTimeout(() => findLoan.remove(), 200)
           })
