@@ -6,11 +6,11 @@
       <% unless loan.status == 'returned' %>
       <% count += 1 %>
         <% if count % 2 == 0  %>
-          <div class="card-even-lending">
+          <div class="card-even-lending" data-controller='modal' data-modal-target="loan" data-id="<%= loan.id %>">
             <%= render '/shared/card_lending', loan: loan %>
           </div>
         <% else %>
-          <div class="card-odd-lending">
+          <div class="card-odd-lending" data-controller='modal' data-modal-target="loan" data-id="<%= loan.id %>">
             <%= render '/shared/card_lending', loan: loan %>
           </div>
         <% end %>
@@ -22,11 +22,11 @@
       <% unless loan.status == 'returned' %>
       <% count += 1 %>
         <% if count % 2 == 0 %>
-          <div class="card-even-borrowing">
+          <div class="card-even-borrowing" data-controller='modal' data-modal-target="loan" data-id="<%= loan.id %>">
             <%= render '/shared/card_borrowing', loan: loan %>
           </div>
         <% else %>
-          <div class="card-odd-borrowing">
+          <div class="card-odd-borrowing" data-controller='modal' data-modal-target="loan" data-id="<%= loan.id %>">
             <%= render '/shared/card_borrowing', loan: loan %>
           </div>
         <% end %>
