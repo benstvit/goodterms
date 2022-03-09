@@ -20,9 +20,40 @@
       border-radius: 10px;
       background-color: $lending;
       height: inherit;
+      .nearly-due{
+        position: absolute;
+        top: 150px;
+        left:0;
+        padding: 0;
+        width: 130px;
+        z-index: 100;
+        background-color: rgb(251, 188, 70);
+        border-radius: 0 50px 50px 0;
+        p{
+          color: white;
+          font-size: 20px;
+          margin: 5px;
+        }
+      }
+      .overdue{
+        position: absolute;
+        top: 150px;
+        left:0;
+        padding: 0;
+        width: 130px;
+        z-index: 100;
+        background-color: rgb(151, 4, 4);
+        border-radius: 0 50px 50px 0;
+        p{
+          color: white;
+          font-size: 20px;
+          margin: 5px;
+        }
+      }
       .loan-card-image{
         height: 330px;
         border-radius: 5px;
+        display:block;
         img{
           border-radius: 10px;
           object-fit: cover;
@@ -77,6 +108,36 @@
       border-radius: 10px;
       background-color: $lending;
       height: inherit;
+      .nearly-due{
+        position: absolute;
+        top: 150px;
+        left:0;
+        padding: 0;
+        width: 130px;
+        z-index: 100;
+        background-color: rgb(251, 188, 70);
+        border-radius: 0 50px 50px 0;
+        p{
+          color: white;
+          font-size: 20px;
+          margin: 5px;
+        }
+      }
+      .overdue{
+        position: absolute;
+        top: 150px;
+        left:0;
+        padding: 0;
+        width: 130px;
+        z-index: 100;
+        background-color: rgb(151, 4, 4);
+        border-radius: 0 50px 50px 0;
+        p{
+          color: white;
+          font-size: 20px;
+          margin: 5px;
+        }
+      }
       .loan-card-image{
         height: 330px;
         border-radius: 5px;
@@ -144,6 +205,36 @@
       border-radius: 10px;
       background-color: $borrowing;
       height: inherit;
+      .nearly-due{
+        position: absolute;
+        top: 150px;
+        left:0;
+        padding: 0;
+        width: 130px;
+        z-index: 100;
+        background-color: rgb(251, 188, 70);
+        border-radius: 0 50px 50px 0;
+        p{
+          color: white;
+          font-size: 20px;
+          margin: 5px;
+        }
+      }
+      .overdue{
+        position: absolute;
+        top: 150px;
+        left:0;
+        padding: 0;
+        width: 130px;
+        z-index: 100;
+        background-color: rgb(151, 4, 4);
+        border-radius: 0 50px 50px 0;
+        p{
+          color: white;
+          font-size: 20px;
+          margin: 5px;
+        }
+      }
       .loan-card-image{
         height: 330px;
         border-radius: 5px;
@@ -201,6 +292,36 @@
       border-radius: 10px;
       background-color: $borrowing;
       height: inherit;
+      .nearly-due{
+        position: absolute;
+        top: 150px;
+        left:0;
+        padding: 0;
+        width: 130px;
+        z-index: 100;
+        background-color: rgb(251, 188, 70);
+        border-radius: 0 50px 50px 0;
+        p{
+          color: white;
+          font-size: 20px;
+          margin: 5px;
+        }
+      }
+      .overdue{
+        position: absolute;
+        top: 150px;
+        left:0;
+        padding: 0;
+        width: 130px;
+        z-index: 100;
+        background-color: rgb(151, 4, 4);
+        border-radius: 0 50px 50px 0;
+        p{
+          color: white;
+          font-size: 20px;
+          margin: 5px;
+        }
+      }
       .loan-card-image{
         height: 330px;
         border-radius: 5px;
@@ -214,6 +335,7 @@
           justify-content: center;
           clip-path: polygon(0 0, 252% 0, 119% 103%, 0 80%);
         }
+
       }
       .loan-card-item-info{
         color: black;

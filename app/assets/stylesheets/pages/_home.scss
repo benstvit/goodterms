@@ -107,4 +107,12 @@ html {
     color: black!important;
     padding: 20px;
   }
+  a{
+    text-decoration: none!important;
+    border: none!important;
+    color: black!important;
+    &:hover{
+      border: none!important;
+    }
+  }
 }
