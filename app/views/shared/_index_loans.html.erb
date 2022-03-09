@@ -17,6 +17,7 @@
       <% end %>
     <% end %>
     <% borrowings = user_borrowings(current_user) %>
+    <% count = 0 %>
     <% borrowings.each do |loan| %>
       <% unless loan.status == 'returned' %>
       <% count += 1 %>

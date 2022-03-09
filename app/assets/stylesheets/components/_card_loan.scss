@@ -120,6 +120,16 @@
       }
     }
   }
+}
+
+.loan-index{
+  display: flex;
+  justify-content: center!important;
+  align-items: center;
+  gap: 20px;
+  width: 100%;
+  height: 100%;
+  margin: 20px 20px 20px;
 
   .card-odd-borrowing{
     display: block;
@@ -153,7 +163,7 @@
         font-size: 28px;
         display: flex;
         flex-direction: column;
-        justify-content: center;
+        align-items: center;
         flex-wrap: wrap;
         p {
           font-size: 18px;
@@ -164,7 +174,7 @@
         position: absolute;
         top: 0;
         right: 0;
-        width: 100%;
+        width: 100% ;
         height: inherit;
         align-items: flex-start;
         opacity: 0%;
@@ -177,6 +187,7 @@
         }
       }
     }
+
   .card-even-borrowing{
     display: block;
     height: 640px;
@@ -185,6 +196,7 @@
     border-radius: 10px;
     position: relative;
     box-shadow: 5px 5px 14px -3px rgba(0,0,0,0.66);
+
     .card-borrowing{
       border-radius: 10px;
       background-color: $borrowing;
@@ -215,21 +227,21 @@
         }
       }
 
-      .loan-card-item-info-actions{
-        position: absolute;
-        top: 0;
-        right: 0;
-        width: 100%;
-        height: inherit;
-        align-items: flex-start;
-        opacity: 0%;
-        font-size: 28px;
-        border-radius: 10px;
-        &:hover{
-          background-color: rgba(0, 0, 0, 0.33);
-          opacity: 100%;
-          }
+    .loan-card-item-info-actions{
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 100%;
+      height: inherit;
+      align-items: flex-start;
+      opacity: 0%;
+      font-size: 28px;
+      border-radius: 10px;
+      &:hover{
+        background-color: rgba(0, 0, 0, 0.33);
+        opacity: 100%;
         }
       }
+    }
   }
 }

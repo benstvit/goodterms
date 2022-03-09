@@ -13,7 +13,11 @@ class ReviewsController < ApplicationController
     @review = Review.new(review_params)
     @loan = Loan.find(params[:loan_id])
     @review.loan = @loan
-    @review.user = @loan.user
+    if current_user == @loan.item.user
+      @review.user = @loan.user
+    else
+      @review.user = @loan.item.user
+    end
     @review.save
     redirect_to root_path
   end
