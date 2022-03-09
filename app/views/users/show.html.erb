@@ -1,13 +1,13 @@
 <div class= "user-show-container">
   <h1>Your historic with <%= @user.first_name %> <%= @user.last_name %> </h1>
-  <div class="loan-index" data-controller='modal'>
     <% lendings = user_borrowings(@user) %>
+  <div class="loan-index">
     <% lendings.each do |loan| %>
       <% count = 0 %>
       <% unless loan.status == 'returned' %>
         <% count += 1 %>
           <% if count % 2 == 0  %>
-            <div class="card-even-lending">
+            <div class="card-even-lending" data-controller='modal' data-modal-target="loan" data-id="<%= loan.id %>">
               <%= render '/shared/card_lending', loan: loan %>
               <div class='chatbox'>
                 <% @chatroom = Chatroom.find(loan.chatroom_id) %>
@@ -15,7 +15,7 @@
               </div>
             </div>
           <% else %>
-            <div class="card-odd-lending">
+            <div class="card-odd-lending" data-controller='modal' data-modal-target="loan" data-id="<%= loan.id %>">
               <%= render '/shared/card_lending', loan: loan %>
               <div class='chatbox'>
                 <% @chatroom = Chatroom.find(loan.chatroom_id) %>
@@ -31,7 +31,7 @@
       <% unless loan.status == 'returned' %>
         <% count += 1 %>
           <% if count % 2 == 0 %>
-            <div class="card-even-borrowing">
+            <div class="card-even-borrowing" data-controller='modal' data-modal-target="loan" data-id="<%= loan.id %>">
               <%= render '/shared/card_borrowing', loan: loan %>
               <div class='chatbox'>
                 <% @chatroom = Chatroom.find(loan.chatroom_id) %>
@@ -39,7 +39,7 @@
               </div>
             </div>
           <% else %>
-            <div class="card-odd-borrowing">
+            <div class="card-odd-borrowing" data-controller='modal' data-modal-target="loan" data-id="<%= loan.id %>">
               <%= render '/shared/card_borrowing', loan: loan %>
               <div class='chatbox'>
                 <% @chatroom = Chatroom.find(loan.chatroom_id) %>
