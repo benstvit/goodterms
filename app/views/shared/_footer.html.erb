@@ -1,4 +1,6 @@
-<% if params[:controller] == 'pages' && params[:action] == 'home'%>
+<% if params[:controller] == 'pages' && params[:action] == 'home' && !(lenders.include?(current_user) || borrowers.include?(current_user)) %>
+  <div class="footer-white">
+<% elsif params[:controller] == 'pages' && params[:action] == 'home' %>
   <div class="footer">
 <% else %>
   <div class="footer-white">
