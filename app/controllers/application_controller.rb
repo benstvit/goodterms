@@ -88,6 +88,10 @@ class ApplicationController < ActionController::Base
     return rating
   end
 
+  def default_url_options
+    { host: ENV["DOMAIN"] || "localhost:3000" }
+  end
+
   helper_method :borrowers, :lenders, :user_lendings, :user_borrowings, :rating, :lendings_with_current_user, :borrowings_with_current_user
 
 
