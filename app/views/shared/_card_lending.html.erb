@@ -1,7 +1,13 @@
   <div class="card-lending">
-
-    <div class="loan-card-image"><%= cl_image_tag (loan.item.photo.key) %></div>
-      <p style="color: white; font-size: 40px;"><%= loan.item.item_name %></p>
+    <% if loan.return_date - Date.today < 5 && loan.return_date - Date.today > 0 %>
+      <div class="nearly-due"><p><%= "Nearly due" %></p></div>
+    <% end %>
+    <% if loan.return_date - Date.today < 0 %>
+      <div class="overdue"><p><%= "Overdue!" %></p></div>
+    <% end %>
+    <div class="loan-card-image"><%= cl_image_tag (loan.item.photo.key) %>
+    </div>
+    <p style="color: white; font-size: 40px;"><%= loan.item.item_name %></p>
     <div class="loan-card-item-info">
       <p><%= "👤 Lent to #{loan.user.first_name}"%></p>
       <p><%= "#{rating(loan)}" %></p>
