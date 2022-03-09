@@ -10,30 +10,7 @@
 </div>
 
 <%= render 'shared/introduction' %>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
+
 
 <% if current_user.present?%>
   <div id="innerlink">
@@ -42,8 +19,6 @@
       <div id="friends"><%= render 'shared/index_user_loans', users: @users %></div>
       <div id="map"><%= render 'shared/mapbox', loans: @loans %></div>
     <% end %>
-  <br>
-  <br>
-  <br>
+
   </div>
 <% end %>

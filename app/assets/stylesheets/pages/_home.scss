@@ -29,9 +29,9 @@ html {
 }
 
 .introduction{
-  position: absolute;
-  margin: -135px 100px 1000px;
-  display: block;
+  position: relative;
+  margin: 0 auto;
+  margin-top: -120px;
 
   .introduction-step-1{
     padding: 0px;
@@ -56,7 +56,7 @@ html {
     height: 250px;
     .even-number{
       text-align: right;
-      margin: 0 -500px 0 0;
+      // margin: 0 -500px 0 0;
     }
     .even-text{
       text-align: left;
@@ -75,7 +75,7 @@ html {
 
     .odd-number{
       text-align: left;
-      margin-bottom: 16px;
+      // margin-bottom: 16px;
     }
     .odd-text{
       text-align: right;

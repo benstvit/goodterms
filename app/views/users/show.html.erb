@@ -61,6 +61,8 @@
             <li>"<%= review.comment %>" from <%= review.loan.user.first_name %></li>
           <% end %>
         <% end %>
+      <% else %>
+        <p>No reviews yet for <%= @user.first_name %></p>
       <% end %>
     </ul>
   </div>
