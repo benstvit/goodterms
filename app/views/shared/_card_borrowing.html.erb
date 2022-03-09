@@ -1,5 +1,4 @@
 <div class="card-borrowing" data-controller='modal' data-modal-target="loan" data-id="<%= loan.id %>">
-
   <div class="loan-card-image"><%= cl_image_tag (loan.item.photo.key) %></div>
   <p style="color: white; font-size: 40px;"><%= loan.item.item_name %></p>
   <div class="loan-card-item-info">
@@ -9,7 +8,6 @@
     <p>📝</p>
     <p class='quote'><%="\"#{loan.item.description}\"" %></p>
   </div>
-
   <div class="loan-card-item-info-actions d-flex justify-content-between p-5">
     <button class="review-btn" title="Give a review" data-action='click->modal#launchReview'>
     <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="white" class="bi bi-star" viewBox="0 0 16 16">
