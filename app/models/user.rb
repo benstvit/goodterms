@@ -18,7 +18,7 @@ class User < ApplicationRecord
   end
 
   def full_name
-    "#{first_name} #{last_name}"
+    "#{first_name} #{last_name} (#{average_rating})"
   end
 
   private
@@ -27,5 +27,15 @@ class User < ApplicationRecord
     unless photo.attached?
       self.photo.attach(io: File.open(Rails.root.join("app", "assets", "images", "default.png")), filename: 'default.png', content_type: "image/png")
     end
+  end
+
+  def average_rating
+    ratings = []
+    reviews = Review.all
+    reviews.each do |review|
+      ratings << review.rating if review.user == self
+    end
+    ratings.count.zero? ? average_rating = 0 : average_rating = ratings.sum.fdiv(ratings.count)
+    return "⭐️" * average_rating.round
   end
 end
