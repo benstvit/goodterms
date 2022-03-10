@@ -81,18 +81,22 @@ class ApplicationController < ActionController::Base
     return borrowings_with_current_user
   end
 
-  def rating(loan)
-    rating = '🌟' if loan.user.reviews.length >= 2
-    rating = '⭐' if loan.user.reviews.length >= 0
-    rating = 'No rating yet' if loan.user.reviews.length.zero?
-    return rating
+  def average_rating(user)
+    ratings = []
+    reviews = Review.all
+    reviews.each do |review|
+      ratings << review.rating if review.user == user
+    end
+    ratings.count.zero? ? average_rating = 0 : average_rating = ratings.sum.fdiv(ratings.count)
+    return average_rating
   end
+
 
   def default_url_options
     { host: ENV["DOMAIN"] || "localhost:3000" }
   end
 
-  helper_method :borrowers, :lenders, :user_lendings, :user_borrowings, :rating, :lendings_with_current_user, :borrowings_with_current_user
+  helper_method :borrowers, :lenders, :user_lendings, :user_borrowings, :lendings_with_current_user, :borrowings_with_current_user, :average_rating
 
 
   protected
