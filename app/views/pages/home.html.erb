@@ -17,7 +17,9 @@
     <% if (lenders.include?(current_user) || borrowers.include?(current_user)) %>
       <div id="innerlink"><%= render 'shared/index_loans', loans: @loans %></div>
       <div id="friends"><%= render 'shared/index_user_loans', users: @users %></div>
-      <div id="map"><%= render 'shared/mapbox', loans: @loans %></div>
+      <% if lenders.include?(current_user) %>
+        <div id="map"><%= render 'shared/mapbox', loans: @loans %></div>
+      <% end %>
     <% end %>
 
   </div>
