@@ -116,7 +116,43 @@
 }
 
 .accept-btn {
-  position: absolute;
-  top: 18px;
-  left: 80px;
+  display: flex;
+  justify-content: space-between;
+  gap: 5px;
+  align-items: center;
+  border-radius: 25px;
+  margin: 3px;
+  padding: 6px 15px;
+  background-color: rgba($color: white, $alpha: 0.8);
+  border: 1px solid rgba(0, 0, 0, 0.7);
+  // z-index: 10;
+  font-weight: 300;
+  p {
+    font-size: 18px;
+    padding-top: 6px;
+  }
+
+  &:hover {
+    transform: scale(1.1, 1.1)!important;
+  }
+}
+
+.inactive {
+  background-color: rgba(0, 0, 0, 0.33)!important;
+  opacity: 100%;
+}
+
+.returned-btn {
+  border-radius: 25px;
+  margin: 3px;
+  padding: 8px 15px;
+  background-color: rgba($color: white, $alpha: 0.8);
+  border: 1px solid rgba(0, 0, 0, 0.7);
+  p {
+    font-size: 10px;
+  }
+  &:hover {
+    transform: scale(1.1, 1.1)!important;
+  }
+  z-index: 10;
 }

@@ -79,8 +79,8 @@
         position: absolute;
         top: 0;
         right: 0;
-        width: 100% ;
-        height: inherit;
+        width: 100%;
+        height: 100%;
         align-items: flex-start;
         opacity: 0%;
         font-size: 28px;
@@ -90,6 +90,19 @@
           opacity: 100%;
           }
         }
+
+        .loan-card-item-info-actions-inactive{
+          position: absolute;
+          top: 0;
+          right: 0;
+          width: 100%;
+          height: 100%;
+          align-items: flex-start;
+          opacity: 100%;
+          font-size: 28px;
+          border-radius: 10px;
+          background-color: rgba(0, 0, 0, 0.33);
+          }
 
       }
     }
@@ -166,7 +179,7 @@
       top: 0;
       right: 0;
       width: 100%;
-      height: inherit;
+      height: 100%;
       align-items: flex-start;
       opacity: 0%;
       font-size: 28px;
@@ -176,6 +189,18 @@
         opacity: 100%;
         }
       }
+      .loan-card-item-info-actions-inactive{
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 100%;
+        height: 100%;
+        align-items: flex-start;
+        opacity: 100%;
+        font-size: 28px;
+        border-radius: 10px;
+        background-color: rgba(0, 0, 0, 0.33);
+        }
     }
   }
 }
