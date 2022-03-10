@@ -16,20 +16,15 @@
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
-    <% @loans = Loan.all %>
-    <% @users = User.all %>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto">
         <% if user_signed_in? %>
-            <% @loans.each do |loan| %>
-            <% if params[:controller] == 'pages' && params[:action] == 'home'%>
-              <% if (current_user == loan.item.user || current_user == loan.user) %>
-                <%# <li class="nav-item" data-active> %>
-                  <h2><a href="#innerlink" class="nav-link navbar-txt">Dashboard</a></h2>
-                </li>
-                <% break %>
+            <% if (current_user.loans.any? || current_user.items.any? { |i| i.loans.any? }) %>
+              <% if params[:controller] == 'pages' && params[:action] == 'home'%>
+                <h2><a href="#innerlink" class="nav-link navbar-txt">Dashboard</a></h2>
+              <% else %>
+                <h2><%= link_to "Dashboard", root_path(anchor: 'innerlink'), class:'nav-link navbar-txt' %></h2>
               <% end %>
-            <% end %>
             <% end %>
           <li class="nav-item dropdown">
           <% if current_user.photo.attached? %>
