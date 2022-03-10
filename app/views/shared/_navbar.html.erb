@@ -9,10 +9,13 @@
           <h2><%= link_to "Home", root_path, class: "nav-link navbar-txt" %></h2>
         </li>
       <% end %>
-
-    <div data-navbar-target='borrow'><%= link_to "Borrow an item", loans_borrow_path, class:'borrow-active' %></div>
-    <div data-navbar-target='lend'><%= link_to "Lend an item", new_loan_path, class:'lend-active' %></div>
-
+    <% if params[:controller] == 'pages' && params[:action] == 'show'%>
+      <div><%= link_to "Borrow an item", loans_borrow_path, class:'borrow-active' %></div>
+      <div><%= link_to "Lend an item", new_loan_path, class:'lend-active' %></div>
+    <% else %>
+      <div data-navbar-target='borrow'><%= link_to "Borrow an item", loans_borrow_path, class:'borrow-active' %></div>
+      <div data-navbar-target='lend'><%= link_to "Lend an item", new_loan_path, class:'lend-active' %></div>
+    <% end %>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
