@@ -11,6 +11,7 @@
     "flatpickr": "^4.6.9",
     "mapbox-gl": "^2.7.0",
     "stimulus": "^3.0.1",
+    "stimulus-scroll-to": "^4.0.0",
     "sweetalert": "^2.1.2",
     "turbolinks": "^5.2.0",
     "webpack": "^4.46.0",
