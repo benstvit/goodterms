@@ -21,7 +21,7 @@
         <% if user_signed_in? %>
             <% if (current_user.loans.any? || current_user.items.any? { |i| i.loans.any? }) %>
               <% if params[:controller] == 'pages' && params[:action] == 'home'%>
-                <h2><a href="#innerlink" class="nav-link navbar-txt">Dashboard</a></h2>
+                <h2><a href="#innerlink" class="nav-link navbar-txt" data-modal-target="link">Dashboard</a></h2>
               <% else %>
                 <h2><%= link_to "Dashboard", root_path(anchor: 'innerlink'), class:'nav-link navbar-txt' %></h2>
               <% end %>
@@ -33,10 +33,8 @@
             <%= image_tag ('default.png'), class: "avatar-large dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
           <% end %>
             <div class="dropdown-menu dropdown-menu-end bg-secondary bg-gradient rounded-4 p-2" aria-labelledby="navbarDropdown">
-              <%= link_to "Friends", root_path(anchor: 'friends'), class:"dropdown-item navbar-tx" %>
-              <%= link_to "Map", root_path(anchor: 'map'), class:"dropdown-item navbar-tx" %>
-              <%= link_to "Edit profile", edit_user_registration_path, class: "dropdown-item navbar-txt" %>
-              <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item navbar-txt" %>
+              <a href="http://localhost:3000/#map" class="dropdown-item navbar-tx" data-modal-target="link">Map</a>
+              <a href="http://localhost:3000/#friends" class="dropdown-item navbar-tx" data-modal-target="link">Friends</a>
             </div>
           </li>
         <% else %>
