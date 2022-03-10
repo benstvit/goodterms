@@ -9,7 +9,7 @@
           <h2><%= link_to "Home", root_path, class: "nav-link navbar-txt" %></h2>
         </li>
       <% end %>
-    <% if params[:controller] == 'pages' && params[:action] == 'show'%>
+    <% if params[:controller] == 'users' && params[:action] == 'show'%>
       <div><%= link_to "Borrow an item", loans_borrow_path, class:'borrow-active' %></div>
       <div><%= link_to "Lend an item", new_loan_path, class:'lend-active' %></div>
     <% else %>
