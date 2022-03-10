@@ -36,11 +36,15 @@ export default class extends Controller {
   alert(event) {
     const loanId = event.currentTarget.dataset.id
     const findLoan = this.loanTargets.find(loan => loan.dataset.id === loanId)
+    const userName = this.loanTarget.dataset.name
+    // const link = document.createElement('div')
+    // link.innerHTML = `Please don't forget to give ${userName} a <a href="www.google.com">review</a>`
+    // const review = this.loanTarget.dataset.review
 
     console.log(findLoan)
     swal({
       title: "Mark this item as returned ?",
-      text: "Once marked as returned, there is no going back!",
+      text: `Please don't forget to give ${userName} a review first`,
       icon: "warning",
       buttons: true,
       dangerMode: true,

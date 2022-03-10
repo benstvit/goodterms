@@ -26,7 +26,7 @@ class LoansController < ApplicationController
     @loan.item = @item
     @loan.chatroom = @chatroom
     if @loan.save
-      redirect_to root_path notice: "Congrats, you created a new loan"
+      redirect_to root_path(anchor: 'innerlink')
     else
       render :new
     end
@@ -71,7 +71,7 @@ class LoansController < ApplicationController
     @loan.item = @item
     @loan.chatroom = @chatroom
     if @loan.save
-      redirect_to root_path notice: "Congrats, you created a new loan"
+      redirect_to root_path(anchor: 'innerlink')
     else
       render :new_borrow
     end
