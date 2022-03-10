@@ -1,16 +1,14 @@
-
 <div class="form-container">
 <h2>What are you lending?</h2>
   <%= simple_form_for [ @loan ] do |f| %>
       <%= simple_fields_for :item do |i| %>
-        <%= i.input :item_name, label: "Lended itme" %>
-        <%= i.input :description, label: "Tell us more about that lended item" %>
+        <%= i.input :item_name, label: "Lended item" %>
+        <%= i.input :description, label: "Tell us more about the item" %>
       <% end %>
       <%= f.input :photo, as: :file %>
       <%# <%= f.association :user, label: "Borrower", label_method: :first_name, value_method: :id, include_blank: false %>
       <%= f.input :user_id, collection: User.where.not(id: current_user), label: "Who's the borrower?", :label_method => :full_name, value_method: :id, include_blank: false %>
-      <%= f.input :return_date, label: "When is it due?" %>
+      <div data-controller="flatpickr"><%= f.input :return_date, as: :string, input_html: { class: "flatpickr-input" } %></div>
       <%= f.submit "Lend this!", class: "btn lend-btns p-3" %>
   <% end %>
-
 </div>
