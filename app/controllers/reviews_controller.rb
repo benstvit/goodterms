@@ -19,7 +19,7 @@ class ReviewsController < ApplicationController
       @review.user = @loan.item.user
     end
     @review.save
-    redirect_to request.referrer
+    redirect_to root_path(anchor: 'innerlink')
   end
 
   def destroy
