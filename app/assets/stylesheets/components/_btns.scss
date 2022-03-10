@@ -156,3 +156,18 @@
   }
   z-index: 10;
 }
+
+.returned-btn-show {
+  border-radius: 25px;
+  margin: 3px;
+  padding: 8px 15px;
+  background-color: rgba($color: white, $alpha: 0.8);
+  border: 1px solid rgba(0, 0, 0, 0.7);
+  p {
+    font-size: 10px;
+  }
+  &:hover {
+    transform: scale(1.1, 1.1)!important;
+  }
+  z-index: 10;
+}
