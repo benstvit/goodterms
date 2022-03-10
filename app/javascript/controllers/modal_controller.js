@@ -50,9 +50,9 @@ export default class extends Controller {
             )
                 .then(() => {
                   findLoan.style.transition = "all 2s"
-                  setTimeout(() => findLoan.style.transform = "translateX(2000px)", 800)
+                  setTimeout(() => findLoan.style.transform = "translateX(2000px)", 400)
                   setTimeout(() => findLoan.remove(), 3000)
-                  // setTimeout(location.reload(), 10000)
+                  setTimeout(() => location.reload(), 3800)
                 })
 
 
