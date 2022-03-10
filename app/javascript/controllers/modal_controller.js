@@ -19,20 +19,6 @@ export default class extends Controller {
     });
   }
 
-  clickHandler(e) {
-    this.linkTargets.forEach(link => {
-      link.addEventListener("click", clickHandler);
-    })
-    e.preventDefault();
-    const href = this.getAttribute("href");
-    const offsetTop = document.querySelector(href).offsetTop;
-
-    scroll({
-      top: offsetTop,
-      behavior: "smooth"
-    });
-  }
-
   alert(event) {
     const loanId = event.currentTarget.dataset.id
     const findLoan = this.loanTargets.find(loan => loan.dataset.id === loanId)
@@ -114,4 +100,19 @@ export default class extends Controller {
             })
     setTimeout(() => swal.close(), 2000)
   }
+
+  clickHandler(e) {
+    this.linkTargets.forEach(link => {
+      link.addEventListener("click", clickHandler);
+    })
+    e.preventDefault();
+    const href = this.getAttribute("href");
+    const offsetTop = document.querySelector(href).offsetTop;
+
+    scroll({
+      top: offsetTop,
+      behavior: "smooth"
+    });
+  }
+
 }
