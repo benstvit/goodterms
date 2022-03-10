@@ -2,7 +2,7 @@
 // Controller files must be named *_controller.js.
 
 import { Application } from "stimulus"
-import { ScrollTo } from 'stimulus-scroll-to'
+import ScrollTo from 'stimulus-scroll-to'
 import { definitionsFromContext } from "stimulus/webpack-helpers"
 
 const application = Application.start()
