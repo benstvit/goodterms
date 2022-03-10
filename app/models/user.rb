@@ -35,7 +35,7 @@ class User < ApplicationRecord
     reviews.each do |review|
       ratings << review.rating if review.user == self
     end
-    ratings.count.zero? ? average_rating = 0 : average_rating = ratings.sum.fdiv(ratings.count)
-    return "⭐️" * average_rating.round
+    ratings.count.zero? ? average_rating = "No rating yet" : average_rating = "⭐️" * ratings.sum.fdiv(ratings.count).round
+    return average_rating
   end
 end
