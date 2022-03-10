@@ -1,5 +1,5 @@
 <div class= "user-show-container">
-  <h1>Your historic with <%= @user.first_name %> <%= @user.last_name %> </h1>
+  <p style="color: white; font-size: 40px;"><%= "Your current loans with #{@user.full_name}"%></p>
     <% lendings = user_borrowings(@user) %>
   <div class="loan-index">
     <% lendings.each do |loan| %>
@@ -51,7 +51,7 @@
       <% end %>
   </div>
   <div class="review-summary">
-    <p style="color: dark; font-size: 40px;">Reviews for <%= @user.first_name %></p>
+    <p style="color: dark; font-size: 40px;">Reviews for <%= @user.full_name %></p>
     <ul style="list-style-type: none">
       <% if @user.reviews.present? %>
         <%  @user.reviews.each do |review| %>
