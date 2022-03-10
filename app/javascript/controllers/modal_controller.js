@@ -2,7 +2,7 @@ import { Controller } from "@hotwired/stimulus"
 import swal from 'sweetalert';
 
 export default class extends Controller {
-  static targets = ['loan', 'accept', 'review']
+  static targets = ['loan', 'accept', 'review', 'link']
 
   connect() {
   }
@@ -16,6 +16,20 @@ export default class extends Controller {
   close() {
     this.reviewTargets.forEach(element => {
       element.removeAttribute("style");
+    });
+  }
+
+  clickHandler(e) {
+    this.linkTargets.forEach(link => {
+      link.addEventListener("click", clickHandler);
+    })
+    e.preventDefault();
+    const href = this.getAttribute("href");
+    const offsetTop = document.querySelector(href).offsetTop;
+
+    scroll({
+      top: offsetTop,
+      behavior: "smooth"
     });
   }
 
