@@ -4,7 +4,6 @@
     <% @counter_borrowed = 0 %>
     <% user.loans.each do |loan| %>
       <% unless loan.status == 'returned' %>
-        <% @rating = rating(loan) %>
           <% if loan.item.user.last_name == current_user.last_name %>
             <% @counter_lent += 1 %>
           <% end %>

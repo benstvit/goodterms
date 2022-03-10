@@ -10,7 +10,6 @@
     <p style="color: white; font-size: 40px;"><%= loan.item.item_name %></p>
     <div class="loan-card-item-info">
       <p><%= "👤 Lent to #{loan.user.first_name}"%></p>
-      <p><%= "#{rating(loan)}" %></p>
       <p><%="🎯 #{loan.return_date}" %></p>
       <p>📝</p>
       <p class='quote'><%="\"#{loan.item.description}\"" %></p>
