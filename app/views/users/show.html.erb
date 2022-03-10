@@ -56,9 +56,9 @@
       <% if @user.reviews.present? %>
         <%  @user.reviews.each do |review| %>
           <% if review.user == review.loan.user %>
-            <li>"<%= review.comment %>" from <%= review.loan.item.user.first_name %></li>
+            <li>"<%= review.comment %>" - <%= render 'shared/review', review: review %> from <%= review.loan.item.user.first_name %></li>
           <% else %>
-            <li>"<%= review.comment %>" from <%= review.loan.user.first_name %></li>
+            <li>"<%= review.comment %>" - <%= render 'shared/review', review: review %> from <%= review.loan.user.first_name %></li>
           <% end %>
         <% end %>
       <% else %>
