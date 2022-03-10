@@ -106,7 +106,7 @@ export default class extends Controller {
       link.addEventListener("click", clickHandler);
     })
     e.preventDefault();
-    const href = this.getAttribute("href");
+    const href = this.getAttribute("a");
     const offsetTop = document.querySelector(href).offsetTop;
 
     scroll({

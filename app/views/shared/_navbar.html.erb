@@ -23,7 +23,8 @@
               <% if params[:controller] == 'pages' && params[:action] == 'home'%>
                 <h2><a href="#innerlink" class="nav-link navbar-txt" data-modal-target="link">Dashboard</a></h2>
               <% else %>
-                <h2><%= link_to "Dashboard", root_path(anchor: 'innerlink'), class:'nav-link navbar-txt' %></h2>
+                <h2><a href="/#innerlink" class="nav-link navbar-txt" data-modal-target="link">Dashboard</a></h2>
+                <%# <h2 ><%= link_to "Dashboard", root_path(anchor: 'innerlink'), class:'nav-link navbar-txt'</h2> %>
               <% end %>
             <% end %>
           <li class="nav-item dropdown">
