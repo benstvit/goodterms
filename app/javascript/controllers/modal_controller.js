@@ -44,20 +44,18 @@ export default class extends Controller {
                 }
             )
                 .then(() => {
-                  findLoan.style.transition = "all 2s"
+                  // findLoan.style.transition = "all 2s"
                   setTimeout(() => findLoan.style.transform = "translateX(2000px)", 800)
                   setTimeout(() => findLoan.remove(), 3000)
+                  setTimeout(location.reload(), 4000)
                 })
 
 
                 .catch((err) => {
                     console.log('Error',err)
                 })
-        swal("Please give now a quick review for your experience !", {
-          icon: "success",
-        })
 
-        setTimeout(() => swal.close(), 1000)
+        // setTimeout(() => swal.close(), 3000)
       } else {
         swal("Return request has been cancelled!");
         setTimeout(() => swal.close(), 1000)
@@ -88,6 +86,7 @@ export default class extends Controller {
             // console.log('LoanID: ',loanId)
             findLoan.style.transition = "all 2s"
             setTimeout(() => findLoan.remove(), 200)
+            setTimeout(location.reload(), 500)
           })
 
           .catch((err) => {
