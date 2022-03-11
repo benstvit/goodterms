@@ -16,12 +16,16 @@
 @import "items/new";
 
 .mid-container {
-  margin: 0 auto;
+  // margin: 0 auto;
   text-align: center;
   // padding-bottom: 20px;
 }
 
 body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  justify-content: space-between;
   background: rgb(255,255,255);
   background: linear-gradient(270deg, rgba(255,255,255,1) 0%, rgba(69,152,129,1) 0%, rgba(129,217,193,1) 100%);
   }
