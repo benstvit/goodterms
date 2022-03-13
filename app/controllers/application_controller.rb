@@ -66,7 +66,7 @@ class ApplicationController < ActionController::Base
     user_borrowings = []
     loans.each do |loan|
       unless loan.status == 'returned'
-        user_borrowings << loan if loan.user == user
+        user_borrowings << loan if loan.user == current_user
       end
     end
     return user_borrowings
