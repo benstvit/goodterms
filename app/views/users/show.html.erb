@@ -1,7 +1,7 @@
 <div class= "user-show-container">
   <p style="color: white; font-size: 40px;"><%= "Your current loans with #{@user.full_name}"%></p>
   <div class="loan-index">
-    <% lendings = lendings_with_current_user(@user) %>
+    <% lendings = user_borrowings(@user) %>
       <% lendings.each do |loan| %>
         <% count = 0 %>
         <% unless loan.status == 'returned' %>
@@ -25,7 +25,7 @@
             <% end %>
         <% end %>
       <% end %>
-    <% borrowings = borrowings_with_current_user(@user) %>
+    <% borrowings = user_lendings(@user) %>
     <% borrowings.each do |loan| %>
       <% count =0 %>
       <% unless loan.status == 'returned' %>
