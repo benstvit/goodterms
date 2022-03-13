@@ -21,13 +21,15 @@
 
   <%= link_to user_path(user), :action => 'go' do %>
     <div class="loans-per-user">
-      <% if @counter_lent > 0 || @counter_borrowed > 0 %>
+      <% if @counter_lent != 0 || @counter_borrowed != 0 %>
         <div class="user-card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path user.photo.key, width: 300, height: 300, crop: :fill %>')">
           <%# <div class='card-img'><%= cl_image_tag (user.photo.key), style: 'width:100px'</div> %>
           <div class="lent"><p><%= "Borrowed: #{@counter_borrowed}" %></p></div>
           <div class="borrowed"><p><%= "Lent: #{@counter_lent}" %></p></div>
           <div class="user-name"><p><%= user.first_name %> <%= user.last_name %></p></div>
-          <p><%= "#{@rating}" %></p>
+          <div class="rating">
+              <%= render '/shared/rating', user: user %>
+          </div>
         </div>
       <% end %>
     </div>
