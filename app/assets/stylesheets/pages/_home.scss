@@ -25,7 +25,74 @@ html {
 }
 
 .home-container {
-  position: relative;
+  // position: relative;
+  display: flex;
+  flex-wrap: wrap;
+
+}
+
+@media screen and (max-width: 900px) {
+  .home-container {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .lend-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+  .borrow-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+
+  .introduction {
+    text-align: center;
+
+    .introduction-step-1{
+      display: flex;
+      flex-direction: column;
+      .odd-number{
+        text-align: center;
+      }
+      .odd-text{
+        text-align: center;
+        font-size: 30px;
+        color: white;
+      }
+
+    }
+    .introduction-step-2{
+      display: flex;
+      flex-direction: column;
+      .even-number{
+        text-align: center;
+      }
+      .even-text{
+        text-align: center;
+        font-size: 30px;
+        color: white;
+
+      }
+
+    }
+    .introduction-step-3{
+      display: flex;
+      flex-direction: column;
+      .odd-number{
+        text-align: center;
+        display: flex;
+      }
+      .odd-text{
+        text-align: center;
+        font-size: 30px;
+        color: white;
+      }
+
+    }
+  }
 }
 
 .introduction{

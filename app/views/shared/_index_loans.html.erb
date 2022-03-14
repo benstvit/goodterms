@@ -21,7 +21,7 @@
     <% borrowings.each do |loan| %>
       <% unless loan.status == 'returned' %>
       <% count += 1 %>
-        <% if count % 2 == 0 %>
+        <% if count % 2 != 0 %>
           <div class="card-even-borrowing" data-controller='modal' data-modal-target="loan" data-id="<%= loan.id %>">
             <%= render '/shared/card_borrowing', loan: loan %>
           </div>
