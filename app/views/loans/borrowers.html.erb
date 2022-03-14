@@ -1,4 +1,4 @@
-<% lendings = user_borrowings(current_user) %>
-<% lendings.each do |lending| %>
-  <%= lending.user.first_name %>
-  <% end %>
+<% my_friends = [] %>
+<% my_friends << my_lenders(current_user) %>
+<% my_friends << my_borrowers(current_user) %>
+<%= my_friends %>
