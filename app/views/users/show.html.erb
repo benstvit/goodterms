@@ -3,9 +3,10 @@
   <div class="loan-index">
     <% lendings = user_borrowings(@user) %>
       <% lendings.each do |loan| %>
-        <% count = 0 %>
-        <% unless loan.status == 'returned' %>
-          <% count += 1 %>
+        <% if loan.item.user == current_user %>
+          <% count = 0 %>
+          <% unless loan.status == 'returned' %>
+            <% count += 1 %>
             <% if count % 2 == 0  %>
               <div class="card-even-lending" data-controller='modal' data-modal-target="loan" data-id="<%= loan.id %>">
                 <%= render '/shared/card_lending', loan: loan %>
@@ -23,13 +24,15 @@
                 </div>
               </div>
             <% end %>
+          <% end %>
         <% end %>
       <% end %>
     <% borrowings = user_lendings(@user) %>
     <% borrowings.each do |loan| %>
-      <% count =0 %>
-      <% unless loan.status == 'returned' %>
-        <% count += 1 %>
+      <% if loan.user == current_user %>
+        <% count =0 %>
+        <% unless loan.status == 'returned' %>
+          <% count += 1 %>
           <% if count % 2 == 0 %>
             <div class="card-even-borrowing" data-controller='modal' data-modal-target="loan" data-id="<%= loan.id %>">
               <%= render '/shared/card_borrowing', loan: loan %>
@@ -49,6 +52,7 @@
           <% end %>
         <% end %>
       <% end %>
+    <% end %>
   </div>
 </div>
   <div class="review-summary">

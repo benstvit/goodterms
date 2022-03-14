@@ -1,3 +1,4 @@
-
-
-<%= current_user.reviews %>
+<% lendings = user_borrowings(current_user) %>
+<% lendings.each do |lending| %>
+  <%= lending.user.first_name %>
+  <% end %>
