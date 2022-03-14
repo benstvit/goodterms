@@ -13,8 +13,9 @@
       <div><%= link_to "Borrow an item", loans_borrow_path, class:'borrow-active' %></div>
       <div><%= link_to "Lend an item", new_loan_path, class:'lend-active' %></div>
     <% else %>
-      <div data-navbar-target='borrow'><%= link_to "Borrow an item", loans_borrow_path, class:'borrow-active' %></div>
-      <div data-navbar-target='lend'><%= link_to "Lend an item", new_loan_path, class:'lend-active' %></div>
+
+        <div data-navbar-target='borrow'><%= link_to "Borrow an item", loans_borrow_path, class:'borrow-active navbar-buttons' %></div>
+        <div data-navbar-target='lend'><%= link_to "Lend an item", new_loan_path, class:'lend-active navbar-buttons' %></div>
     <% end %>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
