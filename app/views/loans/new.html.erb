@@ -8,7 +8,7 @@
       <%= f.input :photo, as: :file %>
       <%# <%= f.association :user, label: "Borrower", label_method: :first_name, value_method: :id, include_blank: false %>
       <%= f.input :user_id, collection: User.where.not(id: current_user), label: "Who's the borrower?", :label_method => :full_name, value_method: :id, include_blank: false %>
-      <div data-controller="flatpickr"><%= f.input :return_date, as: :string, input_html: { class: "flatpickr-input" } %></div>
+      <div data-controller="flatpickr"><%= f.input :return_date, as: :string, label: "When do you want it back?", input_html: { class: "flatpickr-input" } %></div>
       <%= f.submit "Lend this!", class: "btn lend-btns p-3" %>
   <% end %>
 </div>
