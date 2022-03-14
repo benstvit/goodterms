@@ -18,6 +18,24 @@ class ApplicationController < ActionController::Base
     return lenders
   end
 
+  def my_borrowers(user)
+    my_borrowers = []
+    my_lendings = user_lendings(user)
+    my_lendings.each do |lending|
+      my_borrowers << lending.user
+    end
+    return my_borrowers
+  end
+
+  def my_lenders(user)
+    my_lenders = []
+    my_borrowings = user_borrowings(user)
+    my_borrowings.each do |borrowing|
+      my_lenders << borrowing.item.user
+    end
+    return my_lenders
+  end
+
   def borrowers
     loans = Loan.all
     @review = Review.new
@@ -97,7 +115,7 @@ class ApplicationController < ActionController::Base
     { host: ENV["DOMAIN"] || "localhost:3000" }
   end
 
-  helper_method :borrowers, :lenders, :user_lendings, :user_borrowings, :lendings_with_current_user, :borrowings_with_current_user, :average_rating
+  helper_method :borrowers, :lenders, :user_lendings, :user_borrowings, :lendings_with_current_user, :borrowings_with_current_user, :average_rating, :my_borrowers, :my_lenders
 
 
   protected
