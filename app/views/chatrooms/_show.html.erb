@@ -16,7 +16,7 @@
   <% end %>
 
   <div class="messages" data-chatroom-subscription-target="messages">
-    <% chatroom.messages.last(5).each do |message| %>
+    <% chatroom.messages.last(4).each do |message| %>
       <%= render "messages/message", message: message %>
     <% end %>
   </div>
