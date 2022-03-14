@@ -6,6 +6,7 @@ class ApplicationController < ActionController::Base
 
   def lenders
     loans = Loan.all
+
     # @borrowers = borrowers
     lenders = []
     loans.each do |loan|
