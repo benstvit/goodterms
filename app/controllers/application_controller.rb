@@ -110,12 +110,21 @@ class ApplicationController < ActionController::Base
     return average_rating
   end
 
+  def notifications(message)
+    @counter = 0
+    @user = User.find(params[:id])
+    @user_chatrooms = @chatrooms.where(loan.user == @user || loan.item.user == @user)
+    @user_chatrooms.each do |chatroom|
+      @counter += 1 if message.chatroom_id == chatroom
+    end
+    return @counter
+  end
 
   def default_url_options
     { host: ENV["DOMAIN"] || "localhost:3000" }
   end
 
-  helper_method :borrowers, :lenders, :user_lendings, :user_borrowings, :lendings_with_current_user, :borrowings_with_current_user, :average_rating, :my_borrowers, :my_lenders
+  helper_method :borrowers, :notifications, :lenders, :user_lendings, :user_borrowings, :lendings_with_current_user, :borrowings_with_current_user, :average_rating, :my_borrowers, :my_lenders
 
 
   protected

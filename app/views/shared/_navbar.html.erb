@@ -1,5 +1,7 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon" data-controller="navbar" data-action="scroll@window->navbar#updateNavbar">
   <div class="container-fluid ">
+  <p><%= @counter %></p>
+
    <% if params[:controller] == 'pages' && params[:action] == 'home'%>
         <li class="nav-item  list-unstyled active">
           <h2><%= link_to "Home", root_path, class: "nav-link navbar-txt" %></h2>
