@@ -1,3 +1,12 @@
+@media screen and (max-width: 500px) {
+  .container-fluid {
+    margin: 0 20px;
+    display: flex;
+    align-items: center;
+    flex-wrap: nowrap;
+  }
+}
+
 .navbar-lewagon {
   z-index: 1;
   position: fixed;
@@ -15,6 +24,7 @@
     }
 }
 
+
 .navbar-lewagon-white {
   background-color: rgba($color: #ffffff, $alpha: 0.65);
   box-shadow: 5px 5px 15px 5px rgba(0,0,0,0.1);
@@ -24,7 +34,6 @@
     padding: 10px;
   }
 }
-
 
 .navbar-lewagon .navbar-collapse {
   flex-grow: 0;

@@ -1,7 +1,9 @@
 <div class="home-container">
   <div class="lend-container d-flex justify-content-center flex-column align-items-center flex-wrap">
     <h1>Good </h1>
+    <h1 class='mobile-inactive'>Terms</h1>
     <%= link_to "Borrow an item", loans_borrow_path, class:'borrow-btns' %>
+    <%= link_to "Lend an item", new_loan_path, class:'lend-btns mobile-inactive'%>
   </div>
   <div class="borrow-container d-flex justify-content-center flex-column align-items-center flex-wrap">
     <h1 class="gradient1"> Terms.</h1>

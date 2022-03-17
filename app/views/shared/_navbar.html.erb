@@ -1,6 +1,5 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon" data-controller="navbar" data-action="scroll@window->navbar#updateNavbar">
   <div class="container-fluid ">
-  <p><%= @counter %></p>
 
    <% if params[:controller] == 'pages' && params[:action] == 'home'%>
         <li class="nav-item  list-unstyled active">
@@ -15,9 +14,8 @@
       <div><%= link_to "Borrow an item", loans_borrow_path, class:'borrow-active' %></div>
       <div><%= link_to "Lend an item", new_loan_path, class:'lend-active' %></div>
     <% else %>
-
-        <div data-navbar-target='borrow'><%= link_to "Borrow an item", loans_borrow_path, class:'borrow-active navbar-buttons' %></div>
-        <div data-navbar-target='lend'><%= link_to "Lend an item", new_loan_path, class:'lend-active navbar-buttons' %></div>
+        <div data-navbar-target='borrow mobile-inactive'><%= link_to "Borrow an item", loans_borrow_path, class:'borrow-active navbar-buttons' %></div>
+        <div data-navbar-target='lend mobile-inactive'><%= link_to "Lend an item", new_loan_path, class:'lend-active navbar-buttons' %></div>
     <% end %>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
