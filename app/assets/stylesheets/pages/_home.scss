@@ -14,8 +14,8 @@ html {
     background-image: linear-gradient(rgba(255, 255, 255, 0.2), rgba(0, 0, 0, 0.2)),
     url("https://res.cloudinary.com/benstvit/image/upload/v1646137520/background_goodterms_jpmg8n.jpg");
     background-size: contain;
-    object-fit: cover;
-    height: 100vh;
+    // object-fit: cover;
+    height: 100%;
     width: 100%;
   }
 
@@ -24,7 +24,7 @@ html {
   }
 
   h1 {
-    font-size: 60px!important;
+    font-size: 80px!important;
   }
 
   .mobile-inactive {
