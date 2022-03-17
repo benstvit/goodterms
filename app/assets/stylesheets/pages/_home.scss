@@ -1,227 +1,273 @@
 // Specific CSS for your home-page
+
+.mobile-inactive {
+  display: none;
+}
+
+
 html {
   scroll-behavior: smooth;
 }
-.lend-container {
-  // z-index: -1;
-  background-image: linear-gradient(rgba(255, 255, 255, 0.2), rgba(0, 0, 0, 0.2)),
-  url("https://res.cloudinary.com/benstvit/image/upload/v1646137520/background_goodterms_jpmg8n.jpg");
-  background-size: contain;
-  object-fit: cover;
-  height: 100vh;
-  width: 50%;
-}
 
-.borrow-container {
-  height: 100vh;
-  width: 50%;
-  h1 {
-    background-clip: text;
+@media screen and (max-width: 500px) {
+  .lend-container {
+    background-image: linear-gradient(rgba(255, 255, 255, 0.2), rgba(0, 0, 0, 0.2)),
+    url("https://res.cloudinary.com/benstvit/image/upload/v1646137520/background_goodterms_jpmg8n.jpg");
+    background-size: contain;
+    object-fit: cover;
+    height: 100vh;
+    width: 100%;
   }
-}
 
-.home-loans-container {
-  margin: 15px 10px;
-}
+  .borrow-container {
+    display: none!important;
+  }
 
-.home-container {
-  // position: relative;
-  display: flex;
-  flex-wrap: wrap;
+  h1 {
+    font-size: 60px!important;
+  }
 
-}
+  .mobile-inactive {
+    display: block;
+    margin-top: 10px;
+  }
 
-@media screen and (max-width: 900px) {
-  .home-container {
+.introduction {
+    padding: 10px 10px;
+    .introduction-step-1{
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      .odd-number{
+        h1 {
+          font-size: 15px;
+        }
+        text-align: center;
+      }
+      .odd-text{
+        font-size: 10px;
+        color: white;
+        margin: 0 10px;
+      }
+    }
+
+  .introduction-step-2{
     display: flex;
     flex-direction: column;
-  }
-
-  .lend-container {
-    width: 100%;
-    display: flex;
+    align-items: center;
     justify-content: center;
-  }
-  .borrow-container {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-  }
-
-  .introduction {
-    text-align: center;
-
-    .introduction-step-1{
-      display: flex;
-      flex-direction: column;
-      .odd-number{
-        text-align: center;
-      }
-      .odd-text{
-        text-align: center;
-        font-size: 30px;
-        color: white;
-      }
-
-    }
-    .introduction-step-2{
-      display: flex;
-      flex-direction: column;
-      .even-number{
-        text-align: center;
-      }
-      .even-text{
-        text-align: center;
-        font-size: 30px;
-        color: white;
-
-      }
-
-    }
-    .introduction-step-3{
-      display: flex;
-      flex-direction: column;
-      .odd-number{
-        text-align: center;
-        display: flex;
-      }
-      .odd-text{
-        text-align: center;
-        font-size: 30px;
-        color: white;
-      }
-
-    }
-  }
-}
-
-@media screen and (max-width: 600px) {
-  .home-container {
-    display: none;
-    // display: flex;
-    // flex-direction: column;
-  }
-
-  .lend-container {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-  }
-  .borrow-container {
-    display: none;
-  }
-
-  .introduction {
-    text-align: center;
-
-    .introduction-step-1{
-      display: flex;
-      flex-direction: column;
-      .odd-number{
-        text-align: center;
-      }
-      .odd-text{
-        text-align: center;
-        font-size: 30px;
-        color: white;
-      }
-
-    }
-    .introduction-step-2{
-      display: flex;
-      flex-direction: column;
-      .even-number{
-        text-align: center;
-      }
-      .even-text{
-        text-align: center;
-        font-size: 30px;
-        color: white;
-
-      }
-
-    }
-    .introduction-step-3{
-      display: flex;
-      flex-direction: column;
-      .odd-number{
-        text-align: center;
-        display: flex;
-      }
-      .odd-text{
-        text-align: center;
-        font-size: 30px;
-        color: white;
-      }
-
-    }
-  }
-}
-
-.introduction{
-  position: relative;
-  margin: 0 auto;
-  margin-top: -120px;
-
-  .introduction-step-1{
-    padding: 0px;
-    height: 250px;
-    .odd-number{
-      padding-left: 20px;
-
-      text-align: left;
-    }
-    .odd-text{
-      padding-left: 20px;
-      text-align: right;
-      font-size: 30px;
-      color: white;
-      position: relative;
-      top: -116px;
-      left: 272px;
-      width: 750px;
-    }
-
-  }
-  .introduction-step-2{
-    height: 250px;
     .even-number{
-      padding-right: 20px;
-      text-align: right;
-      // margin: 0 -500px 0 0;
+      text-align: center;
     }
     .even-text{
-      padding-right: 20px;
-      text-align: left;
-      font-size: 30px;
+      font-size: 10px;
       color: white;
-      position: relative;
-      top: -116px;
-      left: 190px;
-      width: 750px;
+      text-justify: auto;
+      margin: 0 10px;
     }
 
   }
   .introduction-step-3{
-    height: 250px;
-    position: relative;
-
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
     .odd-number{
-      padding-left: 20px;
-      text-align: left;
-      // margin-bottom: 16px;
+      text-align: center;
     }
     .odd-text{
-      padding-left: 20px;
-      text-align: right;
-      font-size: 30px;
+      font-size: 10px;
       color: white;
-      position: relative;
-      top: -116px;
-      left: 272px;
-      width: 750px;
+      text-justify: auto;
+      margin: 0 10px;
     }
 
+    }
+  }
+}
+
+@media screen and (min-width: 500px) and (max-width: 800px) {
+  .home-container {
+    // position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    flex-direction: column;
+  }
+
+  .lend-container {
+    // z-index: -1;
+    background-image: linear-gradient(rgba(255, 255, 255, 0.2), rgba(0, 0, 0, 0.2)),
+    url("https://res.cloudinary.com/benstvit/image/upload/v1646137520/background_goodterms_jpmg8n.jpg");
+    background-size: contain;
+    object-fit: cover;
+    height: 100vh;
+    width: 100%;
+  }
+
+  .borrow-container {
+    height: 100vh;
+    width: 100%;
+    h1 {
+      background-clip: text;
+    }
+  }
+
+  .home-loans-container {
+    margin: 15px 10px;
+  }
+
+  .introduction {
+    padding: 10px 10px;
+    .introduction-step-1{
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      .odd-number{
+        h1 {
+          font-size: 15px;
+        }
+        text-align: center;
+      }
+      .odd-text{
+        font-size: 25px;
+        color: white;
+        margin: 0 10px;
+      }
+    }
+
+  .introduction-step-2{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    .even-number{
+      text-align: center;
+    }
+    .even-text{
+      font-size: 25px;
+      color: white;
+      text-justify: auto;
+      margin: 0 10px;
+    }
+
+  }
+  .introduction-step-3{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    .odd-number{
+      text-align: center;
+    }
+    .odd-text{
+      font-size: 25px;
+      color: white;
+      text-justify: auto;
+      margin: 0 10px;
+    }
+
+    }
+  }
+  }
+
+
+@media screen and (min-width: 800px) {
+  .home-container {
+    position: relative;
+    display: flex;
+    width: 100%;
+  }
+
+  .lend-container {
+    // z-index: -1;
+    background-image: linear-gradient(rgba(255, 255, 255, 0.2), rgba(0, 0, 0, 0.2)),
+    url("https://res.cloudinary.com/benstvit/image/upload/v1646137520/background_goodterms_jpmg8n.jpg");
+    background-size: contain;
+    object-fit: cover;
+    height: 100vh;
+    width: 50%;
+  }
+
+  .borrow-container {
+    height: 100vh;
+    width: 50%;
+    h1 {
+      background-clip: text;
+    }
+  }
+
+  .home-loans-container {
+    margin: 15px 10px;
+  }
+
+  .introduction{
+    position: relative;
+    margin: 0 auto;
+    margin-top: -120px;
+
+    .introduction-step-1{
+      padding: 0px;
+      height: 250px;
+      .odd-number{
+        padding-left: 20px;
+
+        text-align: left;
+      }
+      .odd-text{
+        padding-left: 20px;
+        text-align: right;
+        font-size: 30px;
+        color: white;
+        position: relative;
+        top: -116px;
+        left: 272px;
+        width: 750px;
+      }
+
+    }
+    .introduction-step-2{
+      height: 250px;
+      .even-number{
+        padding-right: 20px;
+        text-align: right;
+        // margin: 0 -500px 0 0;
+      }
+      .even-text{
+        padding-right: 20px;
+        text-align: left;
+        font-size: 30px;
+        color: white;
+        position: relative;
+        top: -116px;
+        left: 190px;
+        width: 750px;
+      }
+
+    }
+    .introduction-step-3{
+      height: 250px;
+      position: relative;
+
+      .odd-number{
+        padding-left: 20px;
+        text-align: left;
+        // margin-bottom: 16px;
+      }
+      .odd-text{
+        padding-left: 20px;
+        text-align: right;
+        font-size: 30px;
+        color: white;
+        position: relative;
+        top: -116px;
+        left: 272px;
+        width: 750px;
+      }
+
+    }
   }
 }
 
