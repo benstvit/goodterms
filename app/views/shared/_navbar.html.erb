@@ -1,5 +1,7 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon" data-controller="navbar" data-action="scroll@window->navbar#updateNavbar">
   <div class="container-fluid ">
+  <p><%= @counter %></p>
+
    <% if params[:controller] == 'pages' && params[:action] == 'home'%>
         <li class="nav-item  list-unstyled active">
           <h2><%= link_to "Home", root_path, class: "nav-link navbar-txt" %></h2>
@@ -40,6 +42,7 @@
             <div class="dropdown-menu dropdown-menu-end bg-secondary bg-gradient rounded-4 p-2" aria-labelledby="navbarDropdown">
               <a href="/#map" class="dropdown-item navbar-tx" data-modal-target="link">Map</a>
               <a href="/#friends" class="dropdown-item navbar-tx" data-modal-target="link">Friends</a>
+              <%= link_to 'Edit Profile', edit_user_registration_path, class:"dropdown-item navbar-tx" %>
               <%= link_to 'Log Out', destroy_user_session_path, :method => :delete, class:"dropdown-item navbar-tx" %>
             </div>
           </li>
