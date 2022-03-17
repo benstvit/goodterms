@@ -2,6 +2,7 @@ class PagesController < ApplicationController
   skip_before_action :authenticate_user!, only: :home
 
   def home
+    request.variant = determine_variant
     @loans = Loan.all
     @user =  users_lent_to(current_user)
     @users = User.where(id: @user.map(&:id))
@@ -20,8 +21,15 @@ class PagesController < ApplicationController
     @users = User.all
   end
 
-  # private
+  private
 
+  def determine_variant
+    variant = nil
+    # some code to determine the variant(s) to use
+    variant = :mobile if session[:use_mobile]
+
+    variant
+  end
   # def user_rating
   #   if loan.user.reviews.length >= 2
   #     '🌟'
