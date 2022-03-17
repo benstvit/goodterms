@@ -4,7 +4,10 @@ export default class extends Controller {
   static targets = ['lend', 'borrow']
 
   connect() {
-    if (window.screen.width > 800) {
+    if (window.screen.width < 800) {
+      this.lendTarget.style.display = "none"
+      this.borrowTarget.style.display = "none"
+    } else {
       this.borrowTarget.style.visibility = "hidden"
       this.lendTarget.style.visibility = "hidden"
     }
