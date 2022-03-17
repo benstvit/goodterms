@@ -113,9 +113,12 @@ class ApplicationController < ActionController::Base
   def notifications(message)
     @counter = 0
     @user = User.find(params[:id])
-    @user_chatrooms = @chatrooms.where(loan.user == @user || loan.item.user == @user)
-    @user_chatrooms.each do |chatroom|
-      @counter += 1 if message.chatroom_id == chatroom
+    @loans = Loan.all
+    @loans.each do |loan|
+      @user_chatrooms = @chatrooms.where(loan.user == @user || loan.item.user == @user)
+      @user_chatrooms.each do |chatroom|
+        @counter += 1 if message.chatroom_id == chatroom
+      end
     end
     return @counter
   end
