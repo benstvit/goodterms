@@ -1,3 +1,65 @@
+@media screen and (max-width: 500px) {
+  .mobile-none {
+    display: none;
+  }
+  .loans-per-user{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    p {
+      color: white;
+      text-decoration: none
+    };
+
+    .user-card{
+      margin: 10px;
+      width: 200px;
+      height: 200px;
+      border-radius: 10px;
+      border: 5px white solid;
+      .rating {
+        color: white;
+        font-size: 15px;
+        text-decoration: none;
+      }
+
+      .lent{
+        padding: 40px 150px 0 0;
+        display: flex;
+        justify-content: center;
+        p{
+          color: white;
+          background-color: $borrowing;
+          border-radius: 0 50px 50px 0;
+          font-size: 15px;
+          text-decoration: none;
+        }
+      }
+      .borrowed{
+        padding: 40px 150px 0 0;
+        display: flex;
+        justify-content: center;
+        p{
+          color: white;
+          background-color: $lending;
+          border-radius: 0 50px 50px 0;
+          font-size: 15px;
+          text-decoration: none;
+        }
+      }
+      .user-name{
+        p{
+          color: white;
+          font-size: 20px;
+          padding: 20px;
+          text-decoration: none;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 500px) {
 .loans-user{
   display: flex;
   justify-content: center;
@@ -56,6 +118,7 @@
 
     }
   }
+}
 }
 
 .user-card:hover {

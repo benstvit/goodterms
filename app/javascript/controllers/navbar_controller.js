@@ -4,7 +4,10 @@ export default class extends Controller {
   static targets = ['lend', 'borrow']
 
   connect() {
-    if (window.screen.width > 800) {
+    if (window.screen.width < 800) {
+      this.lendTarget.style.display = "none"
+      this.borrowTarget.style.display = "none"
+    } else {
       this.borrowTarget.style.visibility = "hidden"
       this.lendTarget.style.visibility = "hidden"
     }
@@ -12,7 +15,7 @@ export default class extends Controller {
 
   updateNavbar() {
     if (window.screen.width > 800) {
-      if ((window.scrollY >= window.innerHeight) && (window.screen.width > 800)) {
+      if (window.scrollY >= window.innerHeight) {
         this.element.classList.add("navbar-lewagon-white")
         this.borrowTarget.style.visibility = "visible"
         this.lendTarget.style.visibility = "visible"
