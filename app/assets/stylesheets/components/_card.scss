@@ -2,6 +2,18 @@
   .mobile-none {
     display: none;
   }
+  .loans-user{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    height: 100vh;
+    margin: 0 auto;
+
+    a{
+      text-decoration: none;
+    }
+  }
   .loans-per-user{
     display: flex;
     justify-content: center;
@@ -12,11 +24,17 @@
     };
 
     .user-card{
-      margin: 10px;
-      width: 200px;
-      height: 200px;
+      margin: 5px;
+      padding: 5px;
+      width: 150px;
+      height: 150px;
       border-radius: 10px;
       border: 5px white solid;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 1px 2px 15px -1px rgba(0,0,0,0.8);
       .rating {
         color: white;
         font-size: 15px;
@@ -24,36 +42,41 @@
       }
 
       .lent{
-        padding: 40px 150px 0 0;
-        display: flex;
-        justify-content: center;
+        margin: 5px;
+        height: 26px;
+        width: 88px;
+        border-radius: 15px;
+        background-color: #95d5b2;
         p{
           color: white;
-          background-color: $borrowing;
-          border-radius: 0 50px 50px 0;
           font-size: 15px;
           text-decoration: none;
         }
       }
       .borrowed{
-        padding: 40px 150px 0 0;
-        display: flex;
-        justify-content: center;
+        margin: 5px;
+        height: 24px;
+        width: 69px;
+        border-radius: 15px;
+        background-color: $borrowing;
         p{
           color: white;
-          background-color: $lending;
-          border-radius: 0 50px 50px 0;
+          // border-radius: 0 50px 50px 0;
           font-size: 15px;
           text-decoration: none;
         }
       }
       .user-name{
+        overflow: hidden;
         p{
           color: white;
           font-size: 20px;
-          padding: 20px;
+          // padding: 20px;
           text-decoration: none;
         }
+      }
+      .rating {
+        display: none;
       }
     }
   }
@@ -125,115 +148,3 @@
     transform: scale(0.98, 0.98);
     box-shadow: 5px 5px 30px 15px rgba(0,0,0,0.20), -5px -5px 30px 15px rgba(0,0,0,0.15);
   }
-
-
-
-
-
-
-
-// .cards-list {
-//   z-index: 0;
-//   margin-top: 150px;
-//   width: 100%;
-//   display: flex;
-//   justify-content: space-between;
-//   flex-wrap: wrap;
-//   align-items: center;
-// }
-
-// // Le wagon cards
-
-// .card-product {
-//   overflow: hidden;
-//   height: 250px;
-//   width: 250px;
-//   background: rgb(255,255,255);
-//   background: linear-gradient(45deg, rgba(255,255,255,0.4) 0%, rgba(255,255,255,0.4) 50%, $green 50%);
-//   box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.2);
-//   border: 2px white solid;
-//   display: flex;
-//   flex-direction: column;
-//   justify-content: center;
-//   align-items: center;
-//   margin-bottom: 20px;
-//   padding: 20px;
-//   border-radius: 5px;
-//   h2 {
-//     color: white;
-//   }
-// }
-
-// .card-product:hover {
-//   transform: scale(0.98, 0.98);
-//   box-shadow: 5px 5px 30px 15px rgba(0,0,0,0.20),
-//     -5px -5px 30px 15px rgba(0,0,0,0.15);
-// }
-
-// .card-product .img {
-//   height: 100%;
-//   // width: 30%;
-//   object-fit: cover;
-// }
-
-// .card-product h2 {
-//   font-size: 16px;
-//   font-weight: bold;
-//   // margin: 0;
-// }
-
-// .card-product p {
-//   font-size: 12px;
-//   line-height: 1.4;
-//   opacity: .7;
-//   margin-bottom: 0;
-//   margin-top: 8px;
-// }
-
-// .card-product .card-product-infos {
-//   padding: 16px;
-//   display: flex;
-//   flex-direction: column;
-//   justify-content: center;
-//   align-items: center;
-//   flex-wrap: wrap;
-//   text-align: center;
-// }
-
-// .user-cards {
-//   // background-color: white;
-//   // background: rgb(255,255,255);
-//   // background: linear-gradient(45deg, rgba(255,255,255,0.6) 0%, rgba(255,255,255,1) 50%, $green 50%);
-//   // box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.3);
-//   // border-radius: 3px;
-//   // padding: 40px 30px;
-//   // margin: 20px;
-//   // width: 300px;
-//   // height: 300px;
-//   // display: flex;
-//   // justify-content: center;
-//   // flex-direction: column;
-//   margin: 10px;
-//   a {
-//     text-decoration: none;
-//     color: inherit;
-//   }
-// }
-
-// .loan-description {
-//   p {
-//     font-size: 15px;
-//     font-weight: 500;
-//   }
-
-//   display: flex;
-//   flex-direction: column;
-//   align-items: center;
-//   justify-content: space-between;
-//   flex-wrap: wrap;
-// }
-
-// .card-img {
-//   margin: 20px;
-
-// }
